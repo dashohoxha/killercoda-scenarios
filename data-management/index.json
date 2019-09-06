@@ -27,7 +27,7 @@
             }
         ],
         "intro": {
-            "text": "intro.md"
+            "text": "intro.md",
             "courseData": "install-dvc.sh"
         },
         "finish": {
