@@ -28,12 +28,16 @@
         ],
         "intro": {
             "text": "intro.md",
+            "code": "install-dvc.sh",
+            /*
             "courseData": "install-dvc.sh",
             "code": "wait.sh"
+            */
         },
         "finish": {
             "text": "finish.md"
         },
+        /*
         "assets": {
             "client": [
                 {
@@ -42,6 +46,7 @@
                 }
             ]
         }
+        */
     },
     "environment": {
         "uilayout": "terminal"

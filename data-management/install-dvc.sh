@@ -6,4 +6,6 @@
 
 pip install dvc
 
-echo "done" >> /var/.dvc-installed
+dvc version
+
+#echo "done" >> /var/.dvc-installed
