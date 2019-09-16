@@ -28,11 +28,17 @@
         ],
         "intro": {
             "text": "intro.md",
-            "code": "install-dvc.sh"
+            "courseCode": "install-dvc.sh",
+            "code": "installing-dvc"
         },
         "finish": {
             "text": "finish.md"
-        }
+        },
+        "assets": {
+            "host01": [
+                { "file": "installing-dvc", "target": "/usr/local/bin/", "chmod": "+x" }
+            ]
+        }        
     },
     "environment": {
         "uilayout": "terminal"
