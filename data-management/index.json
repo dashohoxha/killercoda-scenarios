@@ -7,7 +7,9 @@
         "steps": [
             {
                 "title": "Step 1",
-                "text": "step1.md"
+                "text": "step1.md",
+                "courseCode": "install-dvc.sh",
+                "code": "installing-dvc"          
             },
             {
                 "title": "Step 2",
@@ -27,8 +29,6 @@
             }
         ],
         "intro": {
-            "courseCode": "install-dvc.sh",
-            "code": "installing-dvc",            
             "text": "intro.md"
         },
         "finish": {
