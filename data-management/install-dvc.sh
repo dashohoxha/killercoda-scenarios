@@ -1,3 +1,7 @@
 #!/bin/bash
-pip install dvc
-echo "done" >> /var/.dvc-installed
+
+rm -f /var/.dvc-installed
+
+pip3 install dvc
+
+touch /var/.dvc-installed
