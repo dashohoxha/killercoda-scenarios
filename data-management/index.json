@@ -28,8 +28,7 @@
         ],
         "intro": {
             "text": "intro.md",
-            "courseCode": "install-dvc.sh",
-            "code": "installing-dvc.sh"          
+            "code": "install-dvc.sh"          
         },
         "finish": {
             "text": "finish.md"
