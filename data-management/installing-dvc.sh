@@ -1,2 +1,2 @@
 #!/bin/bash
-installing-dvc
+sleep 1; installing-dvc
