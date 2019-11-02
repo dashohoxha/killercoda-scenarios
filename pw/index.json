@@ -1,5 +1,5 @@
 {
-  "title": "Simple Command-Line Password Manager",
+  "title": "Simple CLI Password Manager",
   "description": "A simple command-line password manager that keeps passwords inside a gpg encrypted tgz archive.",
   "difficulty": "Basic",
   "time": "15-20 minutes",
