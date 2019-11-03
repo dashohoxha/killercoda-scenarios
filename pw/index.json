@@ -1,8 +1,8 @@
 {
   "title": "Simple CLI Password Manager",
   "description": "A simple command-line password manager that keeps passwords inside a gpg encrypted tgz archive.",
-  "difficulty": "Basic",
-  "time": "15-20 minutes",
+  "difficulty": "Easy",
+  "time": "20-30 minutes",
   "details": {
     "steps": [
       {
@@ -33,6 +33,6 @@
     "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "ubuntu1910"
+    "imageid": "ubuntu1904"
   }
 }
