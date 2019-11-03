@@ -3,7 +3,7 @@
 1. Make sure that the dependencies are installed:
 
    ```
-   apt install --yes \
+   apt install \
        bash \
        make \
        gnupg \
@@ -13,8 +13,7 @@
        tree \
        util-linux \
        ed \
-       qrencode \
-       imagemagick
+       qrencode
    ```{{execute}}
 
 2. Get the code of `pw` and install:
@@ -25,12 +24,34 @@
    
    `sudo make install`{{execute}}
    
-   `pw`{{execute}}
-   
-   `pw version`{{execute}}
+3. Check the help:
    
    `pw --help`{{execute}}
    
-3. Run all the tests:
+   `pw help | less`{{execute}}
+   
+   `pw version`{{execute}}
+   
+   `man pw`{{execute}}
+   
+   `info pw`{{execute}}
+   
+4. Uninstall:
 
-   `tests/run.sh`{{execute}}
+   `sudo make uninstall`{{execute}}
+   
+   `pw -v`{{execute}}
+   
+5. Install from DEB package:
+
+   `less deb.sh`{{execute}}
+
+   `./deb.sh`{{execute}}
+   
+   `apt install -f ./pw.deb`{{execute}}
+   
+6. Run all the tests:
+
+   `tests/run.sh`{{execute HOST2}}
+
+   `tests/run.sh`{{execute T2}}
