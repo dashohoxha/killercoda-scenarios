@@ -10,6 +10,7 @@ EOF
 source ~/.bashrc
 
 # wait until highlight is installed
+clear
 : Please wait
 until hash highlight &>/dev/null; do sleep 1; done
 
