@@ -8,13 +8,15 @@
 
 2. Build a DEB package and install it:
 
+   `cat deb.sh`{{execute}}
+
    `hl deb.sh | less -r`{{execute}}
 
    `./deb.sh`{{execute}}
    
    `apt install -f ./pw.deb`{{execute}}
    
-   `pw -v`{{execute}}
+   `pw --version`{{execute}}
    
    Uninstall the DEB package:
    
@@ -22,7 +24,7 @@
    
    `apt autoremove`{{execute}}
     
-   `pw -v`{{execute}}
+   `pw --version`{{execute}}
 
 3. Install from the code:
 
@@ -45,13 +47,13 @@
        imagemagick
    ```{{execute}}
    
-   `pw --version`{{execute}}
+   `pw -v`{{execute}}
    
    Uninstall it:
    
    `sudo make uninstall`{{execute}}
 
-   `pw --version`{{execute}}
+   `pw -v`{{execute}}
    
 4. Run all the tests on another terminal:
 
@@ -65,7 +67,8 @@
 
    `./run.sh`{{execute}}
    
-5. While the test scripts are running, check the help:
+5. While the test scripts are running, check the help on the first
+   terminal:
 
    T1: `cd ~/pw/`{{execute T1}}
    
@@ -80,5 +83,3 @@
    `man pw`{{execute}}
    
    `info pw`{{execute}}
-   
-   

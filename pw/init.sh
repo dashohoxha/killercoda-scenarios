@@ -11,7 +11,7 @@ source ~/.bashrc
 
 # wait until highlight is installed
 clear
-: Please wait
+: Please wait...
 until hash highlight &>/dev/null; do sleep 1; done
 
 # alias for highlight
