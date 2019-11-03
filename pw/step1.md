@@ -28,6 +28,8 @@
 
 3. Install from the code:
 
+   `hl Makefile | less -r`{{execute}}
+
    `sudo make install`{{execute}}
 
    Install dependencies as well:

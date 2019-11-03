@@ -36,6 +36,8 @@
    
    `ls dir1`{{execute}}
    
+   `ls dir1 -t`{{execute}}
+   
    `ls dir1/test4`{{execute}}
    
 4. Instead of `set` we can use `gen` to generate stong passwords:
@@ -44,16 +46,10 @@
    
    `gen dir2/test5`{{execute}}
    
-   `dir2/test5`{{execute}}
-   
    `gen dir1/test4 16 -n`{{execute}}
-   
-   `dir1/test4`{{execute}}
    
    `show dir1/test3`{{execute}}
    
    `gen dir1/test3 16 -n -f`{{execute}}
    
    `dir1/test3`{{execute}}
-   
-   `find test`{{execute}}
