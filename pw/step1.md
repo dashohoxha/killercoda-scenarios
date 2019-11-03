@@ -1,7 +1,13 @@
 # Installation
 
-1. Make sure that the dependencies are installed:
+1. Get the code of `pw`:
 
+   `git clone https://gitlab.com/dashohoxha/pw`{{execute}}
+   
+   `cd pw/`{{execute}}
+
+2. Install dependencies:
+   
    ```
    apt install \
        bash \
@@ -16,42 +22,54 @@
        qrencode
    ```{{execute}}
 
-2. Get the code of `pw` and install:
+3. Install from the code:
 
-   `git clone https://gitlab.com/dashohoxha/pw`{{execute}}
-   
-   `cd pw/`{{execute}}
-   
    `sudo make install`{{execute}}
    
-3. Check the help:
+   `pw --version`{{execute}}
    
-   `pw --help`{{execute}}
-   
-   `pw help | less`{{execute}}
-   
-   `pw version`{{execute}}
-   
-   `man pw`{{execute}}
-   
-   `info pw`{{execute}}
-   
-4. Uninstall:
-
    `sudo make uninstall`{{execute}}
-   
-   `pw -v`{{execute}}
-   
-5. Install from DEB package:
 
-   `less deb.sh`{{execute}}
+   `pw --version`{{execute}}
+   
+4. Build a DEB package and install it:
+
+   `hl deb.sh`{{execute}}
 
    `./deb.sh`{{execute}}
    
    `apt install -f ./pw.deb`{{execute}}
    
-6. Run all the tests:
+   `pw -v`{{execute}}
+   
+   `apt remove pw`{{execute}}
+    
+   `pw -v`{{execute}}
 
-   `tests/run.sh`{{execute HOST2}}
+5. Run all the tests on another terminal:
 
-   `tests/run.sh`{{execute T2}}
+   T2: `cd ~/pw/`{{execute T2}}
+   
+   `ls tests/`{{execute}}
+   
+   `tests/run.sh t01*`{{execute}}
+
+   `tests/run.sh`{{execute}}
+   
+6. While the test scripts are running, check the help:
+
+   T1: `cd ~/pw/`{{execute T1}}
+   
+   `sudo make install`{{execute}}
+
+   `pw --help`{{execute}}
+   
+   `pw version`{{execute}}
+   
+   `pw help | less`{{execute}}
+   
+   `man pw`{{execute}}
+   
+   `info pw`{{execute}}
+   
+   

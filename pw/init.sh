@@ -9,5 +9,11 @@ trap 'echo -ne "\033[00m"' DEBUG
 EOF
 source ~/.bashrc
 
+# alias for highlight
+alias hl='highlight -O xterm256'
+
 # clear screen
 clear
+:
+: Simple CLI Password Manager
+:

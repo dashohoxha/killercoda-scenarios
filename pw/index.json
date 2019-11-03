@@ -25,6 +25,7 @@
     "intro": {
       "text": "intro.md",
       "credits": "https://gitlab.com/dashohoxha/pw",
+      "courseData": "install.sh",
       "code": "init.sh"
     }
   },
