@@ -1,4 +1,4 @@
-# Working with archives
+# Archives
       
 1. With the option `-a` we can select the archive of the passwords:
 
@@ -57,11 +57,11 @@
    
    `pw`{{execute}}
    
-   `ls -t`{{execute}}
+   `ls`{{execute}}
    
    `q`{{execute}}
    
-   `rm -rf ~/.pw/`
+   `rm -rf ~/.pw/`{{execute}}
    
    `PW_DIR=~/.passw pw`{{execute}}
 
@@ -95,15 +95,15 @@
    
    `tar xzf ~/.passw/archive1.tgz -C tmp/`{{execute}}
    
-   `ls -al tmp/`{{execute}}
+   `tree tmp/`{{execute}}
    
    `cd tmp/`{{execute}}
    
-   `cat test`{{execute}}
-   
    `cat test2`{{execute}}
    
-   `git status --oneline`{{execute}}
+   `cat dir1/test3`{{execute}}
+   
+   `git log --oneline`{{execute}}
    
    `cd ..`{{execute}}
    
@@ -113,4 +113,46 @@
    
    `rm ~/.passw/archive1.tgz`{{execute}}
 
-5. Export and import archives
+5. The same thing that we did above can also be done with the command
+   `pw export`:
+   
+   `mkdir tmp`{{execute}}
+   
+   `pw export tmp/`{{execute}}
+   
+   `ls -al tmp/`{{execute}}
+   
+   `tree tmp/`{{execute}}
+   
+   We can also import a directory to an archive:
+   
+   `rm tmp/dir1/test5`{{execute}}
+   
+   `rm tmp/test2`{{execute}}
+   
+   `tree tmp/`{{execute}}
+   
+   `pw -a archive2 import tmp/`{{execute}}
+   
+   `ls -al $PW_DIR`{{execute}}
+   
+   `pw -a archive2`{{execute}}
+   
+   `ls -1`{{execute}}
+   
+   `q`{{execute}}
+   
+   We can import a directory to an existing archive too, in which case
+   the new entries will overwrite the existing ones:
+   
+   `echo TEST5 > tmp/test5`{{execute}}
+   
+   `echo TEST6 > tmp/test6`{{execute}}
+   
+   `pw import tmp/`{{execute}}
+   
+   `ls -t`{{execute}}
+   
+   `show test5`{{execute}}
+   
+   `show test6`{{execute}}

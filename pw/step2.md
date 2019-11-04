@@ -1,4 +1,4 @@
-# Basic usage
+# Basic commands
 
 1. When `pw` is used for the first time, it creates automatically a
    password archive, protected by a passphrase:

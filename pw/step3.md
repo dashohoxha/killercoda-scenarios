@@ -1,4 +1,4 @@
-# More advanced commands
+# More commands
 
 1. Rename and move around password entries with `mv`:
    
@@ -95,3 +95,7 @@
    `log -10`{{execute}}
    
    `log -5`{{execute}}
+
+6. Quit the `pw` shell:
+
+   `q`{{execute}}
