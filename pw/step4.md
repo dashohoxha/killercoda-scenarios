@@ -138,7 +138,7 @@
    
    `pw -a archive2`{{execute}}
    
-   `ls -1`{{execute}}
+   `ls -t`{{execute}}
    
    `q`{{execute}}
    
@@ -151,8 +151,12 @@
    
    `pw import tmp/`{{execute}}
    
+   `pw`{{execute}}
+   
    `ls -t`{{execute}}
    
    `show test5`{{execute}}
    
    `show test6`{{execute}}
+
+   `q`{{execute}}

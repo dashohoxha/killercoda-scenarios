@@ -2,7 +2,7 @@
   "title": "Simple CLI Password Manager",
   "description": "A simple command-line password manager that keeps passwords inside a gpg encrypted tgz archive.",
   "difficulty": "Easy",
-  "time": "20-30 minutes",
+  "time": "45-60 minutes",
   "details": {
     "steps": [
       {
@@ -20,6 +20,10 @@
       {
         "title": "Step 4",
         "text": "step4.md"
+      },
+      {
+        "title": "Step 5",
+        "text": "step5.md"
       }
     ],
     "intro": {
