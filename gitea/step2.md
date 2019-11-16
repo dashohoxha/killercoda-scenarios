@@ -12,14 +12,14 @@
 
    `cd /var/ds/gitea/`{{execute}}
    
-   `cat settings.sh | grep PORT`{{execute}}
+   `cat settings.sh | grep PORTS`{{execute}}
    
    ```
    sed -i settings.sh \
-       -e '/PORT="/PORT="443:443 /'
+       -e 's/PORTS="/PORTS="443:443 /'
    ```{{execute}}
    
-   `cat settings.sh | grep PORT`{{execute}}
+   `cat settings.sh | grep PORTS`{{execute}}
    
 4. Build image, create the container and configure it:
 
