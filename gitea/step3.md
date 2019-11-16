@@ -6,8 +6,8 @@
    
 2. Click on "Register" and at the end of the install page create a
    user account with username `user1`, password `pass1`, and email
-   `user1@example.org`.  This user will also be the administrator of
-   the gitea.
+   `user1@example.org`. (This user will also be the administrator of
+   the gitea.) Then click on the button "Install Gitea".
 
 3. From the gitea web interface create a new repository named
    `project1`:
