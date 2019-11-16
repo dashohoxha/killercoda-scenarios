@@ -1,6 +1,6 @@
 # Install docker-scripts
 
-1. `apt install m4`{{execute}}
+1. `apt install --yes m4`{{execute}}
 
 2. ```
    git clone https://gitlab.com/docker-scripts/ds \

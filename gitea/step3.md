@@ -4,12 +4,16 @@
 
    https://[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/
    
-2. Click on "Signup" and at the end of the install page create a user
-   account with username `user1` (which also will be the administrator
-   of the site).
+2. Click on "Register" and at the end of the install page create a
+   user account with username `user1`, password `pass1`, and email
+   `user1@example.org`.  This user will also be the administrator of
+   the gitea.
 
 3. From the gitea web interface create a new repository named
-   `project1`.
+   `project1`:
+   
+   https://[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/repo/create
+   
    
 4. Create a Git project on the terminal:
 
@@ -23,7 +27,7 @@
    
    `touch README.md`{{execute}}
    
-   `add README.md`{{execute}}
+   `git add README.md`{{execute}}
    
    `git status -s`{{execute}}
    
@@ -41,7 +45,7 @@
    
    `git push -u origin master`{{execute}}
    
-   Use the username `user1` and its password.
+   Use the username `user1` and the password `pass1`.
 
 6. Check in browser that the project has been uploaded to Gitea:
 
