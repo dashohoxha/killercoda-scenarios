@@ -3,8 +3,7 @@
 1. `apt install m4`{{execute}}
 
 2. ```
-   git clone \
-       https://gitlab.com/docker-scripts/ds \
+   git clone https://gitlab.com/docker-scripts/ds \
        /opt/docker-scripts/ds
    ```{{execute}}
 
