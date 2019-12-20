@@ -51,7 +51,7 @@
 
    ```
    sed -i settings.sh \
-       -e '/^ADMIN_USER/ c ADMIN_USER="user1"/'
+       -e '/^ADMIN_USER/ c ADMIN_USER="user1"'
    ```{{execute}}
    
    `cat settings.sh | grep ^ADMIN_USER`{{execute}}
@@ -63,7 +63,7 @@
    
    ```
    sed -i settings.sh \
-       -e '/^ADMIN_PASS/ c ADMIN_PASS="asdf"/'
+       -e '/^ADMIN_PASS/ c ADMIN_PASS="asdf"'
    ```{{execute}}
    
    `cat settings.sh | grep ^ADMIN_PASS`{{execute}}
