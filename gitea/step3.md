@@ -5,7 +5,8 @@
    https://[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/
    
 2. The scripts have created automatically an admin user `username`
-   with password `123456`. Click on `Sign In` and login as this user.
+   with password `123456` (if you did not change them on
+   `settings.sh`). Click on `Sign In` and login as this user.
 
 3. From the gitea web interface create a new repository named
    `project1`:

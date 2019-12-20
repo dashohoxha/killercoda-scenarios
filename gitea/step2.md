@@ -24,9 +24,14 @@
    If we had used [wsproxy](https://gitlab.com/docker-scripts/wsproxy)
    we would not need to forward the port `443` to the container.
 
-4. Edit `settings.sh` and change the admin username and password
-   (`ADMIN_USER`, `ADMIN_PASS`). (The username should not be `admin`
-   or `user` because these names are reserved by Gitea.)
+4. Optionally, edit `settings.sh` and change the admin username and
+   password (`ADMIN_USER`, `ADMIN_PASS`).
+   
+   **Note:** The username should not be `admin` or `user` because
+   these names are reserved by Gitea.
+   
+   For this example installation this step is not necessary, however
+   for a real installation it would be.
 
 5. Build image, create the container and configure it:
 
