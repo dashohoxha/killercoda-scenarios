@@ -24,16 +24,7 @@
    **Note:** If we had used [wsproxy](https://gitlab.com/docker-scripts/wsproxy)
    we would not need to forward the port `443` to the container.
 
-4. Optionally, edit `settings.sh` and change the admin username and
-   password (`ADMIN_USER`, `ADMIN_PASS`).
-   
-   **Note:** The username should not be `admin` or `user` because
-   these names are reserved by Gitea.
-   
-   For this example installation this step is not necessary, however
-   for a real installation it would be.
-
-5. Optionally edit `settings.sh` and set:
+4. Edit `settings.sh` and set:
 
    `DOMAIN=[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com`
    
@@ -43,12 +34,38 @@
        -e "/^DOMAIN/ c DOMAIN=$domain"
    ```{{execute}}
 
-   `cat settings.sh | grep DOMAIN`{{execute}}
+   `cat settings.sh | grep ^DOMAIN`{{execute}}
 
-6. Build image, create the container and configure it:
+5. Build image, create the container and configure it:
 
    `ds make`{{execute}}
 
    If the domain is not `gitea.example.org` and `ADMIN_PASS` is unchanged
    (`123456`), the configuration script would fail and ask for changing
    `ADMIN_PASS` on `settings.sh`.
+
+6. Let's make sure that `ADMIN_USER` and `ADMIN_PASS` are changed, and let's try
+   it again.
+
+   Set admin user to `user1`:
+
+   ```
+   sed -i settings.sh \
+       -e '/^ADMIN_USER/ c ADMIN_USER="user1"/'
+   ```{{execute}}
+   
+   `cat settings.sh | grep ^ADMIN_USER`{{execute}}
+   
+   **Note:** The `ADMIN_USER` should not be `admin` or `user` because
+   these names are reserved by Gitea.
+   
+   Set the admin password to `asdf`:
+   
+   ```
+   sed -i settings.sh \
+       -e '/^ADMIN_PASS/ c ADMIN_PASS="asdf"/'
+   ```{{execute}}
+   
+   `cat settings.sh | grep ^ADMIN_PASS`{{execute}}
+   
+   `ds make`{{execute}}

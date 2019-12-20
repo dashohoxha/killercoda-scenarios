@@ -4,12 +4,9 @@
 
    https://[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/
    
-2. The scripts have created automatically an admin user `username`
-   with password `123456` (if you did not change them on
-   `settings.sh`). Click on `Sign In` and login as this user.
+2. Click on `Sign In` and login as the user `user1` with password `asdf`.
 
-3. From the gitea web interface create a new repository named
-   `project1`:
+3. From the gitea web interface create a new repository named `project1`:
    
    https://[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/repo/create
 
@@ -39,19 +36,15 @@
 
    ```
    git remote add origin \
-       https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/username/project1
+       https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/user1/project1
    ```{{execute}}
-   
-   **Note:** Change `username` to the value that you set to
-   `ADMIN_USER` on `settings.sh`.
    
    `git remote -v`{{execute}}
    
    `git push -u origin master`{{execute}}
    
-   Use the username `username` and the password `123456` (if you did
-   not change them).
+   Use the username `user1` and the password `asdf`.
 
 6. Check in browser that the project has been uploaded to Gitea:
 
-   https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/username/project1
+   https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/user1/project1
