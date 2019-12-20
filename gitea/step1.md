@@ -1,5 +1,9 @@
 # Install docker-scripts
 
+This installation of Gitea is based on
+[docker-scripts](https://gitlab.com/docker-scripts/ds) so let's
+install it first:
+
 1. `apt install --yes m4`{{execute}}
 
 2. ```
