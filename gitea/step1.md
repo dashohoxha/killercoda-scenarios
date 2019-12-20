@@ -20,3 +20,11 @@ install it first:
    `ds`{{execute}}
 
    `ds -h`{{execute}}
+   
+   `man ds`{{execute}}
+   
+   `q`{{execute}}
+   
+   `info ds`{{execute}}
+   
+   `q`{{execute}}

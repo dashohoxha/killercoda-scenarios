@@ -21,7 +21,7 @@
    
    `cat settings.sh | grep PORTS`{{execute}}
    
-   If we had used [wsproxy](https://gitlab.com/docker-scripts/wsproxy)
+   **Note:** If we had used [wsproxy](https://gitlab.com/docker-scripts/wsproxy)
    we would not need to forward the port `443` to the container.
 
 4. Optionally, edit `settings.sh` and change the admin username and
@@ -33,10 +33,22 @@
    For this example installation this step is not necessary, however
    for a real installation it would be.
 
-5. Build image, create the container and configure it:
+5. Optionally edit `settings.sh` and set:
+
+   `DOMAIN=[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com`
+   
+   ```
+   domain=[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com
+   sed -i settings.sh \
+       -e "/^DOMAIN/ c DOMAIN=$domain"
+   ```{{execute}}
+
+   `cat settings.sh | grep DOMAIN`{{execute}}
+
+6. Build image, create the container and configure it:
 
    `ds make`{{execute}}
 
-   If the domain is not `gitea.example.org` and `ADMIN_PASS` is
-   unchanged (`123456`), the configuration script would fail and ask
-   us to change `ADMIN_PASS` on `settings.sh`.
+   If the domain is not `gitea.example.org` and `ADMIN_PASS` is unchanged
+   (`123456`), the configuration script would fail and ask for changing
+   `ADMIN_PASS` on `settings.sh`.
