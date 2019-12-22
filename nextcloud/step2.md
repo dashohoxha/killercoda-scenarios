@@ -41,7 +41,7 @@
    `ds make`{{execute}}
 
    If the domain is not `nc.example.org` and `ADMIN_PASS` is unchanged
-   (`123456`), the configuration script would fail and ask for changing
+   (`123456`), the configuration script fails and asks for changing
    `ADMIN_PASS` on `settings.sh`.
 
 6. Let's make sure that `ADMIN_PASS` is changed, and let's try it again.
