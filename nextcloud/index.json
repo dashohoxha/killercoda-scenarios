@@ -1,0 +1,33 @@
+{
+  "title": "Install NextCloud With Docker-Scripts",
+  "description": "A simple installation of NextCloud with docker-scripts.",
+  "difficulty": "Easy",
+  "time": "15-20 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3",
+        "text": "step3.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://gitlab.com/docker-scripts/nextcloud",
+      "code": "init.sh"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "ubuntu1904"
+  }
+}
