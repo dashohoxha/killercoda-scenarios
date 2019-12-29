@@ -104,20 +104,26 @@
    
    `ls -al $PW_DIR/.gnupg/`{{execute}}
    
-   `gpg --homedir $PW_DIR/.gnupg --list-keys`{{execute}}
+   ```
+   gpg --homedir $PW_DIR/.gnupg \
+       --list-keys
+   ```{{execute}}
 
    `cat $PW_DIR/archive1.tgz.gpg.keys`{{execute}}
    
    `cat $PW_DIR/archive2.tgz.gpg.keys`{{execute}}
    
-6. You can also use another key (not the one generated in $PW_DIR) to
-   lock the archive. Let's generate a new GPG key and use it:
+6. You can also use another key (not the one generated in `$PW_DIR`)
+   to lock the archive. Let's generate a new GPG key and use it:
    
-   `gpg --quick-create-key user1@example.org`{{execute}}
+   ```
+   gpg --quick-generate-key \
+       user1@example.org
+   ```{{execute}}
    
    `gpg --list-keys user1`{{execute}}
    
-   `pw keys ...` (use the key ID of `user1`)
+   `pw keys ...`{{execute}} (use the key ID of `user1`)
    
    `cat $PW_DIR/archive1.tgz.gpg.keys`{{execute}}
   
@@ -139,10 +145,9 @@
    of your keys in the list of keys, like this:
    
    ```
-   gpg -a archive2 keys \
+   pw -a archive2 keys \
        my-key user1-key user2-key
    ```{{execute}}
-   ```
    
    This is useful when we want to share `archive2` with `user1` and
    `user2`. Each one of us will be able to view and modify the
