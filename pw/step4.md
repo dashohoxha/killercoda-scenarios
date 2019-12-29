@@ -39,7 +39,7 @@
    
    ```
    sed -i ~/.pw/config.sh \
-       -e '/^ARCHIVE=/ c ARCHIVE=archive1'
+       -e '/^DEFAULT_ARCHIVE=/ c DEFAULT_ARCHIVE=archive1'
    ```{{execute}}
    
    `cat ~/.pw/config.sh | grep ARCHIVE`{{execute}}
