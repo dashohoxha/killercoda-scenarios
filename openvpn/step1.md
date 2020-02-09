@@ -30,7 +30,7 @@
        restart: always
        volumes:
         - ./openvpn-data/conf:/etc/openvpn
-    EOF
+   EOF
    ```{{execute}}
 
    `ls`{{execute}}
@@ -56,17 +56,22 @@
    
    Instead of the FQDN of the server we could also use its IP.
    
-   `docker-compose run --rm openvpn ovpn_initpki`{{execute}}
+   ```
+   docker-compose run --rm openvpn \
+       ovpn_initpki
+   ```{{execute}}
+   
+   You will be asked for the CA key passphrase.
 
 5. Start the OpenVPN server:
 
    `docker-compose up -d openvpn`{{execute}}
+   
+   `docker-compose ps`{{execute}}
 
    You can access the container logs with:
    
-   `docker-compose logs -f`{{execute}}
-   
-   Press `Ctrl+C` to exit.
+   `docker-compose logs`{{execute}}
    
 6. Generate a client certificate:
 
@@ -74,7 +79,6 @@
    docker-compose run --rm openvpn \
        easyrsa build-client-full client1 nopass
    ```{{execute}}
-   ```
    
    Don't add the option `nopass` if you want a passphrase protected
    certificate.
@@ -85,3 +89,7 @@
    docker-compose run --rm openvpn \
        ovpn_getclient client1 > client1.conf
    ```{{execute}}
+
+   `ls`{{execute}}
+   
+   `less client1.conf`{{execute}}
