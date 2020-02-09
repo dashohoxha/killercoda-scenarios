@@ -29,7 +29,7 @@
 
    `ls`{{execute}}
    
-   `less client1.conf`{{execute}}
+   `less client1.ovpn`{{execute}}
 
 3. To revoke client certificates do:
 
