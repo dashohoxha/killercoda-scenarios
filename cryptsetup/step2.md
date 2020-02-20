@@ -38,6 +38,8 @@
 
 4. Close the virtual device:
 
+   `umount /dev/mapper/archive1`{{execute}}
+
    `cryptsetup luksClose archive1`{{execute}}
    
    `ls /dev/mapper/`{{execute}}

@@ -27,6 +27,8 @@
    
    `losetup -a`{{execute}}
    
+   `losetup -a | grep archive1.img`{{execute}}
+   
    `lsblk`{{execute}}
    
    `lsblk | grep loop`{{execute}}
