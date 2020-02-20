@@ -6,11 +6,16 @@
    
    `losetup -a`{{execute}}
    
+   `losetup -a | grep archive1.img`{{execute}}
+   
    `lsblk`{{execute}}
    
 2. Create an encrypted virtual device:
 
-   `cryptsetup luksOpen /dev/loop0 archive1`{{execute}}
+   ```
+   cryptsetup luksOpen \
+       /dev/loop0 archive1
+   ```{{execute}}
    
    `ls /dev/mapper/`{{execute}}
    
@@ -20,11 +25,17 @@
 
    `mkdir -p archive1`{{execute}}
    
-   `mount /dev/mapper/archive1 archive1`{{execute}}
+   ```
+   mount \
+       /dev/mapper/archive1 \
+       archive1
+   ```{{execute}}
    
    `ls`{{execute}}
    
    `df -h`{{execute}}
+
+   `df -h archive1/`{{execute}}
 
 4. Create a file in it:
 

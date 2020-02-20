@@ -26,7 +26,7 @@
    
 3. Optionally, remove the loopback device as well:
 
-   `losetup -a`{{execute}}
+   `losetup -a | grep archive1.img`{{execute}}
    
    `losetup -d /dev/loop0`{{execute}}
    
