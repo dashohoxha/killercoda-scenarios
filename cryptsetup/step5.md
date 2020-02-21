@@ -5,10 +5,7 @@ mount and unmount an encrypted archive.
    
 1. Get it:
 
-   ```
-   wget -q -O archive.sh \
-       https://gitlab.com/snippets/1943582/raw
-   ```{{execute}}
+   `wget -q -O archive.sh https://gitlab.com/snippets/1943582/raw`{{execute}}
    
    `ls -lh`{{execute}}
    
@@ -30,7 +27,7 @@ mount and unmount an encrypted archive.
    
    `ls -lh`{{execute}}
    
-   `lsblk`{{execute}
+   `lsblk`{{execute}}
    
    `df -h`{{execute}}
    
@@ -44,7 +41,7 @@ mount and unmount an encrypted archive.
    
    `ls -lh`{{execute}}
    
-   `lsblk`{{execute}
+   `lsblk`{{execute}}
    
    `df -h`{{execute}}
    
