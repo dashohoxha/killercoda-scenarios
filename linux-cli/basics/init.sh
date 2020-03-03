@@ -11,7 +11,7 @@ source ~/.bashrc
 
 clear
 :;: Please wait until the box is ready.
-until hash whatis &>/dev/null; do sleep 1; done
+until hash makewhatis &>/dev/null; do sleep 1; done
 
 # clear screen
 clear
