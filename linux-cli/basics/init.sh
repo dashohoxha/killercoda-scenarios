@@ -9,8 +9,9 @@ trap 'echo -ne "\033[00m"' DEBUG
 EOF
 source ~/.bashrc
 
-# install mandoc
-apt install -y mandoc
+clear
+:;: Please wait until the box is ready.
+until hash whatis &>/dev/null; do sleep 1; done
 
 # clear screen
 clear
