@@ -60,15 +60,9 @@ current working directory.
 
    `cd /var/log`{{execute}}
    
-   `pwd`{{execute}}
-   
    `cd -`{{execute}}
    
-   `pwd`{{execute}}
-   
    `cd -`{{execute}}
-   
-   `pwd`{{execute}}
    
 7. Go to the home directory:
 

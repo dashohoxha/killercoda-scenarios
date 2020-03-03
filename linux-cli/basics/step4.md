@@ -80,7 +80,7 @@ Let's try some of these:
    
    This file contains the accounts of the system.
    
-   The file on `/etc` are usually configuration files, and almost all
+   The files on `/etc` are usually configuration files, and almost all
    of them are text files (readable and writable by humans).
    
 5. In contrast, the files on `/bin` are programs or commands and they

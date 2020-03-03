@@ -53,11 +53,11 @@
    
 7. The command `apropos` displays appropriate commands:
 
-   `apropos floppy`{{execute}}
+   `apropos passwd`{{execute}}
    
    This is the same as:
    
-   `man -k floppy`{{execute}}
+   `man -k passwd`{{execute}}
    
    It makes a simple search of man pages for the term "floppy".
    

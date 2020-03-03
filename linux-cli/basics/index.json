@@ -1,6 +1,6 @@
 {
   "title": "Basics",
-  "description": "What is the shell. Navigating and exploring the system.",
+  "description": "What is the shell. Navigating and exploring the system. Manipulating files and directories. Commands about comands.",
   "difficulty": "Easy",
   "time": "45-60 minutes",
   "details": {

@@ -125,7 +125,7 @@ Let's use them in some examples.
    
    We can also use absolute file names when creating symbolic links:
    
-   `ln -s /root/playground/fun dir1/fun-sym`{{execute}}
+   `ln -sf /root/playground/fun dir1/fun-sym`{{execute}}
    
    `ls -l dir1/`{{execute}}
    
@@ -161,14 +161,13 @@ Let's use them in some examples.
    
    `less fun-sym`{{execute}}
    
-   Notice that the symbolic link now id broken.
+   The symbolic link now is broken.
    
    `rm fun-sym dir1-sym`{{execute}}
    
    `ls -l`{{execute}}
    
-   Notice that when we remove a symbolic link the target is not
-   touched.
+   When we remove a symbolic link the target is not touched.
    
    `rm -r dir1/`{{execute}}
    

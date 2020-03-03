@@ -9,6 +9,9 @@ trap 'echo -ne "\033[00m"' DEBUG
 EOF
 source ~/.bashrc
 
+# install mandoc
+apt install -y mandoc
+
 # clear screen
 clear
 :
