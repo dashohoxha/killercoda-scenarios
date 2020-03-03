@@ -1,0 +1,11 @@
+{
+  "title": "Linux Commands",
+  "description": "Learning simple and advanced Linux commands by examples.",
+  "courses": [
+    {
+      "course_id": "basics",
+      "title": "Basics",
+      "description": "What is the shell. Navigating and exploring the system."
+    }
+  ]
+}
