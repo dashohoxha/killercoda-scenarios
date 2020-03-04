@@ -59,7 +59,7 @@
    
    `man -k passwd`{{execute}}
    
-   It makes a simple search of man pages for the term "floppy".
+   It makes a simple search of man pages for the term "passwd".
    
 8. The command `whatis` displays a very brief description of a
    command:
