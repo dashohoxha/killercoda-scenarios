@@ -17,3 +17,8 @@ input_ (**stdin**), which is by default attached to the keyboard.
 I/O redirection allows us to change where output goes and where input
 comes from. Normally, output goes to the screen and input comes from
 the keyboard, but with I/O redirection we can change that.
+
+We can also chain several commands together in a pipeline, where the
+output of a command is sent as the input of another. This is a
+powerful feature that allows us to perform complex operations on data
+by combining simple utilities.

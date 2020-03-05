@@ -37,15 +37,15 @@
    
    `ls -l /usr/bin >> ls-output.txt`{{execute}}
    
-   `ls -lh ls-output`{{execute}}
+   `ls -lh ls-output.txt`{{execute}}
    
    `ls -l /usr/bin >> ls-output.txt`{{execute}}
    
-   `ls -lh ls-output`{{execute}}
+   `ls -lh ls-output.txt`{{execute}}
    
    `ls -l /usr/bin >> ls-output.txt`{{execute}}
    
-   `ls -lh ls-output`{{execute}}
+   `ls -lh ls-output.txt`{{execute}}
    
    Notice that the size of the file is growing each time.
    

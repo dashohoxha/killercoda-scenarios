@@ -4,7 +4,7 @@ A command that makes use of standard input is `cat` (which is a
 shortening for concatenate). It usually takes one or more files as
 arguments and outputs their contents to the screen, joined together.
 
-`cat ls-output.txt ls-error.txt`{{exeute}}
+`cat ls-output.txt ls-error.txt`{{execute}}
 
 However if no files are given as arguments it just reads lines from
 the standard input (keyboard by default) and writes them to the

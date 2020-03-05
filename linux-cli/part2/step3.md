@@ -14,20 +14,22 @@
 
    `ls /bin /usr/bin`{{execute}}
 
-   `ls /usr/bin | sort | less`{{execute}}
+   `ls /bin /usr/bin | sort | less`{{execute}}
 
 3. `uniq` can omit or report repeated lines:
 
-   `ls /usr/bin | sort | uniq | less`{{execute}}
+   `ls /bin /usr/bin | sort | uniq | less`{{execute}}
 
    If we want to see the list of duplicates instead we can use the
    option `-d`:
    
-   `ls /usr/bin | sort | uniq -d | less`{{execute}}
+   `ls /bin /usr/bin | sort | uniq -d | less`{{execute}}
 
 4. `wc` counts the lines, words, and bytes of the input:
 
    `wc ls-output.txt`{{execute}}
+   
+   `cat ls-output.txt | wc`{{execute}}
    
    If we want it to show only the lines we can use the option `-l`:
    
@@ -53,6 +55,8 @@
    searching (case in-sensitive search).
    
 6. `head` / `tail` print the top or the last lines of input:
+
+   `ls /usr/bin > ls-output.txt`{{execute}}
 
    `head ls-output.txt`{{execute}}
    

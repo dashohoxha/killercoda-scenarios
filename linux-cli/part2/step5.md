@@ -12,7 +12,7 @@
    
    In the second case the quotes let the shell know that this is a
    single argument: "this is a test", and it passes to `echo` only
-   this argument.
+   one argument.
 
 2. Double quotes do not prevent variable expansion, but single quotes
    do:

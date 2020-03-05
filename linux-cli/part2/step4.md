@@ -74,7 +74,7 @@ This process is called `expansion`.
    
    `ls`{{execute}}
    
-5. Parameter expansion:
+5. Variable expansion:
 
    `echo $USER`{{execute}}
    
@@ -82,8 +82,13 @@ This process is called `expansion`.
    
    `echo $SUER`{{execute}}
    
+   When the variable does not exist, it is expanded to the empty
+   string.
+   
 6. Command substitution:
 
    `echo $(ls)`{{execute}}
    
    `ls -l $(which cp)`{{execute}}
+
+   `echo "$(cal)"`{{execute}}
