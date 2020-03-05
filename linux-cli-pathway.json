@@ -3,8 +3,8 @@
   "description": "Learning simple and advanced Linux commands by examples.",
   "courses": [
     {
-      "course_id": "basics",
-      "title": "Basics",
+      "course_id": "part1",
+      "title": "Part 1",
       "description": "What is the shell. Navigating and exploring the system. Manipulating files and directories. Commands about comands."
     }
   ]
