@@ -54,32 +54,62 @@
 
 6. Let's find again the files and directories with bad permissions:
 
-   `find ~ \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \)`{{execute}}
+   `find test \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \)`{{execute}}
 
-   `find ~ \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \) | wc -l`{{execute}}
+   `find test \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \) | wc -l`{{execute}}
 
 7. Let's add some actions to the command above in order to fix the
    permissions:
    
-   `find ~ \( -type f -not -perm 0600 -exec chmod 0600 '{}' ';' \) -or \( -type d -not -perm 0700 -exec chmod 0700 '{}' ';' \)`{{execute}}
+   `find test \( -type f -not -perm 0600 -exec chmod 0600 '{}' ';' \) -or \( -type d -not -perm 0700 -exec chmod 0700 '{}' ';' \)`{{execute}}
    
    The command `chmod` sets the permissions of a file or directory (we
    will see the permissions later).
 
-   `find ~ \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \)`{{execute}}
+   `find test \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \)`{{execute}}
 
-   `find ~ \( -type f -perm 0600 \) -or \( -type d -perm 0700 \)`{{execute}}
+   `find test \( -type f -perm 0600 \) -or \( -type d -perm 0700 \)`{{execute}}
 
-   `find ~ \( -type f -perm 0600 \) -or \( -type d -perm 0700 \) | wc -l`{{execute}}
+   `find test \( -type f -perm 0600 \) -or \( -type d -perm 0700 \) | wc -l`{{execute}}
 
    **Note:** This example is a bit complex just to illustrate the
    logical operators and parantheses, however we could have done it in
    two simpler steps, like this:
    
-   `find ~ -type f -not -perm 0600 -exec chmod 0600 '{}' ';'`{{execute}}
+   `find test -type f -not -perm 0600 -exec chmod 0600 '{}' ';'`{{execute}}
 
-   `find ~ -type d -not -perm 0700 -exec chmod 0700 '{}' ';'`{{execute}}
+   `find test -type d -not -perm 0700 -exec chmod 0700 '{}' ';'`{{execute}}
 
 8. Let's try some more tests:
 
+   Find files or directories whose _contents or attributes_ were
+   modified more than 1 minute ago:
+
+   `find test/ -cmin +1 | wc -l`{{execute}}
+
+   Less than 10 minutes ago:
    
+   `find test/ -cmin -10 | wc -l`{{execute}}
+
+   Find files or directories whose _contents_ were modified more than
+   1 minute ago:
+
+   `find test/ -mmin +1 | wc -l`{{execute}}
+
+   Less than 10 minutes ago:
+   
+   `find test/ -mmin -10 | wc -l`{{execute}}
+
+   Find files or directories whose _contents or attributes_ were
+   modified more than 7 days ago:
+
+   `find test/ -ctime +7 | wc -l`{{execute}}
+
+   Find files or directories whose _contents_ were modified less than
+   7 days ago:
+
+   `find test/ -mtime -7 | wc -l`{{execute}}
+
+   Find empty files and directories:
+   
+   `find test/ -empty | wc -l`{{execute}}
