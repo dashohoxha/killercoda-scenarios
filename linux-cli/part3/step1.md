@@ -83,7 +83,7 @@
    default action is to `-print` them to the screen, but we can also
    `-delete` them:
    
-   `touch test(1,2,3}.bak`{{execute}}
+   `touch test{1,2,3}.bak`{{execute}}
    
    `ls`{{execute}}
    
@@ -91,7 +91,7 @@
    
    `ls`{{execute}}
    
-   `touch test(1,2,3}.bak`{{execute}}
+   `touch test{1,2,3}.bak`{{execute}}
    
    `find . -type f -name '*.bak' -print -delete`{{execute}}
    
@@ -99,7 +99,7 @@
    
    We can also execute custom actions with `-exec`:
 
-   `touch test(1,2,3}.bak`{{execute}}
+   `touch test{1,2,3}.bak`{{execute}}
    
    `ls`{{execute}}
    
@@ -114,7 +114,7 @@
    If we use `-ok` instead of `-exec` then each command will be confirmed
    before being executed:
 
-   `touch test(1,2,3}.bak`{{execute}}
+   `touch test{1,2,3}.bak`{{execute}}
    
    `ls`{{execute}}
    
