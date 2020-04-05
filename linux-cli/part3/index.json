@@ -33,6 +33,7 @@
     "intro": {
       "text": "intro.md",
       "credits": "http://linuxcommand.org/lc3_learning_the_shell.php",
+      "courseData": "install.sh",
       "code": "init.sh"
     }
   },
