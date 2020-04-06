@@ -7,7 +7,7 @@ problems.
 
 1. We will test regular expressions with `grep` (which means "global
    regular expression print"). It searches text files for the
-   occurrence text matching a specified regular expression and
+   occurrence of text matching a specified regular expression and
    outputs any line containing a match to standard output.
    
    `ls /usr/bin | grep zip`{{execute}}
@@ -74,7 +74,7 @@ problems.
    `grep -h '[bg]zip' dirlist*.txt`{{execute}}
    
    If the first character in a bracket expression is a caret (`^`),
-   than any character will be matched, except for those listed:
+   then any character will be matched, except for those listed:
    
    `grep -h '[^bg]zip' dirlist*.txt`{{execute}}
    
@@ -91,22 +91,22 @@ problems.
    
    We can do less typing if we use a range:
    
-   `grep -h '^[A-Z]' dirlists*.txt`{{execute}}
+   `grep -h '^[A-Z]' dirlist*.txt`{{execute}}
    
    If we want to match any alphanumeric character (all the letters and
    digits), we can use several ranges, like this:
    
-   `grep -h '^[A-Za-z0-9]' dirlists*.txt`{{execute}}
+   `grep -h '^[A-Za-z0-9]' dirlist*.txt`{{execute}}
    
    However the dash (`-`) character in this example stands for itself,
    does not make a range:
 
-   `grep -h '^[-AZ]' dirlists*.txt`{{execute}}
+   `grep -h '^[-AZ]' dirlist*.txt`{{execute}}
    
    Besides ranges, another way to match groups of characters is using
    POSIX character classes:
    
-   `grep -h '^[[:alnum:]]' dirlists*.txt`{{execute}}
+   `grep -h '^[[:alnum:]]' dirlist*.txt`{{execute}}
    
    `ls /usr/sbin/[[:upper:]]*`{{execute}}
    

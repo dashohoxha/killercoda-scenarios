@@ -24,9 +24,8 @@
    5 letters, where the third letter is `j` and the last one is `r`.
 
 2. Let's say that we want to check a phone number for validity and we
-   consider a phone number to be valid if it is in the form `(nnn)
-   nnn-nnnn` or in the form `nnn nnn-nnnn` where `n` is a digit. We
-   can do it like this:
+   consider a phone number to be valid if it is in the form `(nnn) nnn-nnnn`
+   or in the form `nnn nnn-nnnn` where `n` is a digit. We can do it like this:
    
    `echo "(555) 123-4567" | grep -E '^\(?[0-9][0-9][0-9]\)? [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'`{{execute}}
    
@@ -35,10 +34,10 @@
    `echo "AAA 123-4567" | grep -E '^\(?[0-9][0-9][0-9]\)? [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'`{{execute}}
    
    Since we are using the option `-E` (for extended), we have to
-   escape the parentheses (`\(` and `\)`) so that they are not
+   escape the parentheses `\(` and `\)` so that they are not
    interpreted as metacharacters.
    
-   If we use basic regular expression (without `-E`), then we don't
+   If we use basic regular expressions (without `-E`), then we don't
    need to escape the parentheses, but in this case we will have to
    escape the question marks (`\?`) so that they are interpreted as
    metacharacters:
@@ -71,7 +70,7 @@
    which is equivalent to `{1,}` (one or more, at least one
    occurrence):
    
-   Let's say that we want to check is a string is a sentence. This
+   Let's say that we want to check if a string is a sentence. This
    means that it starts with an uppercase letter, then contains any
    number of upper and lowercase letters and spaces, and finally ends
    with a period. We could do it like this:
