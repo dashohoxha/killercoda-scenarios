@@ -1,8 +1,8 @@
 # Text processing
 
-Some of the commands that are used for text processing we have also
-seen before, like `cat`, `sort`, `uniq`, `sed`, etc. We are going to
-see some others too, like `cut`, `paste`, `join`, `tr`, etc,
+We have already seen before some of the commands that are used for
+text processing, like `cat`, `sort`, `uniq`, `sed`, etc. We are going
+to see some others too, like `cut`, `paste`, `join`, `tr`, etc,
 
 1. Let's try and compare these commands:
 
@@ -20,7 +20,8 @@ see some others too, like `cut`, `paste`, `join`, `tr`, etc,
    Then we try to sort them with `sort` and `sort -r` (reverse), but
    it does not seem to work as expected (sorting results by the size).
    This is because `sort` by default sorts the first column
-   alphabetically, so `2` is bigger than `10` (because `2 > 1`).
+   alphabetically, so `2` is bigger than `10` (because `2` comes after
+   `1` on the character set).
    
    With the option `-n` we tell sort to do a _numerical_ sort. So, the
    last command returns the top 10 biggest files and directories on
@@ -38,33 +39,41 @@ see some others too, like `cut`, `paste`, `join`, `tr`, etc,
    `ls -l /usr/bin | sort -nr -k 5 | head`{{execute}}
    
    The option `-k5` tells `sort` to use the fifth field as the key for
-   sorting. By the way, most of the commands separate the fields of
-   output by a TAB.
+   sorting. By the way, `ls` like most of the commands, separates the
+   fields of its output by a TAB.
    
 3. Let's create an example file that we will use for testing some more
    commands:
    
    ```
-   cat <<END > distros.txt
-   SUSE	10.2	12/07/2006
-   Fedora	10	11/25/2008
-   SUSE	11.0	06/19/2008
-   Ubuntu	8.04	04/24/2008
-   Fedora	8	11/08/2007
-   SUSE	10.3	10/04/2007
-   Ubuntu	6.10	10/26/2006
-   Fedora	7	05/31/2007
-   Ubuntu	7.10	10/18/2007
-   Ubuntu	7.04	04/19/2007
-   SUSE	10.1	05/11/2006
-   Fedora	6	10/24/2006
-   Fedora	9	05/13/2008
-   Ubuntu	6.06	06/01/2006
-   Ubuntu	8.10	10/30/2008
-   Fedora	5	03/20/2006
+   cat <<END | tr ' ' "\t" > distros.txt
+   SUSE 10.2 12/07/2006
+   Fedora 10 11/25/2008
+   SUSE 11.0 06/19/2008
+   Ubuntu 8.04 04/24/2008
+   Fedora 8 11/08/2007
+   SUSE 10.3 10/04/2007
+   Ubuntu 6.10 10/26/2006
+   Fedora 7 05/31/2007
+   Ubuntu 7.10 10/18/2007
+   Ubuntu 7.04 04/19/2007
+   SUSE 10.1 05/11/2006
+   Fedora 6 10/24/2006
+   Fedora 9 05/13/2008
+   Ubuntu 6.06 06/01/2006
+   Ubuntu 8.10 10/30/2008
+   Fedora 5 03/20/2006
    END
    ```{{execute}}
+   
+   `cat distros.txt`{{execute}}
 
+   `cat -A distros.txt`{{execute}}
+
+   The option `-A` of the command `cat` makes its show any special
+   characters. The tab character is represented by `^I`, and the `$`
+   shows the end of line.
+   
    By the way, this is like a history of some Linux distributions
    (their versions and release dates).
    
@@ -85,7 +94,7 @@ see some others too, like `cut`, `paste`, `join`, `tr`, etc,
    
    `sort -k1,1 -k2n distros.txt`{{execute}}
    
-   Notice that if we don't use a range of field (like `1,1`, which
+   Notice that if we don't use a range of fields (like `1,1`, which
    means start at field 1 and end at field 1), it is not going to work
    as expected:
 
@@ -122,15 +131,7 @@ see some others too, like `cut`, `paste`, `join`, `tr`, etc,
    
    `sort -t ':' -k 7 /etc/passwd | head`{{execute}}
    
-7. The option `-A` of the command `cat` makes its show any special
-   characters, for example:
-
-   `cat -A distros.txt`{{execute}}
-   
-   The tab character is represented by `^I`, and the `$` at the end
-   shows the end of line.
-   
-8. The command `cut` extracts a certain column (field) from the input,
+7. The command `cut` extracts a certain column (field) from the input,
    for example:
    
    `cut -f 3 distros.txt`{{execute}}
@@ -153,10 +154,12 @@ see some others too, like `cut`, `paste`, `join`, `tr`, etc,
    `expand distros.txt | cut -c 23-`{{execute}}
    
    The command `expand` replaces tabs by the corresponding number of
-   spaces, so that the year would always start on position 23.
+   spaces, so that the year would always start at the position 23.
 
    When working with fields, it is possible to specify a different
    field delimiter, instead of the tab. For example:
+   
+   `head /etc/passwd`{{execute}}
    
    `cut -d ':' -f 1 /etc/passwd | head`{{execute}}
    
