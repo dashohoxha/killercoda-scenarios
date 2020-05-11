@@ -1,6 +1,6 @@
 {
-  "title": "Install NextCloud With Docker-Scripts",
-  "description": "A simple installation of NextCloud with docker-scripts.",
+  "title": "Installing NextCloud With Docker-Scripts",
+  "description": "Installing NextCloud with docker-scripts. NextCloud is the self-hosted productivity platform that keeps you in control.",
   "difficulty": "Easy",
   "time": "15-20 minutes",
   "details": {

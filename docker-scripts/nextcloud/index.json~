@@ -1,6 +1,6 @@
 {
-  "title": "Install Gitea With Docker-Scripts",
-  "description": "A simple installation of Gitea with docker-scripts.",
+  "title": "Install NextCloud With Docker-Scripts",
+  "description": "Installing NextCloud with docker-scripts. NextCloud is the self-hosted productivity platform that keeps you in control.",
   "difficulty": "Easy",
   "time": "15-20 minutes",
   "details": {
@@ -20,7 +20,7 @@
     ],
     "intro": {
       "text": "intro.md",
-      "credits": "https://gitlab.com/docker-scripts/gitea",
+      "credits": "https://gitlab.com/docker-scripts/nextcloud",
       "code": "init.sh"
     }
   },
