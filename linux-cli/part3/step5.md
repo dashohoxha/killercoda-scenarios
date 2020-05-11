@@ -70,12 +70,12 @@ to see some others too, like `cut`, `paste`, `join`, `tr`, etc,
 
    `cat -A distros.txt`{{execute}}
 
-   The option `-A` of the command `cat` makes its show any special
-   characters. The tab character is represented by `^I`, and the `$`
-   shows the end of line.
+   The option `-A` makes it show any special characters. The tab
+   character is represented by `^I`, and the `$` shows the end of
+   line.
    
-   By the way, this is like a history of some Linux distributions
-   (their versions and release dates).
+   By the way, the file `distros.txt` is like a history of some Linux
+   distributions (containing their versions and release dates).
    
 4. Let's try to sort it:
 
