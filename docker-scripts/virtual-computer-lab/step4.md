@@ -34,6 +34,10 @@
    is defined on `settings.sh`:
    
    `head -20 settings.sh`{{execute}}
+   
+   **Note:** To logout from guacamole while you are at the desktop,
+   first press `Ctrl+Alt+Shift`, and then select `Logout` from the
+   user menu.
 
 3. Try to open Epoptes from users other than admin (user1, user2,
    etc.)  and then try it as the user `admin`. For an example see this

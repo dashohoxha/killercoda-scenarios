@@ -1,18 +1,18 @@
 # Remaking the linuxmint container
 
-1. You can simply run `ds remake`:
+1. To reconstruct the linuxmint container you can simply run `ds remake`:
 
    `cd /var/ds/linuxmint/`{{execute}}
    
    `ds remake`{{execute}}
 
-   The difference between `ds make` and `ds remake` is that `ds
-   remake` will make first a backup of user accounts, before
+   The difference between `ds make` and `ds remake` is that `ds remake`
+   will make first a backup of user accounts, before
    constructing the new container, and will restore them afterwards.
    
    When reconstructing the container, any changes made to
    `settings.sh` will be applied to the new container. However any
-   changes that where made manually to the container will be lost, for
+   changes that were made manually to the container will be lost, for
    example any new packages installed.
    
 2. To rebuild the linuxmint container, with additional packages
@@ -38,4 +38,5 @@
    `ds build && ds remake`{{execute}}
 
   This is going to build the image locally (instead of pulling it from
-  the docker hub).
+  the docker hub). Usually it takes much longer than just pulling an
+  off-the-shelf image.

@@ -26,6 +26,8 @@
 4. Also let's comment out the `DOMAIN` and `SSL_CERT_EMAIL` on
    `settings.sh` (which are used by `wsproxy`):
    
+   `head -20 settings.sh`{{execute}}
+   
    ```
    sed -i settings.sh \
        -e 's/^DOMAIN/#DOMAIN/' \
