@@ -33,10 +33,13 @@
    
    `head settings.sh`{{execute}}
    
-   Finally build and remake the container:
+   Finally build and make the container:
    
-   `ds build && ds remake`{{execute}}
+   `ds build && ds make`{{execute}}
 
   This is going to build the image locally (instead of pulling it from
   the docker hub). Usually it takes much longer than just pulling an
   off-the-shelf image.
+  
+  **Note:** Don't use `ds remake` because it removes first the image
+  (that was just built with `ds build`).
