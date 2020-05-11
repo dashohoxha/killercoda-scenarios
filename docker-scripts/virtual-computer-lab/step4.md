@@ -24,8 +24,8 @@
    
    `grep CONTAINER /var/ds/linuxmint/settings.sh`{{execute}}
 
-2. Now go to tab of guacamole, logout from user admin, and login as
-   the new user:
+2. Now go to the tab of guacamole, logout from user admin, and login
+   as the new user:
 
    https://[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/
 

@@ -54,5 +54,7 @@
 
    https://[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/
    
+   (Refresh the page a couple of times, if it is blank initially.)
+   
    You will notice that there are no connections available, but we are
    going to fix this soon (in the next steps).
