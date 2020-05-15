@@ -43,3 +43,31 @@
   
   **Note:** Don't use `ds remake` because it removes first the image
   (that was just built with `ds build`).
+
+3. You can also override the command `ds remake` by creating a local one
+   on `cmd/remake.sh`, like this:
+   
+   `mkdir -p cmd`{{execute}}
+   
+   ```
+   cat << EOF > cmd/remake.sh
+   cmd_remake() {
+       # backup
+       ds users backup
+
+       # reinstall
+       ds build
+       ds make
+       ds restart
+
+       # restore
+       local datestamp=$(date +%Y%m%d)
+       ds users restore backup/users-$datestamp.tgz
+   }
+   EOF
+   ```{{execute}}
+
+   `ds remake`{{execute}}
+
+   This will run `ds build` and `ds make`, taking care to backup first
+   and restore afterwards.
