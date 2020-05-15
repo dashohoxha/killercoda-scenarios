@@ -50,7 +50,7 @@
    `mkdir -p cmd`{{execute}}
    
    ```
-   cat << EOF > cmd/remake.sh
+   cat << 'EOF' > cmd/remake.sh
    cmd_remake() {
        # backup
        ds users backup
@@ -66,6 +66,8 @@
    }
    EOF
    ```{{execute}}
+   
+   `cat cmd/remake.sh`{{execute}}
 
    `ds remake`{{execute}}
 
