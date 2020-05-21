@@ -50,7 +50,7 @@
    
    Also try to make a backup of the user accounts:
    
-   `sudo users backup`
+   `sudo users.sh backup`
 
 4. Users of the linuxmint container can also be managed from the host
    system:
