@@ -8,7 +8,9 @@
 
    `ds init gitea @gitea`{{execute}}
    
-3. Make sure that the port `443` is forwarded to the container:
+3. We are going to make an installation without
+   [wsproxy](https://gitlab.com/docker-scripts/wsproxy), so let's make
+   sure that the port `443` is forwarded to the container:
 
    `cd /var/ds/gitea/`{{execute}}
    
@@ -16,25 +18,23 @@
    
    ```
    sed -i settings.sh \
-       -e '/^CONTAINER/ a PORTS="443:443"'
+       -e '/^#PORTS/ c PORTS="443:443"'
    ```{{execute}}
    
    `cat settings.sh | grep PORTS`{{execute}}
    
-   **Note:** If we had used [wsproxy](https://gitlab.com/docker-scripts/wsproxy)
-   we would not need to forward the port `443` to the container.
-
-4. Edit `settings.sh` and set:
-
-   `DOMAIN=[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com`
+4. Also let's comment out the `DOMAIN` and `SSL_CERT_EMAIL` on
+   `settings.sh` (which are used by `wsproxy`):
+   
+   `head -20 settings.sh`{{execute}}
    
    ```
-   domain=[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com
    sed -i settings.sh \
-       -e "/^DOMAIN/ c DOMAIN=$domain"
+       -e 's/^DOMAIN/#DOMAIN/' \
+       -e 's/^SSL_CERT/#SSL_CERT/'
    ```{{execute}}
-
-   `cat settings.sh | grep ^DOMAIN`{{execute}}
+   
+   `head -20 settings.sh`{{execute}}
 
 5. Build image, create the container and configure it:
 
