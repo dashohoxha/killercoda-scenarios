@@ -3,11 +3,6 @@
   "description": "Installing applications in docker containers with docker-scripts.",
   "courses": [
     {
-      "course_id": "nextcloud",
-      "title": "NextCloud",
-      "description": "Installing NextCloud with docker-scripts. NextCloud is the self-hosted productivity platform that keeps you in control."
-    },
-    {
       "course_id": "gitea",
       "title": "Gitea",
       "description": "Installing Gitea with docker-scripts. Gitea (Git with a cup of tea) is a painless self-hosted Git service."
@@ -16,6 +11,11 @@
       "course_id": "virtual-computer-lab",
       "title": "Virtual Computer Lab",
       "description": "Virtual Computer Lab is a desktop server in the cloud that can be accessed from a browser. It provides remote collaboration for the students of a class and their teacher."
+    },
+    {
+      "course_id": "nextcloud",
+      "title": "NextCloud",
+      "description": "Installing NextCloud with docker-scripts. NextCloud is the self-hosted productivity platform that keeps you in control."
     }
   ]
 }
