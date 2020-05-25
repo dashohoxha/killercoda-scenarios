@@ -26,7 +26,7 @@
 4. Also let's comment out the `DOMAIN` and `SSL_CERT_EMAIL` on
    `settings.sh` (which are used by `wsproxy`):
    
-   `head -20 settings.sh`{{execute}}
+   `head -25 settings.sh`{{execute}}
    
    ```
    sed -i settings.sh \
@@ -34,7 +34,7 @@
        -e 's/^SSL_CERT/#SSL_CERT/'
    ```{{execute}}
    
-   `head -20 settings.sh`{{execute}}
+   `head -25 settings.sh`{{execute}}
 
 5. Build image, create the container and configure it:
 
