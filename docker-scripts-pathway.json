@@ -16,6 +16,11 @@
       "course_id": "nextcloud",
       "title": "NextCloud",
       "description": "Installing NextCloud with docker-scripts. NextCloud is the self-hosted productivity platform that keeps you in control."
+    },
+    {
+      "course_id": "moodle",
+      "title": "Moodle",
+      "description": "Installing Moodle with docker-scripts. Moodle is a free and open-source learning management system."
     }
   ]
 }
