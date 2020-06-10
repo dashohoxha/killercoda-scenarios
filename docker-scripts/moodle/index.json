@@ -2,7 +2,7 @@
   "title": "Installing Moodle With Docker-Scripts",
   "description": "Installing Moodle with docker-scripts. Moodle is a free and open-source learning management system.",
   "difficulty": "Easy",
-  "time": "15-20 minutes",
+  "time": "30-40 minutes",
   "details": {
     "steps": [
       {

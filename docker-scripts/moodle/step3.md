@@ -2,13 +2,15 @@
 
 1. Open it in browser and login as the user `admin`:
 
-   `grep ADMIN_USER settings.sh`{{execute}}
-
-   `grep ADMIN_PASS settings.sh`{{execute}}
+   `grep ADMIN_ settings.sh`{{execute}}
 
    https://[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/
    
-2. Make a backup:
+2. Install another plugin:
+
+   `ds inject install-plugins.sh mod_bigbluebuttonbn`{{execute}}
+   
+2. Make a backup and restore:
 
    `ls`{{execute}}
    

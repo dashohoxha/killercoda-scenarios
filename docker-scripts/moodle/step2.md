@@ -16,7 +16,7 @@
    
    ```
    sed -i settings.sh \
-       -e '/^CONTAINER/ a PORTS="443:443"'
+       -e '/^#PORTS/ c PORTS="443:443"'
    ```{{execute}}
    
    `cat settings.sh | grep PORTS`{{execute}}
@@ -36,6 +36,8 @@
 
    `cat settings.sh | grep ^DOMAIN`{{execute}}
 
-5. Build image, create the container and configure it:
+5. Make the container:
 
    `ds make`{{execute}}
+
+   `ds restart`{{execute}}
