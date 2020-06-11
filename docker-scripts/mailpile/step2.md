@@ -10,7 +10,7 @@
    
 3. Make sure that the port `443` is forwarded to the container:
 
-   `cd /var/ds/moodle/`{{execute}}
+   `cd /var/ds/mailpile/`{{execute}}
    
    `cat settings.sh | grep PORTS`{{execute}}
    
