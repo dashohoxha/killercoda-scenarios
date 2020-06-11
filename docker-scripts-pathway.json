@@ -21,6 +21,11 @@
       "course_id": "moodle",
       "title": "Moodle",
       "description": "Installing Moodle with docker-scripts. Moodle is a free and open-source learning management system."
+    },
+    {
+      "course_id": "mailpile",
+      "title": "Mailpile",
+      "description": "Installing Mailpile with docker-scripts. Mailpile is a web based email client that has good support for digital signature and encryption."
     }
   ]
 }

@@ -1,0 +1,33 @@
+{
+  "title": "Installing Mailpile With Docker-Scripts",
+  "description": "Installing Mailpile with docker-scripts. Mailpile is a web based email client that has good support for digital signature and encryption.",
+  "difficulty": "Easy",
+  "time": "15-20 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3",
+        "text": "step3.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://gitlab.com/docker-scripts/mailpile",
+      "code": "init.sh"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "ubuntu2004"
+  }
+}
