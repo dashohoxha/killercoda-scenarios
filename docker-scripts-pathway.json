@@ -26,6 +26,11 @@
       "course_id": "mailpile",
       "title": "Mailpile",
       "description": "Installing Mailpile with docker-scripts. Mailpile is a web based email client that has good support for digital signature and encryption."
+    },
+    {
+      "course_id": "minio",
+      "title": "MinIO",
+      "description": "Installing MinIO with docker-scripts. MinIO is a cloud storage server compatible with Amazon S3. As an object store, MinIO can store unstructured data such as photos, videos, log files, backups and container images. The maximum size of an object is 5TB."
     }
   ]
 }
