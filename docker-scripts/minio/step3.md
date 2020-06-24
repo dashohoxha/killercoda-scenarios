@@ -16,3 +16,16 @@
 
    https://[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/
    
+   Upload a couple of files.
+   
+3. Let's install the minio-cli:
+
+   `wget https://dl.min.io/client/mc/release/linux-amd64/mc`{{execute}}
+   
+   `chmod +x mc`{{execute}}
+   
+   `mv mc /usr/local/bin`{{execute}}
+   
+   `mc --help`{{execute}}
+   
+   

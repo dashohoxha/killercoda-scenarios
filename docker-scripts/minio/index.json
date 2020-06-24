@@ -1,6 +1,6 @@
 {
   "title": "Installing MinIO With Docker-Scripts",
-  "description": "Installing MinIO with docker-scripts. MinIO is a cloud storage server compatible with Amazon S3. As an object store, MinIO can store unstructured data such as photos, videos, log files, backups and container images. The maximum size of an object is 5TB.",
+  "description": "Installing MinIO with docker-scripts. MinIO is a cloud storage server compatible with Amazon S3. As an object store, MinIO can store unstructured data such as photos, videos, log files, backups and container images.",
   "difficulty": "Easy",
   "time": "15-20 minutes",
   "details": {
