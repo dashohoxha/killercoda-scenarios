@@ -2,7 +2,7 @@
   "title": "Server Backup with Rsync",
   "description": "How to make a server backup with rsync.",
   "difficulty": "Easy",
-  "time": "15-20 minutes",
+  "time": "20-30 minutes",
   "details": {
     "steps": [
       {
@@ -36,6 +36,6 @@
     "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "ubuntu2004"
+    "imageid": "ubuntu:2004"
   }
 }
