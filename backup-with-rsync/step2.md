@@ -30,7 +30,6 @@ Restrict the ssh key of the backup user for using only `rsync`.
    ```
    command="rsync --server --sender -logDtpre.iLsfxC . ~/test1" ecdsa-sha2-nistp256 AAAAE2Vj....
    ```
-   ```
 
    To make it even more secure, we can also add the options
    `no-agent-forwarding,no-port-forwarding,no-pty,no-user-rc,no-X11-forwarding`.
