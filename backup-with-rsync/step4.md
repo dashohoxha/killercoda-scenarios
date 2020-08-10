@@ -1,57 +1,74 @@
-# Create a read-only view
+# Using a script
 
-Create a read-only view of the parts of the filesystem that need to be
-backed up. Let's say for example that we are using **docker-scripts**
-for installing and managing apps. Then, the directories that we need
-to backup are: `/opt/docker-scripts` and `/var/ds`.
-
-1. For the sake of testing, let's create these directories with some
-   dummy content:
-   
-   `mkdir -p /opt/docker-scripts/{app1,app2,app3}`{{execute}}
-   
-   `mkdir -p /var/ds/{dir1,dir2,dir3,dir4}`{{execute}}
-
-
-2. Install `bindfs`:
-
-   `apt list bindfs`{{execute}}
-   
-   `apt show bindfs`{{execute}}
-   
-   `apt install bindfs`{{execute}}
-
-3. Create mount directories:
-
-   `mkdir -p /mnt/backup-server/scripts`{{execute}}
-   
-   `mkdir -p /mnt/backup-server/apps`{{execute}}
-
-4. Add these lines to `/etc/fstab` for mounting directories read-only:
+1. For convenience, we can combine the command and the key in a bash
+   script like this:
 
    ```
-   cat <<EOF >> /etc/fstab
-   /opt/docker-scripts /mnt/backup-server/scripts fuse.bindfs perms=0000:u=rD,force-user=backup1,force-group=nogroup 0 0
-   /var/ds             /mnt/backup-server/apps    fuse.bindfs perms=0000:u=rD,force-user=backup1,force-group=nogroup 0 0
+   cat << 'EOF' > backup-server.sh
+   #!/bin/bash
+
+   server=127.0.0.1
+   port=22
+   
+   cd $(dirname $0)
+   rsync -a -e "ssh -p $port -i $0" backup1@${server}: .
+   
+   exit 0
+   
    EOF
    ```{{execute}}
-
-5. Mount them:
-
-   `mount -a`{{execute}}
    
-   `ls -al /mnt/backup-server/scripts`{{execute}}
+   `cat key1 >> backup-server.sh`{{execute}}
    
-   `ls -al /mnt/backup-server/apps`{{execute}}
+   `cat backup-server.sh`{{execute}}
 
-6. Test that they are read-only:
+2. Let's try it:
+
+   `chmod 700 backup-server.sh`{{execute}}
+   
+   `rm -rf test1/`{{execute}}
+   
+   `./backup-server.sh`{{execute}}
+   
+   `ls -l test1/`{{execute}}
+
+   `rm -rf test1/`{{execute}}
+
+3. Let's also fix the directory on the server that is being backed
+   up. We should edit `/home/backup1/.ssh/authorized_keys` and change
+   `~/test1` to `/mnt/backup-server`:
+   
+   ```
+   sed -i /home/backup1/.ssh/authorized_keys \
+       -e 's#~/test1#/mnt/backup-server#'
+   ```{{execute}}
+
+   `cat /home/backup1/.ssh/authorized_keys`{{execute}}
+   
+4. Now we can move this script to the client (backup server), making
+   sure to set the proper values for the variables `server` and
+   `port`, and it should work.
+
+5. On the client (computer that is getting the backup), we can place the script `backup-server.sh`
+   on a directory like `/var/backup`:
+
+   `mkdir -p /var/backup`{{execute}}
+   
+   `mv backup-server.sh /var/backup/`{{execute}}
+   
+   `cd /var/backup/`{{execute}}
+   
+   `./backup-server.sh`{{execute}}
+   
+   `tree`{{execute}}
+
+6. Let's also create a cron job that runs this script periodically each week:
 
    ```
-   sudo -u backup1 \
-       ls -al /mnt/backup-server/scripts
+   cat <<EOF > /etc/cron.d/backup-server
+   # backup the server each tuesday
+   0 0 * * TUE  root  /var/backup/backup-server.sh
+   EOF
    ```{{execute}}
    
-   ```
-   sudo -u backup1 \
-       touch /mnt/backup-server/scripts/test1.txt
-   ```{{execute}}
+   `cat /etc/cron.d/backup-server`{{execute}}

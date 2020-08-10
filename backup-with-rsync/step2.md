@@ -1,58 +1,69 @@
-# Create a backup user
+# Restrict the ssh key
 
-Let's create a backup user with ssh-key access.
+Restrict the ssh key of the backup user for using only `rsync`.
 
-1. Create a backup user, for example `backup1` (in ubuntu there is
-   already a user named `backup`):
-
-   `useradd backup1 -m`{{execute}}
+1. Let's find out the command that the client is sending to the server
+   through SSH.
    
-   `ls -al /home/backup1/`{{execute}}
+   Let's try the same `rsync` command again, with the added SSH switch
+   `-v` (verbose):
 
-2. Create a ssh key-pair for this user:
+   `rsync -a -e "ssh -p 22 -i key1 -v" backup1@localhost:~/test1 . `{{execute}}
 
-   `ssh-keygen -t ecdsa -P '' -q -f key1`{{execute}}
+   Then let's look for the debug line that says "Sending command":
 
-   `ls -l key1*`{{execute}}
+   ```
+   rsync -a -e "ssh -p 22 -i key1 -v" backup1@localhost:~/test1 . 2>&1 \
+   | grep "Sending command"
+   ```{{execute}}
+
+   It should be something like this:
+
+   ```
+   rsync --server --sender -logDtpre.iLsfxC . ~/test1
+   ```
    
-   `cat key1`{{execute}}
-   
-   `cat key1.pub`{{execute}}
+2. We can restrict the SSH key `key1` to execute only this command and
+   nothing else.  For this we need to add something like this before
+   the public key on `/home/backup1/.ssh/authorized_keys`:
 
-3. Add the public key to `/home/backup1/.ssh/authorized_keys`:
+   ```
+   command="rsync --server --sender -logDtpre.iLsfxC . ~/test1" ecdsa-sha2-nistp256 AAAAE2Vj....
+   ```
+   ```
 
-   `mkdir -p /home/backup1/.ssh`{{execute}}
-   
-   `chown backup1: /home/backup1/.ssh`{{execute}}
-   
-   `chmod 700 /home/backup1/.ssh`{{execute}}
+   To make it even more secure, we can also add the options
+   `no-agent-forwarding,no-port-forwarding,no-pty,no-user-rc,no-X11-forwarding`.
+   The file `/home/backup1/.ssh/authorized_keys` should look like this:
 
-   `cat key1.pub >> /home/backup1/.ssh/authorized_keys`{{execute}}
+   ```
+   command="rsync --server --sender -logDtpre.iLsfxC . ~/test1",no-agent-forwarding,no-port-forwarding,no-pty,no-user-rc,no-X11-forwarding ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMbMdR9uW4SMeinpVvr6UQZaFybkiVZxm2DRYxFlCuxHchpTMGR7U4gZGZwY4D5LQDDy1Py4TWSsEizda4LecgQ= root@server
+   ```
    
-   `chown backup1: /home/backup1/.ssh/authorized_keys`{{execute}}
-   
-   `chmod 600 /home/backup1/.ssh/authorized_keys`{{execute}}
-
-   `ls -al /home/backup1/.ssh/`{{execute}}
+   ```
+   sed -i /home/backup1/.ssh/authorized_keys \
+       -e '1 s#^#command="rsync --server --sender -logDtpre.iLsfxC . ~/test1",no-agent-forwarding,no-port-forwarding,no-pty,no-user-rc,no-X11-forwarding #'
+   ```{{execute}}
    
    `cat /home/backup1/.ssh/authorized_keys`{{execute}}
-
-4. Try to login with this key:
+   
+3. Let's check that now we cannot login with `key1` anymore, but we
+   can still use it to `rsync`:
 
    `ssh -p 22 -i key1 backup1@localhost`{{execute}}
-
-   You should be able to login without a password.
-
-5. Try to copy something:
-
-   `mkdir -p /home/backup1/test1`{{execute}}
    
-   `touch /home/backup1/test1/file1.txt`{{execute}}
-   
-   `touch /home/backup1/test1/file2.txt`{{execute}}
-   
-   `ls -al /home/backup1/test1`{{execute}}
+   It should fail. Cancel it with `Ctrl+c`.
 
+   `rm -rf test1`{{execute}}
+   
    `rsync -a -e "ssh -p 22 -i key1" backup1@localhost:~/test1 .`{{execute}}
+   
+   `ls -l test1`{{execute}}
 
-   `ls -al test1`{{execute}}
+   `rm -rf test1`{{execute}}
+   
+   `rsync -a -e "ssh -p 22 -i key1" backup1@localhost: .`{{execute}}
+   
+   `ls -l test1`{{execute}}
+   
+   `rm -rf test1`{{execute}}

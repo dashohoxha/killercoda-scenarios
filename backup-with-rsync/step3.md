@@ -1,67 +1,70 @@
-# Restrict the ssh key
+# Create a read-only view
 
-Restrict the ssh key of the backup user for using only `rsync`.
+Create a read-only view of the parts of the filesystem that need to be
+backed up. Let's say for example that we are using **docker-scripts**
+for installing and managing apps. Then, the directories that we need
+to backup are: `/opt/docker-scripts` and `/var/ds`.
 
-1. Let's find out the command that the client is sending to the server
-   through SSH.
+1. For the sake of testing, let's create these directories with some
+   dummy content:
    
-   Let's try the same `rsync` command again, with the added SSH switch
-   `-v` (verbose):
-
-   ```
-   rsync -a -e "ssh -p 22 -i key1 -v" \
-       backup1@localhost:~/test1 .
-   ```{{execute}}
-
-   Then let's look for the debug line that says "Sending command":
-
-   ```
-   rsync -a -e "ssh -p 22 -i key1 -v" \
-       backup1@localhost:~/test1 . 2>&1 \
-	   | grep "Sending command"
-   ```{{execute}}
-
-   It should be something like this:
-
-   ```
-   rsync --server --sender -logDtpre.iLsfxC . ~/test1
-   ```
+   `mkdir -p /opt/docker-scripts/{app1,app2,app3}`{{execute}}
    
-2. We can restrict the SSH key `key1` to execute only this command and
-   nothing else.  For this we need to add something like this before
-   the public key on `/home/backup1/.ssh/authorized_keys`:
-
-   ```
-   command="rsync --server --sender -logDtpre.iLsfxC . ~/test1" ecdsa-sha2-nistp256 AAAAE2Vj....
-   ```
-
-   To make it even more secure, we can also add the options `no-agent-forwarding,no-port-forwarding,no-pty,no-user-rc,no-X11-forwarding`. The file `/home/backup1/.ssh/authorized_keys` should look like this:
-
-   ```
-   command="rsync --server --sender -logDtpre.iLsfxC . ~/test1",no-agent-forwarding,no-port-forwarding,no-pty,no-user-rc,no-X11-forwarding ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMbMdR9uW4SMeinpVvr6UQZaFybkiVZxm2DRYxFlCuxHchpTMGR7U4gZGZwY4D5LQDDy1Py4TWSsEizda4LecgQ= root@server
-   ```
+   `mkdir -p /var/ds/{dir1,dir2,dir3,dir4}`{{execute}}
    
+   `ls -l /opt/docker-scripts/ /var/ds/`{{execute}}
+
+
+2. Install `bindfs`:
+
+   `apt list bindfs`{{execute}}
+   
+   `apt show bindfs`{{execute}}
+   
+   `apt install bindfs`{{execute}}
+
+3. Create mount directories:
+
+   `mkdir -p /mnt/backup-server/scripts`{{execute}}
+   
+   `mkdir -p /mnt/backup-server/apps`{{execute}}
+   
+   `ls -l /mnt/backup-server/`{{execute}}
+
+4. Add these lines to `/etc/fstab` for mounting directories read-only:
+
    ```
-   sed -i /home/backup1/.ssh/authorized_keys \
-       -e '1 s/^/command="rsync --server --sender -logDtpre.iLsfxC . ~/test1",no-agent-forwarding,no-port-forwarding,no-pty,no-user-rc,no-X11-forwarding /'
+   cat <<EOF >> /etc/fstab
+   
+   /opt/docker-scripts /mnt/backup-server/scripts fuse.bindfs perms=0000:u=rD,force-user=backup1,force-group=nogroup 0 0
+   
+   /var/ds             /mnt/backup-server/apps    fuse.bindfs perms=0000:u=rD,force-user=backup1,force-group=nogroup 0 0
+   EOF
    ```{{execute}}
    
-   `cat /home/backup1/.ssh/authorized_keys`{{execute}}
-   
-3. Let's check that now we cannot login with `key1` anymore, but we
-   can still use it to `rsync`:
+   `cat /etc/fstab`{{execute}}
 
-   `ssh -p 22 -i key1 backup1@localhost`{{execute}}
+5. Mount them:
 
-   `rm -rf test1`{{execute}}
+   `mount -a`{{execute}}
    
-   `rsync -a -e "ssh -p 22 -i key1" backup1@localhost:~/test1 .`{{execute}}
+   `ls -al /mnt/backup-server/scripts`{{execute}}
    
-   `ls -l test1`{{execute}}
+   `ls -al /mnt/backup-server/apps`{{execute}}
 
-   `rm -rf test1`{{execute}}
+6. Test that they are read-only:
+
+   ```
+   sudo -u backup1 \
+       ls -al /mnt/backup-server/scripts
+   ```{{execute}}
    
-   `rsync -a -e "ssh -p 22 -i key1" backup1@localhost: .`{{execute}}
-   
-   `ls -l test1`{{execute}}
-   
+   ```
+   sudo -u backup1 \
+       touch /mnt/backup-server/scripts/test1.txt
+   ```{{execute}}
+
+   ```
+   sudo -u backup1 \
+       ls -al /mnt/backup-server/scripts
+   ```{{execute}}
