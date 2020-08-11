@@ -1,36 +1,36 @@
 {
-  "title": "Docker Scripts",
-  "description": "Installing applications in docker containers with docker-scripts.",
-  "courses": [
-    {
-      "course_id": "gitea",
-      "title": "Gitea",
-      "description": "Installing Gitea with docker-scripts. Gitea (Git with a cup of tea) is a painless self-hosted Git service."
-    },
-    {
-      "course_id": "virtual-computer-lab",
-      "title": "Virtual Computer Lab",
-      "description": "Virtual Computer Lab is a desktop server in the cloud that can be accessed from a browser. It provides remote collaboration for the students of a class and their teacher."
-    },
-    {
-      "course_id": "nextcloud",
-      "title": "NextCloud",
-      "description": "Installing NextCloud with docker-scripts. NextCloud is the self-hosted productivity platform that keeps you in control."
-    },
-    {
-      "course_id": "moodle",
-      "title": "Moodle",
-      "description": "Installing Moodle with docker-scripts. Moodle is a free and open-source learning management system."
-    },
-    {
-      "course_id": "mailpile",
-      "title": "Mailpile",
-      "description": "Installing Mailpile with docker-scripts. Mailpile is a web based email client that has good support for digital signature and encryption."
-    },
-    {
-      "course_id": "minio",
-      "title": "MinIO",
-      "description": "Installing MinIO with docker-scripts. MinIO is a cloud storage server compatible with Amazon S3. As an object store, MinIO can store unstructured data such as photos, videos, log files, backups and container images."
-    }
-  ]
+    "title": "Docker Scripts",
+    "description": "Installing applications in docker containers with docker-scripts.",
+    "courses": [
+        {
+            "course_id": "gitea",
+            "title": "Gitea",
+            "description": "Installing Gitea with docker-scripts. Gitea (Git with a cup of tea) is a painless self-hosted Git service."
+        },
+        {
+            "course_id": "virtual-computer-lab",
+            "title": "Virtual Computer Lab",
+            "description": "Virtual Computer Lab is a desktop server in the cloud that can be accessed from a browser. It provides remote collaboration for the students of a class and their teacher."
+        },
+        {
+            "course_id": "nextcloud",
+            "title": "NextCloud",
+            "description": "Installing NextCloud with docker-scripts. NextCloud is the self-hosted productivity platform that keeps you in control."
+        },
+        {
+            "course_id": "moodle",
+            "title": "Moodle",
+            "description": "Installing Moodle with docker-scripts. Moodle is a free and open-source learning management system."
+        },
+        {
+            "course_id": "mailpile",
+            "title": "Mailpile",
+            "description": "Installing Mailpile with docker-scripts. Mailpile is a web based email client that has good support for digital signature and encryption."
+        },
+        {
+            "course_id": "minio",
+            "title": "MinIO",
+            "description": "Installing MinIO with docker-scripts. MinIO is a cloud storage server compatible with Amazon S3. As an object store, MinIO can store unstructured data such as photos, videos, log files, backups and container images."
+        }
+    ]
 }

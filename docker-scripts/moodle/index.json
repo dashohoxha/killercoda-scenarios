@@ -1,33 +1,33 @@
 {
-  "title": "Installing Moodle With Docker-Scripts",
-  "description": "Installing Moodle with docker-scripts. Moodle is a free and open-source learning management system.",
-  "difficulty": "Easy",
-  "time": "30-40 minutes",
-  "details": {
-    "steps": [
-      {
-        "title": "Step 1",
-        "text": "step1.md"
-      },
-      {
-        "title": "Step 2",
-        "text": "step2.md"
-      },
-      {
-        "title": "Step 3",
-        "text": "step3.md"
-      }
-    ],
-    "intro": {
-      "text": "intro.md",
-      "credits": "https://gitlab.com/docker-scripts/moodle",
-      "code": "init.sh"
+    "title": "Installing Moodle With Docker-Scripts",
+    "description": "Installing Moodle with docker-scripts. Moodle is a free and open-source learning management system.",
+    "difficulty": "Easy",
+    "time": "30-40 minutes",
+    "details": {
+        "steps": [
+            {
+                "title": "Step 1",
+                "text": "step1.md"
+            },
+            {
+                "title": "Step 2",
+                "text": "step2.md"
+            },
+            {
+                "title": "Step 3",
+                "text": "step3.md"
+            }
+        ],
+        "intro": {
+            "text": "intro.md",
+            "credits": "https://gitlab.com/docker-scripts/moodle",
+            "code": "init.sh"
+        }
+    },
+    "environment": {
+        "uilayout": "terminal"
+    },
+    "backend": {
+        "imageid": "ubuntu:1804"
     }
-  },
-  "environment": {
-    "uilayout": "terminal"
-  },
-  "backend": {
-    "imageid": "ubuntu:1804"
-  }
 }

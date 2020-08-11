@@ -1,21 +1,21 @@
 {
-  "title": "Linux Commands",
-  "description": "Learning simple and advanced Linux commands by examples.",
-  "courses": [
-    {
-      "course_id": "part1",
-      "title": "Part 1",
-      "description": "What is the shell. Navigating and exploring the system. Manipulating files and directories. Commands about comands."
-    },
-    {
-      "course_id": "part2",
-      "title": "Part 2",
-      "description": "Redirecting input/output of the command to and from files. Connecting multiple commands together into powerful pipelines. Shell expansions and quotes. Command history."
-    },
-    {
-      "course_id": "part3",
-      "title": "Part 3",
-      "description": "Searching for files (locate, find). Regular expressions (grep). Text processing (cat, sort, uniq, cut, paste, join, diff, tr, sed)."
-    }
-  ]
+    "title": "Linux Commands",
+    "description": "Learning simple and advanced Linux commands by examples.",
+    "courses": [
+        {
+            "course_id": "part1",
+            "title": "Part 1",
+            "description": "What is the shell. Navigating and exploring the system. Manipulating files and directories. Commands about comands."
+        },
+        {
+            "course_id": "part2",
+            "title": "Part 2",
+            "description": "Redirecting input/output of the command to and from files. Connecting multiple commands together into powerful pipelines. Shell expansions and quotes. Command history."
+        },
+        {
+            "course_id": "part3",
+            "title": "Part 3",
+            "description": "Searching for files (locate, find). Regular expressions (grep). Text processing (cat, sort, uniq, cut, paste, join, diff, tr, sed)."
+        }
+    ]
 }

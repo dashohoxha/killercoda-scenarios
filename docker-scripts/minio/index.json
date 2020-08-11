@@ -1,33 +1,33 @@
 {
-  "title": "Installing MinIO With Docker-Scripts",
-  "description": "Installing MinIO with docker-scripts. MinIO is a cloud storage server compatible with Amazon S3. As an object store, MinIO can store unstructured data such as photos, videos, log files, backups and container images.",
-  "difficulty": "Easy",
-  "time": "15-20 minutes",
-  "details": {
-    "steps": [
-      {
-        "title": "Step 1",
-        "text": "step1.md"
-      },
-      {
-        "title": "Step 2",
-        "text": "step2.md"
-      },
-      {
-        "title": "Step 3",
-        "text": "step3.md"
-      }
-    ],
-    "intro": {
-      "text": "intro.md",
-      "credits": "https://gitlab.com/docker-scripts/minio",
-      "code": "init.sh"
+    "title": "Installing MinIO With Docker-Scripts",
+    "description": "Installing MinIO with docker-scripts. MinIO is a cloud storage server compatible with Amazon S3. As an object store, MinIO can store unstructured data such as photos, videos, log files, backups and container images.",
+    "difficulty": "Easy",
+    "time": "15-20 minutes",
+    "details": {
+        "steps": [
+            {
+                "title": "Step 1",
+                "text": "step1.md"
+            },
+            {
+                "title": "Step 2",
+                "text": "step2.md"
+            },
+            {
+                "title": "Step 3",
+                "text": "step3.md"
+            }
+        ],
+        "intro": {
+            "text": "intro.md",
+            "credits": "https://gitlab.com/docker-scripts/minio",
+            "code": "init.sh"
+        }
+    },
+    "environment": {
+        "uilayout": "terminal"
+    },
+    "backend": {
+        "imageid": "ubuntu:1804"
     }
-  },
-  "environment": {
-    "uilayout": "terminal"
-  },
-  "backend": {
-    "imageid": "ubuntu:1804"
-  }
 }
