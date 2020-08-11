@@ -1,6 +1,6 @@
 {
-    "title": "~DVC Scenarios",
-    "description": "Warning: These scenarios were developed during GSoD2019 and might be a bit outdated.",
+    "title": "|DVC Scenarios",
+    "description": "Warning: These scenarios were developed during GSoD2019 and might be a bit outdated. For the official version of these scenarios check: https://katacoda.com/dvc",
     "courses": [
         {
             "course_id": "basics-data",
