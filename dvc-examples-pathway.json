@@ -1,6 +1,6 @@
 {
-  "title": "DVC - Examples",
-  "description": "Examples that illustrate DVC commands and other features.",
+  "title": "~ DVC - Examples",
+  "description": "Examples that illustrate DVC commands and other features. Warning: These scenarios were developed during GSoD2019 and might be a bit outdated.",
   "courses": [
     {
       "course_id": "dvcignore",

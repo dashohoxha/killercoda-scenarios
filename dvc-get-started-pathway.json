@@ -1,6 +1,6 @@
 {
-    "title": "DVC - Get Started",
-    "description": "A step-by-step introduction to DVC by building a simple NLP project from scratch.",
+    "title": "~ DVC - Get Started",
+    "description": "A step-by-step introduction to DVC by building a simple NLP project from scratch. Warning: These scenarios were developed during GSoD2019 and might be a bit outdated.",
     "courses": [
         {
             "course_id": "initialize",

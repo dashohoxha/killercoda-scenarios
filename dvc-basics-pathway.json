@@ -1,6 +1,6 @@
 {
-  "title": "DVC - Basic Concepts",
-  "description": "Basic concepts and features of DVC.",
+  "title": "~ DVC - Basic Concepts",
+  "description": "Basic concepts and features of DVC. Warning: These scenarios were developed during GSoD2019 and might be a bit outdated.",
   "courses": [
     {
       "course_id": "data",

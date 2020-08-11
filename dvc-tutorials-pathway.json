@@ -1,6 +1,6 @@
 {
-  "title": "DVC - Tutorials",
-  "description": "Basic DVC tutorials with simple ML scenarios.",
+  "title": "~ DVC - Tutorials",
+  "description": "Basic DVC tutorials with simple ML scenarios. Warning: These scenarios were developed during GSoD2019 and might be a bit outdated.",
   "courses": [
     {
       "course_id": "versioning",
