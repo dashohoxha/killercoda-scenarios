@@ -1,0 +1,33 @@
+{
+    "title": "Installing OpenVPN Server With docker-compose",
+    "description": "How to install an OpenVPN server with docker-compose.",
+    "difficulty": "Easy",
+    "time": "15-20 minutes",
+    "details": {
+        "steps": [
+            {
+                "title": "Step 1",
+                "text": "step1.md"
+            },
+            {
+                "title": "Step 2",
+                "text": "step2.md"
+            },
+            {
+                "title": "Step 3",
+                "text": "step3.md"
+            }
+        ],
+        "intro": {
+            "text": "intro.md",
+            "credits": "https://github.com/kylemanna/docker-openvpn/blob/master/docs/docker-compose.md",
+            "code": "init.sh"
+        }
+    },
+    "environment": {
+        "uilayout": "terminal"
+    },
+    "backend": {
+        "imageid": "ubuntu:1804"
+    }
+}

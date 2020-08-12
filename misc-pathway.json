@@ -1,0 +1,31 @@
+{
+    "title": "Misc Tutorials",
+    "description": "OpenVPN Server With docker-compose. Encrypted Archive with Cryptsetup. Simple CLI Password Manager. Deduplicate Data With XFS And Reflinks. Server Backup with Rsync.",
+    "courses": [
+        {
+            "course_id": "openvpn",
+            "title": "Installing OpenVPN Server With docker-compose",
+            "description": "How to install an OpenVPN server with docker-compose."
+        },
+        {
+            "course_id": "cryptsetup",
+            "title": "Encrypted Archive with Cryptsetup",
+            "description": "How to create an encrypted archive with cryptsetup."
+        },
+        {
+            "course_id": "pw",
+            "title": "Simple CLI Password Manager",
+            "description": "A simple command-line password manager that keeps passwords inside a gpg encrypted tgz archive."
+        },
+        {
+            "course_id": "xfs-and-reflinks",
+            "title": "Deduplicate Data With XFS And Reflinks",
+            "description": "Copy-on-Write filesystems have the nice property that it is possible to 'clone' files instantly, by having the new file refer to the old blocks, and copying (possibly) changed blocks. This both saves time and space, and can be very beneficial in a lot of situations (for example when working with big files). In Linux this type of copy is called 'reflink'. We will see how to use it on the XFS filesystem."
+        },
+        {
+            "course_id": "backup-with-rsync",
+            "title": "Server Backup with Rsync",
+            "description": "How to make a server backup with rsync."
+        }
+    ]
+}
