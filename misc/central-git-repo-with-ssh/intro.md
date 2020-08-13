@@ -16,5 +16,5 @@ Git repository on your own server and access it through ssh.  This
 tutorial shows how to do it.
 
 <p align="center">
-<img src="/misc/courses/central-git-repo-with-ssh/assets/ssh-git.png">
+<img src="/dashohoxha/courses/misc/central-git-repo-with-ssh/assets/ssh-git.png">
 </p>
