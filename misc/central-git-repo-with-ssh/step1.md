@@ -49,7 +49,7 @@ we will do the setup for the first user and the second user.
    
    `ls -al`{{execute}}
    
-   Now let's set the right group ownership to this repo:
+4. Now let's set the right group ownership to this repo:
 
    `chgrp -R git-group .`{{execute}}
    

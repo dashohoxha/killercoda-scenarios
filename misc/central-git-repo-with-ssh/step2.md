@@ -71,12 +71,14 @@ Then continue with the following steps:
    
    `ssh git-server ls -al .ssh/`{{execute}}
    
+   The command `ls -al .ssh/` is running on the server, through ssh.
+   
    ```
    ssh git-server \
        cat .ssh/authorized_keys
    ```{{execute}}
    
-   `cat  ~/.ssh/git-server.pub`{{execute}}
+   `cat ~/.ssh/git-server.pub`{{execute}}
    
    Notice that the public key that we sent to the server has been
    appended to `.ssh/authorized_keys` on the home directory of
@@ -92,6 +94,10 @@ Then continue with the following steps:
    `echo '# Test project' > README.md`{{execute}}
    
    `git init`{{execute}}
+   
+   `ls -al`{{execute}}
+   
+   `git status`{{execute}}
    
    `git add .`{{execute}}
    
