@@ -34,7 +34,6 @@ Then continue with the following steps:
    ssh-keygen -t rsa -q -N '' \
        -f ~/.ssh/git-server
    ```{{execute}}
-   ```
    
    `ls -al ~/.ssh/`{{execute}}
    
@@ -53,7 +52,6 @@ Then continue with the following steps:
    ssh git-server \
        cat .ssh/authorized_keys
    ```{{execute}}
-   ```
    
    `cat  ~/.ssh/git-server.pub`{{execute}}
    
@@ -71,7 +69,7 @@ Then continue with the following steps:
    
    `git remote -v`{{execute}}
    
-   `git log --oneline`{{execute}}
+   `git log`{{execute}}
    
    This time we didn't have to add a *remote*, because the `origin`
    remote is added automatically when we clone the project.

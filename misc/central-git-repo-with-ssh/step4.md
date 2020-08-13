@@ -3,7 +3,7 @@
 With this setup we can collaborate and share code by using the central
 Git repo as a coordinator.
 
-1. Let's make some change to the project, then commit and push it:
+1. Let's make some changes to the project, then commit and push it:
 
    ```
    cat << EOF >> README.md

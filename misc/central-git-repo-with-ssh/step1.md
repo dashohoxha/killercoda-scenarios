@@ -1,5 +1,12 @@
 # Setup the central server
 
+<p align="center">
+<img src="/dashohoxha/courses/misc/central-git-repo-with-ssh/assets/ssh-git.png">
+</p>
+
+In this step we are going to setup the server. In the following steps
+we will do the setup for the first user and the second user.
+
 1. Create user accounts.
 
    For each user that needs to access the central repo we will create

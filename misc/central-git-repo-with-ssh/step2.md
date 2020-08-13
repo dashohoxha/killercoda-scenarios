@@ -102,8 +102,4 @@ Then continue with the following steps:
    
    `git remote -v`{{execute}}
    
-   `git push origin master`{{execute}}
-
-   We can check that indeed it is has been uploaded to the server:
-   
-   `ls -l /srv/project.git`{{execute T1}}
+   `git push --set-upstream origin master`{{execute}}
