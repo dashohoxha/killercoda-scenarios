@@ -27,8 +27,8 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>140</x>
-      <y>60</y>
+      <x>120</x>
+      <y>40</y>
       <w>170</w>
       <h>30</h>
     </coordinates>
@@ -41,39 +41,39 @@ lw=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>220</x>
-      <y>80</y>
-      <w>70</w>
+      <x>200</x>
+      <y>60</y>
+      <w>90</w>
       <h>140</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-&gt;&gt;&gt;
 lw=1.5
 fg=#fc5e03</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;120.0;50.0;120.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0;70.0;120.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>80</y>
-      <w>70</w>
+      <x>120</x>
+      <y>60</y>
+      <w>90</w>
       <h>140</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-&gt;&gt;&gt;
 lw=1.5
 fg=#fc5e03</panel_attributes>
-    <additional_attributes>50.0;10.0;50.0;120.0;10.0;120.0</additional_attributes>
+    <additional_attributes>70.0;10.0;70.0;120.0;10.0;120.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>250</x>
-      <y>160</y>
-      <w>150</w>
+      <y>140</y>
+      <w>110</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>halign=left
-*user2/project/*
+*project/*
 lt=..
 group=1</panel_attributes>
     <additional_attributes/>
@@ -82,8 +82,8 @@ group=1</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>270</x>
-      <y>190</y>
-      <w>110</w>
+      <y>170</y>
+      <w>70</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>halign=left
@@ -96,8 +96,8 @@ group=1</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>120</x>
-      <y>40</y>
+      <x>100</x>
+      <y>20</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -109,11 +109,11 @@ group=1</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>240</x>
-      <y>130</y>
-      <w>170</w>
-      <h>110</h>
+      <y>110</y>
+      <w>130</w>
+      <h>180</h>
     </coordinates>
-    <panel_attributes>*host2*
+    <panel_attributes>*second-user*
 halign=left
 group=1</panel_attributes>
     <additional_attributes/>
@@ -122,12 +122,12 @@ group=1</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>40</x>
-      <y>160</y>
-      <w>150</w>
+      <y>140</y>
+      <w>110</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>halign=left
-*user1/project/*
+*project/*
 lt=..
 group=2</panel_attributes>
     <additional_attributes/>
@@ -136,8 +136,8 @@ group=2</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>60</x>
-      <y>190</y>
-      <w>110</w>
+      <y>170</y>
+      <w>70</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>halign=left
@@ -151,12 +151,44 @@ group=2</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>30</x>
-      <y>130</y>
-      <w>170</w>
-      <h>110</h>
+      <y>110</y>
+      <w>130</w>
+      <h>180</h>
     </coordinates>
-    <panel_attributes>*host1*
+    <panel_attributes>*first-user*
 halign=left
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>250</x>
+      <y>220</y>
+      <w>110</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>halign=left
+*.ssh/*
+  config
+  git-server
+lt=..
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>220</y>
+      <w>110</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>halign=left
+*.ssh/*
+  config
+  git-server
+lt=..
 group=2</panel_attributes>
     <additional_attributes/>
   </element>

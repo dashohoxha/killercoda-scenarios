@@ -4,6 +4,10 @@ For the sake of example, let's name the first user as `first-user`. He
 is going to use the account `user1` on the server. Let's see the
 configuration steps that he should do on his side (on his computer).
 
+<p align="center">
+<img src="/dashohoxha/courses/misc/central-git-repo-with-ssh/assets/ssh-git.png">
+</p>
+
 Click on this command to switch to the first user on another terminal
 tab: `su - first-user`{{execute T2}}
 
