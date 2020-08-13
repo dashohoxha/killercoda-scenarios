@@ -26,6 +26,11 @@
             "course_id": "backup-with-rsync",
             "title": "Server Backup with Rsync",
             "description": "How to make a server backup with rsync."
+        },
+        {
+            "course_id": "central-git-repo-with-ssh",
+            "title": "Central Git Repo With SSH",
+            "description": "How to create a central Git repository on your own server and how to access it through ssh"
         }
     ]
 }
