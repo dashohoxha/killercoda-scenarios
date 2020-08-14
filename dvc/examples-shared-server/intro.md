@@ -13,5 +13,5 @@ users and the data storage are located on the same machine and no
 remote server or storage is involved.
 
 <p align="center">
-<img src="/dvc/courses/examples/shared-server/assets/shared-server.png">
+<img src="/dashohoxha/courses/dvc/examples-shared-server/assets/shared-server.png">
 </p>

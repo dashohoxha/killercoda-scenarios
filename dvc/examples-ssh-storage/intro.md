@@ -17,5 +17,5 @@ this is just an example, and other variations in configuration might be
 possible, depending on your real situation.
 
 <p align="center">
-<img src="/dvc/courses/examples/ssh-storage/assets/ssh-storage.png">
+<img src="/dashohoxha/courses/dvc/examples-ssh-storage/assets/ssh-storage.png">
 </p>

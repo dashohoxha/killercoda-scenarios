@@ -1,7 +1,7 @@
 > **Prerequisites:** If you haven't already done it, you should study
 > first these examples which are closely related:
-> - https://katacoda.com/dvc/courses/examples/shared-server
-> - https://katacoda.com/dvc/courses/examples/ssh-storage
+> - https://katacoda.com/dashohoxha/courses/dvc/examples-shared-server
+> - https://katacoda.com/dashohoxha/courses/dvc/examples-ssh-storage
 
 Usually projects have a central data storage, which can be accessed by
 all the parties involved in the project. It helps in sharing the data
@@ -24,5 +24,5 @@ an interactive tutorial. Once you understand how it works, it should
 be easy to implement it for other storage types.
 
 <p align="center">
-<img src="/dvc/courses/examples/synced-storage/assets/synced-storage.png">
+<img src="/dashohoxha/courses/dvc/examples-synced-storage/assets/synced-storage.png">
 </p>

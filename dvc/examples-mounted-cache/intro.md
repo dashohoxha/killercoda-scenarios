@@ -1,15 +1,15 @@
 > **Prerequisites:** If you haven't already done it, you should study
 > first these examples which are closely related:
-> - https://katacoda.com/dvc/courses/examples/shared-server
-> - https://katacoda.com/dvc/courses/examples/ssh-storage
-> - https://katacoda.com/dvc/courses/examples/mounted-storage
+> - https://katacoda.com/dashohoxha/courses/dvc/examples-shared-server
+> - https://katacoda.com/dashohoxha/courses/dvc/examples-ssh-storage
+> - https://katacoda.com/dashohoxha/courses/dvc/examples-mounted-storage
 
 In [Mounted DVC
 Storage](https://katacoda.com/dvc/courses/examples/mounted-storage) we saw how
 to share data through a DVC storage that is located on a NAS:
 
 <p align="center">
-<img src="/dvc/courses/examples/mounted-storage/assets/mounted-storage.png">
+<img src="/dashohoxha/courses/dvc/examples-mounted-storage/assets/mounted-storage.png">
 </p>
 
 In this case we have at least three copies of each data file: one on
@@ -25,7 +25,7 @@ copy of the data (on the NAS partition) and it is linked from each
 project.
 
 <p align="center">
-<img src="/dvc/courses/examples/mounted-cache/assets/mounted-cache.png">
+<img src="/dashohoxha/courses/dvc/examples-mounted-cache/assets/mounted-cache.png">
 </p>
 
 In this example we will see how to share data with the help of a DVC
