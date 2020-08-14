@@ -23,5 +23,5 @@ team (2 in our example) will mount through SSHFS the same directory
 from a central server, as shown in the following diagram:
 
 <p align="center">
-<img src="/dashohoxha/courses/misc/sharing-data-with-ssh/assets/sshfs-data-sharing.png">
+<img src="/dashohoxha/courses/misc/sharing-data-with-sshfs/assets/sshfs-data-sharing.png">
 </p>

@@ -5,7 +5,7 @@ is going to use the account `user1` on the server. Let's see the
 configuration steps that he should do on his side (on his computer).
 
 <p align="center">
-<img src="/dashohoxha/courses/misc/sharing-data-with-ssh/assets/sshfs-data-sharing.png">
+<img src="/dashohoxha/courses/misc/sharing-data-with-sshfs/assets/sshfs-data-sharing.png">
 </p>
 
 Click on this command to switch to the first user on another terminal
