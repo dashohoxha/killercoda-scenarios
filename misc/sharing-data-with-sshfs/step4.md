@@ -13,14 +13,13 @@ a mediator.
    
    `ls -lR`{{execute}}
    
-   
 2. Let's check the data directory on the server:
    
    On the first terminal tab: `cd`{{execute T1}}
 
    `ls -l /srv/data/`{{execute}}
 
-   The datafile that we placed on `local-data/` of the first user, has
+   The datafile that we placed on `data2/` of the second user, has
    already been transferred to the server, because that is a mounted
    remote directory.
    
@@ -31,4 +30,4 @@ a mediator.
    `ls -al data1/`{{execute}}
 
    This one is as well a mounted remote directory, so whatever is on
-   the server is available there.
+   the server is available here.
