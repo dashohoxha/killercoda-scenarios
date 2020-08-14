@@ -21,7 +21,7 @@ a mediator.
    `ls -l /srv/data/`{{execute}}
 
    The datafile that we placed on `local-data/` of the first user, has
-   already been transfered to the server, because that is a mounted
+   already been transferred to the server, because that is a mounted
    remote directory.
    
 3. Let's check the `data1/` on the home of the first user:

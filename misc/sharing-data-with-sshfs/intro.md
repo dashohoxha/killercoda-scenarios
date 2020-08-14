@@ -19,7 +19,7 @@ NFS, SMBFS, SSHFS, etc.), or with some distributed filesystem.
 
 In this tutorial we will see how to share data with the help of SSHFS,
 which is really easy to setup and convenient. All the members of the
-team (2 in our example) will mount throught SSHFS the same directory
+team (2 in our example) will mount through SSHFS the same directory
 from a central server, as shown in the following diagram:
 
 <p align="center">

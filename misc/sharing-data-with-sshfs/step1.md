@@ -31,7 +31,7 @@ we will do the setup for the first user and the second user.
 
    `adduser user2 data`{{execute}}
    
-3. Create a directory for the data storage and set propper permissions
+3. Create a directory for the data storage and set proper permissions
    to it:
 
    `mkdir -p /srv/data`{{execute}}

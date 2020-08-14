@@ -31,6 +31,11 @@
             "course_id": "central-git-repo-with-ssh",
             "title": "Central Git Repo With SSH",
             "description": "How to create a central Git repository on your own server and how to access it through ssh"
+        },
+        {
+            "course_id": "sharing-data-with-sshfs",
+            "title": "Sharing Data With SSHFS",
+            "description": "How to share data with the help of a sshfs-mounted central directory"
         }
     ]
 }
