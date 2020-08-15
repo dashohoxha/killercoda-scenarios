@@ -8,15 +8,12 @@
    
    `cd /var/ds/wordpress1/`{{execute}}
    
-   `vim settings.sh`{{execute}}
+   `# vim settings.sh    # optional`{{execute}}
    
    `ds make`{{execute}}
 
-2. Install a site:
-
-   `cd /var/ds/wordpress1/`{{execute}}
-   
-   Sites are managed with the command `ds site`:
+2. Sites are managed with the command `ds site`. Let's initialize and
+   install one:
    
    `ds site`{{execute}}
    
@@ -54,8 +51,6 @@
 
 3. Installing another site on the same container is almost the same:
 
-   `cd /var/ds/wordpress1/`{{execute}}
-   
    `ds site init site2.example.org`{{execute}}
    
    `ls`{{execute}}
@@ -78,7 +73,7 @@
    
    `cd /var/ds/wordpress2/`{{execute}}
    
-   `vim settings.sh`{{execute}}
+   `# vim settings.sh    # optional`{{execute}}
    
    `ds make`{{execute}}
 
@@ -91,3 +86,5 @@
    `vim site3.example.org/settings.sh`{{execute}}
    
    `ds site install site3.example.org`{{execute}}
+
+   `ls site3.example.org/`{{execute}}

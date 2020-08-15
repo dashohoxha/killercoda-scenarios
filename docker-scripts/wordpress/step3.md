@@ -2,8 +2,6 @@
 
 1. Backup `site3`:
 
-   `cd /var/ds/wordpress2/`{{execute}}
-   
    `ds backup`{{execute}}
    
    `ds backup site3.example.org`{{execute}}

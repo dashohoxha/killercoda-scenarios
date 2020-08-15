@@ -23,7 +23,7 @@
    
    `cd /var/ds/wsproxy/`{{execute}}
    
-   `vim settings.sh`{{execute}}
+   `# vim settings.sh   # optional`{{execute}}
    
    `ds make`{{execute}}
 
@@ -37,7 +37,7 @@
    
    `cd /var/ds/mariadb/`{{execute}}
    
-   `vim settings.sh`{{execute}}
+   `# vim settings.sh    # optional`{{execute}}
    
    `ds make`{{execute}}
    
