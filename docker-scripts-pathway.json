@@ -31,6 +31,11 @@
             "course_id": "minio",
             "title": "MinIO",
             "description": "Installing MinIO with docker-scripts. MinIO is a cloud storage server compatible with Amazon S3. As an object store, MinIO can store unstructured data such as photos, videos, log files, backups and container images."
+        },
+        {
+            "course_id": "wordpress",
+            "title": "Wordpress",
+            "description": "How to install and manage Wordpress sites with docker-scripts."
         }
     ]
 }
