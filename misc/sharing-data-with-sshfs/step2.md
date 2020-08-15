@@ -13,7 +13,7 @@ tab: `su - first-user`{{execute T2}}
 
 Then continue with the following steps:
 
-1. Set up the ssh config for the data server:
+1. Set up the ssh config for the central data server:
    
    `mkdir ~/.ssh`{{execute}}
    
@@ -87,10 +87,10 @@ Then continue with the following steps:
 4. Now that we configured an SSH connection to the server, let's
    mount with sshfs the data directory from the server
 
+   `apt install sshfs`{{execute}}
+   
    `mkdir -p data1`{{execute}}
 
-   ```
-   sshfs data-server:/srv/data data1
-   ```{{execute}}
+   `sshfs data-server:/srv/data data1`{{execute}}
 
    `df -h data1/`{{execute}}

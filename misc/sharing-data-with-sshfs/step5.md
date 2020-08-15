@@ -25,12 +25,12 @@ automatically.
 
    `ls -l ~/data2/`{{execute}}
 
-2. Mount the cache directory for the first user:
+2. Mount the data directory for the first user:
 
    On the first terminal: `whoami`{{execute T1}}
 
    Let's do a manual login first, so that the fingerprint of `host01`
-   is added on the list of known hosts:
+   is added on the list of known hosts of the root user:
    
    `ssh user1@host01 -i ~first-user/.ssh/data-server`{{execute}}
    
@@ -62,7 +62,7 @@ automatically.
    
    `ls -al ~first-user/data1/`{{execute}}
 
-3. Mount the cache directory for the second user:
+3. Mount the data directory for the second user:
 
    Get `uid` and `gid` of the second user:
    

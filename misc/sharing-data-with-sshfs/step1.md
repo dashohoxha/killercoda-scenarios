@@ -50,7 +50,3 @@ we will do the setup for the first user and the second user.
    of it, the new sub-directories or files that are created inside the
    repo dir will have the same group as the data dir. This is
    convenient for a group of users that use the same directory.
-
-4. Install sshfs:
-
-   `apt install sshfs`{{execute}}
