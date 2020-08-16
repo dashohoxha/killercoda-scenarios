@@ -32,8 +32,8 @@
    `cat ../wsproxy/sites-enabled/site1.example.org.conf`{{execute}}
    
    Initializing a site with `ds site init <domain>` not only creates a
-   directory for this site, but also creates the necessary virtual
-   domain configurations for it on the containers **wsproxy** and
+   directory for this site, but also creates the necessary VirtualHost
+   configurations for it on the containers **wsproxy** and
    **wordpress1** (the current container). It also gets a free SSL
    certificate from LetsEncrypt for this site/domain.
    

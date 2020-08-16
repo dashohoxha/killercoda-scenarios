@@ -9,10 +9,10 @@ one or more sites, as shown in the diagram:
 Since all these sites use the ports `80` and `443`, we need a reverse
 HTTP proxy in order to forward each request to the corresponding
 container that serves that site/domain. The docker-scripts container
-**wsproxy** plays this role, using Apache virtual domains. Not only
-that, but **wsproxy** also gets automatically a free LetsEncrypt SSL
-certificate for each domain/site that it manages, and also redirects
-automatically all HTTP requests to HTTPS.
+**wsproxy** plays this role, using Apache VirtualHost
+configurations. Not only that, but **wsproxy** also gets automatically
+a free LetsEncrypt SSL certificate for each domain/site that it
+manages, and also redirects automatically all HTTP requests to HTTPS.
 
 All the containers of docker-scripts are placed on the same local
 network, and **wsproxy** knows how to access the container of each
@@ -22,8 +22,9 @@ containers get their requests from **wsproxy** through the
 docker-scripts local network, so they don't need to expose the ports
 `80/443` to the host or to the outside world.
 
-Each Wordpress container in turn uses Apache virtual domains to be
-able to serve several (more than one) sites/domains.
+Each Wordpress container in turn uses Apache VirtualHost
+configurations to be able to serve several (more than one)
+sites/domains.
 
 Each Wordpress site needs also a database, and all of them use the
 docker-scripts container **mariadb**, which they access through the

@@ -58,7 +58,7 @@
    
    `ds wp site3.example.org option get home`{{execute}}
 
-5. Working inside the container
+5. Working inside the container:
 
    `ds shell`{{execute}}
    
