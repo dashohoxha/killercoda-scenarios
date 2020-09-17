@@ -8,14 +8,14 @@
 
    `cd /opt/docker-scripts/mariadb/`{{execute}}
    
-   `cat scripts/mariadb.sh`{{eceute}}
+   `cat scripts/mariadb.sh`{{execute}}
 
    ```
    sed -i scripts/mariadb.sh \
        -e '/fix a bug with systemd/,+3d'
    ```{{execute}}
 
-   `cat scripts/mariadb.sh`{{eceute}}
+   `cat scripts/mariadb.sh`{{execute}}
 
 3. Initialize a directory for the container:
 

@@ -27,6 +27,8 @@
    sed -i /lib/systemd/system/mariadb.service \
     -e '/SendSIGKILL/ c SendSIGKILL=yes'
    ```{{execute}}
+
+   `systemctl daemon-reload`{{execute}}
    
    `systemctl restart mariadb`{{execute}}
    
