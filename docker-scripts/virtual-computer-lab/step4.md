@@ -7,15 +7,19 @@
 
    `ds guac`{{execute}}
 
-   `ds guac server add linuxmint-1`{{execute}}
+   `ds guac conn add linuxmint-1 ssh`{{execute}}
 
-   `ds guac server ls`{{execute}}
+   `ds guac conn add linuxmint-1 rdp`{{execute}}
+
+   `ds guac conn ls`{{execute}}
 
    `ds guac user add student pass123`{{execute}}
 
    `ds guac user ls`{{execute}}
 
-   `ds guac user connect student linuxmint-1`{{execute}}
+   `ds guac user connect student linuxmint-1:ssh`{{execute}}
+
+   `ds guac user connect student linuxmint-1:rdp`{{execute}}
 
    `ds guac user ls student`{{execute}}
    
