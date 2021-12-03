@@ -1,8 +1,8 @@
 {
     "title": "Part 1",
-    "description": "What is the shell. Navigating and exploring the system. Manipulating files and directories. Commands about comands.",
+    "description": "What is the shell. Commands and options. Navigating and exploring the system.",
     "difficulty": "Easy",
-    "time": "45-60 minutes",
+    "time": "40-50 minutes",
     "details": {
         "steps": [
             {
@@ -21,14 +21,6 @@
                 "title": "Step 4",
                 "text": "step4.md"
             },
-            {
-                "title": "Step 5",
-                "text": "step5.md"
-            },
-            {
-                "title": "Step 6",
-                "text": "step6.md"
-            }
         ],
         "intro": {
             "text": "intro.md",
@@ -41,6 +33,6 @@
         "uilayout": "terminal"
     },
     "backend": {
-        "imageid": "ubuntu:1804"
+        "imageid": "ubuntu:2004"
     }
 }

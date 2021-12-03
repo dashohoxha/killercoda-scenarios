@@ -9,10 +9,6 @@ trap 'echo -ne "\033[00m"' DEBUG
 EOF
 source ~/.bashrc
 
-clear
-:;: Please wait until the box is ready.
-until hash makewhatis &>/dev/null; do sleep 1; done
-
 # clear screen
 clear
 :

@@ -5,16 +5,26 @@
         {
             "course_id": "part1",
             "title": "Part 1",
-            "description": "What is the shell. Navigating and exploring the system. Manipulating files and directories. Commands about comands."
+            "description": "What is the shell. Commands and options. Navigating and exploring the system."
         },
         {
             "course_id": "part2",
             "title": "Part 2",
-            "description": "Redirecting input/output of the command to and from files. Connecting multiple commands together into powerful pipelines. Shell expansions and quotes. Command history."
+            "description": "Manipulating files and directories. Commands about comands. Command history and keyboard tricks."
         },
         {
             "course_id": "part3",
             "title": "Part 3",
+            "description": "Exploring the system. Manipulating files and directories. Commands about commands."
+        },
+        {
+            "course_id": "part4",
+            "title": "Part 4",
+            "description": "Redirecting input/output of the command to and from files. Connecting multiple commands together into powerful pipelines. Shell expansions and quotes. Command history."
+        },
+        {
+            "course_id": "part7",
+            "title": "Part 7",
             "description": "Searching for files (locate, find). Regular expressions (grep). Text processing (cat, sort, uniq, cut, paste, join, diff, tr, sed)."
         }
     ]

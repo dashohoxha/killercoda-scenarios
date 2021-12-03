@@ -1,35 +1,92 @@
-# Redirecting standard input
+# Some commands about commands
 
-A command that makes use of standard input is `cat` (which is a
-shortening for concatenate). It usually takes one or more files as
-arguments and outputs their contents to the screen, joined together.
+1. The command `type` displays a command's type:
 
-`cat ls-output.txt ls-error.txt`{{execute}}
+   `type type`{{execute}}
+   
+   `type ls`{{execute}}
+   
+   `type cp`{{execute}}
+   
+   The command `cp` is an executable program located on `/bin/cp`.
+   
+2. The command `which` displays the location of an executable:
 
-However if no files are given as arguments it just reads lines from
-the standard input (keyboard by default) and writes them to the
-standard output (screen by default). Let's try it:
+   `which ls`{{execute}}
+   
+   `which cd`{{execute}}
+   
+   The command `cd` is not an executable but a shell builtin command.
+   
+   `type cd`{{execute}}
+   
+3. The command `help` displays a help page for the shell builtin
+   commands:
 
-`cat`{{execute}}
+   `help cd`{{execute}}
+   
+   `help mkdir`{{execute}}
+   
+   The command `mkdir` is not a shell builtin.
+   
+4. The option `--help` displays usage information:
 
-Type a couple of lines and thes press "Ctrl-d" to tell `cat` that it
-has reached the _end of file_ (EOF) on standard input.
+   `mkdir --help`{{execute}}
+   
+5. The command `man` displays the manual page of a program:
 
-If we redirect the standard output to a file, then it can be used to
-create short files. For example try these:
+   `man ls`{{execute}}
+   
+   Manual pages are organized into different sections, where section 1
+   for example is about user commands, and section 5 is about file
+   formats. So, these two commands will display different manual pages:
+   
+   `man passwd`{{execute}}
+   
+   `man 5 passwd`{{execute}}
+   
+6. The command `info` is another way to display manual pages:
 
-`cat > lazy_dog.txt`{{execute}}
+   `info coreutils`{{execute}}
+   
+   `info passwd`{{execute}}
+   
+7. The command `apropos` displays appropriate commands:
 
-`The quick brown fox jumped over the lazy dog.`{{execute}}
+   `apropos passwd`{{execute}}
+   
+   This is the same as:
+   
+   `man -k passwd`{{execute}}
+   
+   It makes a simple search of man pages for the term "passwd".
+   
+8. The command `whatis` displays a very brief description of a
+   command:
+   
+   `whatis ls`{{execute}}
+   
+9. The command `alias` is used to create new commands.
 
-Press "Ctrl-d" at the end.
-
-`cat lazy_dog.txt`{{execute}}
-
-To redirect the _standard input_ (**stdin**) we can use the
-redirection operator "`<`", like this:
-
-`cat < lazy_dog.txt`{{execute}}
-
-We have changed the source of standard input from the keyboard to the
-file `lazy_dog.txt`.
+   `alias --help`{{execute}}
+   
+   `alias`{{execute}}
+   
+   `type alias`{{execute}}
+   
+   `type ls`{{execute}}
+   
+   `cd /usr; ls; cd -`{{execute}}
+   
+   `type foo`{{execute}}
+   
+   `alias foo="cd /usr; ls; cd -"`{{execute}}
+   
+   `type foo`{{execute}}
+   
+   `foo`{{execute}}
+   
+   `unalias foo`{{execute}}
+   
+   `type foo`{{execute}}
+   

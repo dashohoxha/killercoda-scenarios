@@ -1,8 +1,8 @@
 {
     "title": "Part 3",
-    "description": "Permissions. Processes. Environment",
-    "difficulty": "Easy",
-    "time": "40-50 minutes",
+    "description": "Searching for files (locate, find). Regular expressions (grep). Text processing (cat, sort, uniq, cut, paste, join, diff, tr, sed).",
+    "difficulty": "Medium",
+    "time": "45-60 minutes",
     "details": {
         "steps": [
             {
@@ -21,6 +21,14 @@
                 "title": "Step 4",
                 "text": "step4.md"
             },
+            {
+                "title": "Step 5",
+                "text": "step5.md"
+            },
+            {
+                "title": "Step 6",
+                "text": "step6.md"
+            }
         ],
         "intro": {
             "text": "intro.md",
@@ -33,6 +41,6 @@
         "uilayout": "terminal"
     },
     "backend": {
-        "imageid": "ubuntu:2004"
+        "imageid": "ubuntu:1804"
     }
 }

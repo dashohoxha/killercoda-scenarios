@@ -1,8 +1,8 @@
 {
-    "title": "Part 3",
-    "description": "Permissions. Processes. Environment",
+    "title": "Part 2",
+    "description": "Redirecting input/output of the command to and from files. Connecting multiple commands together into powerful pipelines. Shell expansions and quotes. Command history.",
     "difficulty": "Easy",
-    "time": "40-50 minutes",
+    "time": "45-60 minutes",
     "details": {
         "steps": [
             {
@@ -21,11 +21,18 @@
                 "title": "Step 4",
                 "text": "step4.md"
             },
+            {
+                "title": "Step 5",
+                "text": "step5.md"
+            },
+            {
+                "title": "Step 6",
+                "text": "step6.md"
+            }
         ],
         "intro": {
             "text": "intro.md",
             "credits": "http://linuxcommand.org/lc3_learning_the_shell.php",
-            "courseData": "install.sh",
             "code": "init.sh"
         }
     },
@@ -33,6 +40,6 @@
         "uilayout": "terminal"
     },
     "backend": {
-        "imageid": "ubuntu:2004"
+        "imageid": "ubuntu:1804"
     }
 }

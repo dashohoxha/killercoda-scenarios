@@ -1,101 +1,176 @@
-# Redirecting stdout and stderr
+# Manipulating files and directories
 
-1. To redirect standard output to a file we can use the "`>`"
-   redirection operator.
+To work with files and directories we can use these commands:
+- `cp` - Copy files and directories
+- `mv` - Move/rename files and directories
+- `mkdir` - Create directories
+- `rm` - Remove files and directories
+- `ln` - Create hard and symbolic links
 
-   `ls -l /usr/bin`{{execute}}
-   
-   `ls -l /usr/bin > ls-output.txt`{{execute}}
-   
-   `ls -l ls-output.txt`{{execute}}
-   
-   `less ls-output.txt`{{execute}}
-   
-2. Let's try the same example with a directory that does not exist:
+Let's use them in some examples.
 
-   `ls -l /bin/usr`{{execute}}
-   
-   `ls -l /bin/usr > ls-output.txt`{{execute}}
-   
-   `ls` does not send its error messages to standard output.
-   
-   `ls -l ls-output.txt`{{execute}}
+1. Creating directories:
 
-   The file has zero length.
+   `cd`{{execute}}
    
-   `less ls-output.txt`{{execute}}
+   `mkdir playground`{{execute}}
    
-   The redirection operator `>` has erased the previous content of the
-   file. In fact, if we ever need to trucate (erase the content of) a
-   file, or to create a new empty file, we can use a trick like this:
+   `cd playground`{{execute}}
    
-   `> ls-output.txt`{{execute}}
+   `mkdir dir1 dir2`{{execute}}
    
-3. To actually append the redirected output to the existing content of
-   the file, instead of overwriting it, we can use the operator
-   "`>>`":
+   `ls -l`{{execute}}
    
-   `ls -l /usr/bin >> ls-output.txt`{{execute}}
-   
-   `ls -lh ls-output.txt`{{execute}}
-   
-   `ls -l /usr/bin >> ls-output.txt`{{execute}}
-   
-   `ls -lh ls-output.txt`{{execute}}
-   
-   `ls -l /usr/bin >> ls-output.txt`{{execute}}
-   
-   `ls -lh ls-output.txt`{{execute}}
-   
-   Notice that the size of the file is growing each time.
-   
-4. To redirect stderr we can use the operators "`2>`" and "`2>>`". In
-   Linux, the standard output has the _file descriptor_ (file stream
-   number) **1**, and the standard error has the _file descriptor_
-   **2**. So, hopefully this syntax makes sense to you and is similar
-   to that of redirecting stdout.
-   
-   `ls -l /bin/usr 2> ls-error.txt`{{execute}}
-   
-   `ls -l ls-error.txt`{{execute}}
-   
-   `less ls-error.txt`{{execute}}
+2. Copying files:
 
-5. We can redirect both stdout and stderr to the same file, like this:
+   `cp /etc/passwd .`{{execute}}
+   
+   `ls -l`{{execute}}
+   
+   Notice that `.` is the current working directory.
+   
+   `cp -v /etc/passwd .`{{execute}}
+   
+   The option `-v` makes the command verbose.
 
-   `ls -l /bin/usr > ls-output.txt 2>&1`{{execute}}
+   `cp -i /etc/passwd .`{{execute}}
    
-   The redirection `2>&1` redirects the file descriptor `2` (stderr)
-   to the file descriptor `1` (stdout). But before that we redirected
-   the stdout to `ls-output.txt`, so both stdout and stderr will be
-   directed to this file.
-   
-   Notice that the order of the redirections is significant.  Let's
-   try it like this:
-   
-   `ls -l /bin/usr 2>&1 >ls-output.txt`{{execute}}
-   
-   In this case we redirect file descriptor `2` (stderr) to file
-   descriptor `1`, which is already the screen, and then we redirect
-   the file descriptor `1` (stdout) to the file. So, the error
-   messages will still be sent to the screen and not to the file.
-   
-   A shortcut for redirecting both stdout and stderr to the same file
-   is using "`&>`":
-   
-   `ls -l /bin/usr &> ls-output.txt`{{execute}}
-   
-   For appending to the file we can use "`&>>`":
+   The option `-i` makes the command _interactive_. This means that it
+   asks you first, before doing any potentially destructive actions.
+   Press `y`{{execute}} or `n`{{execute}} to continue.
 
-   `ls -l /bin/usr &>> ls-output.txt`{{execute}}
-   
-   `ls -lh ls-output.txt`{{execute}}
-   
-   `ls -l /bin/usr &>> ls-output.txt`{{execute}}
-   
-   `ls -lh ls-output.txt`{{execute}}
+3. Moving and renaming files:
 
-6. To throw away the output or the error messages of a command, we can
-   send them to `/dev/null`:
+   `mv passwd fun`{{execute}}
    
-   `ls -l /bin/usr 2> /dev/null`{{execute}}
+   `ls -l`{{execute}}
+   
+   `mv fun dir1`{{execute}}
+   
+   `ls -l`{{execute}}
+   
+   `ls -l dir1`{{execute}}
+   
+   `mv dir1/fun dir2`{{execute}}
+   
+   `ls -l dir1`{{execute}}
+   
+   `ls -l dir2`{{execute}}
+   
+   `mv dir2/fun .`{{execute}}
+   
+   `ls -lR`{{execute}}
+   
+   `mv fun dir1`{{execute}}
+   
+   `mv dir1 dir2`{{execute}}
+   
+   `ls -lR`{{execute}}
+   
+   `ls -l dir2/dir1`{{execute}}
+   
+   `mv dir2/dir1 .`{{execute}}
+   
+   `mv dir1/fun .`{{execute}}
+   
+   `ls -lR`{{execute}}
+   
+4. Creating hard links:
+
+   `ln fun fun-hard`{{execute}}
+   
+   `ln fun dir1/fun-hard`{{execute}}
+   
+   `ln fun dir2/fun-hard`{{execute}}
+   
+   `ls -lR`{{execute}}
+   
+   Notice that the second field in the listing of `fun` and `fun-hard`
+   is `4`, which shows the number of the links for the file. Hard
+   links are like different names for the same file content.
+   
+   To make sure that all four of them are the same file, let's try the
+   option `-i`:
+
+   `ls -lRi`{{execute}}
+   
+   You may notice that the number on the first column is the same for
+   all the files. This is called the _inode_ number of a file, and can
+   be thought as the address where the file is located. Since it is
+   the same for all the files, this shows that they are actually the
+   same file.
+
+5. Creating symbolic links:
+
+   `ln -s fun fun-sym`{{execute}}
+   
+   `ls -l`{{execute}}
+   
+   Symbolic links are a special type of file that contains a text
+   pointer to the target file or directory. They were created to
+   overcome two disadvantages of hard links:
+   1. hard links cannot span physical devices
+   2. hard links cannot reference directories, only files
+   
+   `ln -s ../fun dir1/fun-sym`{{execute}}
+   
+   `ln -s ../fun dir2/fun-sym`{{execute}}
+   
+   `ls -lR`{{execute}}
+   
+   These two examples might seem a bit difficult to understand what is
+   going on. But remember that when we create a symbolic link, we are
+   creating a text description of where the target file is, relative
+   to the symbolic link.
+   
+   We can also use absolute file names when creating symbolic links:
+   
+   `ln -sf /root/playground/fun dir1/fun-sym`{{execute}}
+   
+   `ls -l dir1/`{{execute}}
+   
+   However, in most cases, using relative pathnames is more desirable,
+   because it allows a directory tree containing symbolic links and
+   their referenced files to be renamed and/or moved without breaking
+   the links.
+   
+   In addition to regular files, symbolic links can also reference
+   directories:
+   
+   `ln -s dir1 dir1-sym`{{execute}}
+   
+   `ls -l`{{execute}}
+   
+6. Removing files and directories.
+
+   Let's clean up the playground a little bit. First let's delete one
+   of the hard links:
+
+   `rm fun-hard`{{execute}}
+   
+   `ls -l`{{execute}}
+   
+   Notice that the link count for `fun` is reduced from 4 to 3 (as
+   indicated in the second field of the directory listing).
+   
+   `rm -i fun`{{execute}}
+   
+   Press `y`{{execute}} to confirm.
+   
+   `ls -l`{{execute}}
+   
+   `less fun-sym`{{execute}}
+   
+   The symbolic link now is broken.
+   
+   `rm fun-sym dir1-sym`{{execute}}
+   
+   `ls -l`{{execute}}
+   
+   When we remove a symbolic link the target is not touched.
+   
+   `rm -r dir1/`{{execute}}
+   
+   `cd ..`{{execute}}
+   
+   `rm -rf playground/`{{execute}}

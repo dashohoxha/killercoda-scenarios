@@ -1,94 +1,45 @@
-# Shell expansions
-   
-Each time we type a command and press the enter key, `bash` performs
-several processes upon the text before it carries out the command.
-This process is called `expansion`.
+# Keyboard tricks
 
-1. The "`*`" character means match any characters in a filename:
+In the previous section we saw that we can search the command history
+and recall one of the previous commands by pressing "Ctrl-r". We can
+also use the arrows Up and Down to select one of the previous
+commands, and Left and Right arrows to move the cursor while editing a
+command.
 
-   `echo this is a test`{{execute}}
-   
-   `echo` displays all the arguments that are passed to it.
-   
-   `cd /usr`{{execute}}
-   
-   `ls`{{execute}}
-   
-   `echo *`{{execute}}
+1. Some other useful key combinations that we can use while editing
+   commands are:
 
-   The shell expands the "`*`" before executing the command `echo`.
+   - "Ctrl-a" -- Move cursor to the beginning of the line.
+   - "Ctrl-e" -- Move cursor to the end of the line.
+   - "Alt-f" -- Move cursor forward one word.
+   - "Alt-b" -- Move cursor backward one word.
 
-   `echo l*`{{execute}}
-   
-   `echo *n`{{execute}}
-   
-   `echo l*32`{{execute}}
-   
-   `echo */share`{{execute}}
-   
-   `echo /*/*/bin`{{execute}}
-   
-   `echo *[[:digit:]]`{{execute}}
-   
-   `echo /etc/[[:upper:]]*`{{execute}}
+   - "Ctrl-l" -- Clear the screen and move the cursor to the top. Same
+	 as the `clear` command.
 
-2. The tilde character ("`~`") expands to the home directory:
+   - "Ctrl-k" -- Kill (cut) text from the cursor location to the end
+	 of the line.
+   - "Ctrl-u" -- Cut text from the cursor location to the beginning of
+	 the line.
+   - "Ctrl-d" -- Delete the character at the cursor location.
+   - "Alt-d" -- Cut text from the cursor location to the end of the
+	 current word.
+   - "Ctrl-y" -- Yank (paste) text from the kill-ring and insert it at
+	 the cursor location.
+	 
+   Write a command and try to of these key combinations.
 
-   `echo ~`{{execute}}
-   
-   `echo ~root`{{execute}}
-   
-3. Arithmetic expansion:
-
-   `echo $((2 + 2))`{{execute}}
-   
-   `echo $(($((5**2)) * 3))`{{execute}}
-   
-   `echo $(((5**2) * 3))`{{execute}}
-
-   `echo Five divided by two equals $((5/2))`{{execute}}
-   
-   `echo with $((5%2)) left over`{{execute}}
-
-4. Brace expansion:
-
-   `echo Front-{A,B,C}-Back`{{execute}}
-   
-   `echo Number_{1..5}`{{execute}}
-   
-   `echo {01..15}`{{execute}}
-   
-   `echo {001..15}`{{execute}}
-   
-   `echo {Z..A}`{{execute}}
-   
-   `echo a{A{1,2},B{3,4}}b`{{execute}}
+2. The shell can also help us with _completion_, if we press the TAB
+   key while typing a command. For example try:
    
    `cd`{{execute}}
    
-   `mkdir Photos`{{execute}}
-   
-   `cd Photos`{{execute}}
-   
-   `mkdir {2017..2019}-{01..12}`{{execute}}
-   
    `ls`{{execute}}
    
-5. Variable expansion:
-
-   `echo $USER`{{execute}}
+   Now type `ls D` (without pressing Enter) and press TAB. Press TAB a
+   second time. The shell shows us possible completions of the command
+   that we are typing.
    
-   `printenv | less`{{execute}}
-   
-   `echo $SUER`{{execute}}
-   
-   When the variable does not exist, it is expanded to the empty
-   string.
-   
-6. Command substitution:
-
-   `echo $(ls)`{{execute}}
-   
-   `ls -l $(which cp)`{{execute}}
-
-   `echo "$(cal)"`{{execute}}
+   If we type `oc` after `D` (like `ls Doc`) and then press TAB, the
+   shell will complete the command to `ls Documents`. Now we can press
+   Enter.

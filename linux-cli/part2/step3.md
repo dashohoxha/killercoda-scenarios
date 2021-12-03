@@ -1,84 +1,78 @@
-# Pipelines and filters
+# Command history
 
-1. Using the pipe operator "`|`" (vertical bar), the standard output
-   (stdout) of a command can be _piped_ to the standard input (stdin)
-   of another command. This is a powerful feature that allows us to
-   perform complex operations on data by combining simple
-   utilities. Let's see some examples:
+1. The history of the typed commands is kept on `~/.bash_history`:
 
-   `ls -l /usr/bin`{{execute}}
+   `echo $HISTFILE`{{execute}}
+   
+   `ls $HISTFILE`{{execute}}
+   
+   Bash maintains the list of commands internally in memory while it's
+   running, and writes it to the history file on exit. That's why we
+   don't see yet the history file. Let's tell Bash to append the
+   command list to the history file now:
+   
+   `history -a`{{execute}}
+   
+   `ls $HISTFILE`{{execute}}
+   
+   `tail $HISTFILE`{{execute}}
+   
+   `less $HISTFILE`{{execute}}
+   
+2. The command `history` can also be used to display the history list:
 
-   `ls -l /usr/bin | less`{{execute}}
+   `history`{{execute}}
+   
+   `history | less`{{execute}}
+   
+   `history | tail`{{execute}}
+   
+   `history | tail -n 20`{{execute}}
+   
+   `history | grep /usr/bin`{{execute}}
+   
+3. We can re-run a previous command like this:
 
-2. We can sort the data with `sort`:
+   `!70`{{execute}}
+   
+   Rerun the command which has the given number.
+   
+   `!ls`{{execute}}
+   
+   Rerun the last command that _starts_ with `ls`.
+   
+   `!?balance`{{execute}}
+   
+   Rerun the last command that _contains_ `balance`.
+   
+   `history | grep balance`{{execute}}
+   
+4. We can recall the previous commands also by using the up-arrow.
 
-   `ls /bin /usr/bin`{{execute}}
-
-   `ls /bin /usr/bin | sort | less`{{execute}}
-
-3. `uniq` can omit or report repeated lines:
-
-   `ls /bin /usr/bin | sort | uniq | less`{{execute}}
-
-   If we want to see the list of duplicates instead we can use the
-   option `-d`:
+5. However the most useful way to rerun previous commands is searching
+   interactively, with keyboard shortcuts.
    
-   `ls /bin /usr/bin | sort | uniq -d | less`{{execute}}
-
-4. `wc` counts the lines, words, and bytes of the input:
-
-   `wc ls-output.txt`{{execute}}
+   For example typing "Ctrl-r" will start a reverse incremental
+   search. It is "reverse" because it searches backwards in the
+   history list, starting from the last command. While we start typing
+   the search text it will display the last command that matches it.
+   If we are happy with the search result we can just press enter to
+   rerun it, or we can use the left and right arrows to edit it first
+   and then press enter to run it. Otherwise we can keep pressing
+   "Ctrl-r" to get the next matching command, and so on.
    
-   `cat ls-output.txt | wc`{{execute}}
+   Let's try it:
    
-   If we want it to show only the lines we can use the option `-l`:
+   Press "Ctrl-r".
    
-   `ls /bin /usr/bin | sort | wc -l`{{execute}}
-
-   `ls /bin /usr/bin | sort -u | wc -l`{{execute}}
-
-   `ls /bin /usr/bin | sort | uniq -d | wc -l`{{execute}}
-
-5. `grep` prints the lines that match a given pattern:
-
-   `ls /bin /usr/bin | sort -u | grep zip`{{execute}}
+   Type "/usr/bin".
    
-   `ls /bin /usr/bin | sort -u | grep zip | wc -l`{{execute}}
+   Press "Ctrl-r" again.
    
-   The option `-v` shows the lines that do match the pattern:
+   Press "Ctrl-r" again.
    
-   `ls /bin /usr/bin | sort -u | grep -v zip`{{execute}}
+   Press "Ctrl-e" to go to the end of the command.
    
-   `ls /bin /usr/bin | sort -u | grep -v zip | wc -l`{{execute}}
+   Erase number "5" and type "3" instead.
    
-   The option `-i` can be used if we want grep to ignore case when
-   searching (case in-sensitive search).
-   
-6. `head` / `tail` print the top or the last lines of input:
-
-   `ls /usr/bin > ls-output.txt`{{execute}}
-
-   `head ls-output.txt`{{execute}}
-   
-   `tail ls-output.txt`{{execute}}
-   
-   `tail -n 5 ls-output.txt`{{execute}}
-   
-   `tail -5 ls-output.txt`{{execute}}
-   
-   `ls /usr/bin | head -n 5`{{execute}}
-   
-   `tail /var/log/syslog -n 20`{{execute}}
-   
-   `tail /var/log/syslog -f`{{execute}}
-   
-   The option `-f` makes it follow the latest changes of the file in
-   real time. Press "Ctrl-c" to terminate it.
-   
-7. `tee` sends its input both to stdout and to files:
-
-   `ls /usr/bin | tee ls.txt | grep zip`{{execute}}
-   
-   `ls -l ls.txt`{{execute}}
-   
-   `less ls.txt`{{execute}}
+   Press "Enter".
