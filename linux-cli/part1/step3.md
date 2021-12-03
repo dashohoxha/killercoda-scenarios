@@ -2,7 +2,7 @@
 
 Let's see some options of the command `ls`.
 
-1. List only some file:
+1. List only some files:
 
    `ls /bin`{{execute}}
 
@@ -20,21 +20,21 @@ Let's see some options of the command `ls`.
 
 3. Long and short options.
 
-   Notice that the middle command shows the size of the file (in
+   Notice that the middle column shows the size of the file (in
    bytes). To make the size more readable we can use the option
    `--human-readable`:
 
    `ls -l --human-readable /bin/b* /bin/c*`{{execute}}
 
-   Instead of this long option we can its short equivalent `-h`, which
-   is more convenient to write:
+   Instead of this long option we can use its short equivalent `-h`,
+   which is more convenient to write:
 
    `ls -l -h /bin/b* /bin/c*`{{execute}}
    
-   **Tip:** In order to modify a previous command, you can use the
+   **Tip:** In order to modify the previous command, you can use the
    _up-arrow_ key on the keyboard to display the previous command, use
-   left-arrow and right-arrow keys to locate the cursor, modify the
-   command, and then press [Enter].
+   _left-arrow_ and _right-arrow_ keys to locate the cursor, modify
+   the command, and then press [Enter].
 
 4. Merging short options.
 
@@ -63,6 +63,6 @@ Usually the options have a long version (like `--reverse` or
 all of them. For example the options `-l` or `-t` don't have a long
 version.
 
-It seems like the short options are more convenient when
-writing commands, why do you think the long options might be
-useful?
+It seems like the short options are more convenient when writing
+commands. In your opinion, why do we have long options as well? Why
+they might be useful?

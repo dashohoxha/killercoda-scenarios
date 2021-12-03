@@ -32,14 +32,14 @@ Let's try some of these:
    
    `file bzmore`{{execute}}
    
-   The file `bzmore` is shell script and actually a text file, so we
+   The file `bzmore` is a shell script and actually a text file, so we
    can read its content:
    
    `less bzmore`{{execute}}
    
    Press [Space] a couple of times, and then quit with `q`.
    
-   Shell scripts are kind of programs that contain Linux commands.
+   Shell scripts are like programs and contain Linux commands.
    
    The command `less` displays the contents of a **text** file
    page-by-page.

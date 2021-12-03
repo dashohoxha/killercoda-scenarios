@@ -29,11 +29,11 @@
    
    `history | tail -n 20`{{execute}}
    
-   `history | grep /usr/bin`{{execute}}
+   `history | grep man`{{execute}}
    
 3. We can re-run a previous command like this:
 
-   `!70`{{execute}}
+   `!67`{{execute}}
    
    Rerun the command which has the given number.
    
@@ -41,13 +41,14 @@
    
    Rerun the last command that _starts_ with `ls`.
    
-   `!?balance`{{execute}}
+   `!?passwd`{{execute}}
    
-   Rerun the last command that _contains_ `balance`.
+   Rerun the last command that _contains_ `passwd`.
    
-   `history | grep balance`{{execute}}
+   `history | grep passwd`{{execute}}
    
-4. We can recall the previous commands also by using the up-arrow.
+4. We can recall the previous commands also by pressing the _up-arrow_
+   multiple times.
 
 5. However the most useful way to rerun previous commands is searching
    interactively, with keyboard shortcuts.
@@ -58,21 +59,17 @@
    the search text it will display the last command that matches it.
    If we are happy with the search result we can just press enter to
    rerun it, or we can use the left and right arrows to edit it first
-   and then press enter to run it. Otherwise we can keep pressing
+   and then press [Enter] to run it. Otherwise we can keep pressing
    "Ctrl-r" to get the next matching command, and so on.
    
    Let's try it:
    
-   Press "Ctrl-r".
+   1. Press "Ctrl-r".
    
-   Type "/usr/bin".
+   2. Type "pass".
    
-   Press "Ctrl-r" again.
+   3. Press "Ctrl-r" again.
    
-   Press "Ctrl-r" again.
+   4. Press "Ctrl-r" again.
    
-   Press "Ctrl-e" to go to the end of the command.
-   
-   Erase number "5" and type "3" instead.
-   
-   Press "Enter".
+   5. Press "Enter".

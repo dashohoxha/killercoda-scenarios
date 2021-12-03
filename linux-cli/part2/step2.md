@@ -8,7 +8,7 @@
    
    `type cp`{{execute}}
    
-   The command `cp` is an executable program located on `/bin/cp`.
+   The command `cp` is an executable program located on `/usr/bin/cp`.
    
 2. The command `which` displays the location of an executable:
 
@@ -59,7 +59,7 @@
    
    `man -k passwd`{{execute}}
    
-   It makes a simple search of man pages for the term "passwd".
+   It makes a simple search on man pages for the term "passwd".
    
 8. The command `whatis` displays a very brief description of a
    command:
