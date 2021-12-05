@@ -1,4 +1,3 @@
 #!/bin/bash
 
-# install mandoc
-apt install -y mandoc
+echo "force_color_prompt=yes" >> /etc/bash.bashrc
