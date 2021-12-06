@@ -4,7 +4,9 @@ it can be used by more than one user at the same time. One of the
 challenges of such a system is that it needs to identify users and
 protect them from each-other.
 
-- Permissions (id, chmod, umask, su, sudo, chown, chgrp, passwd).
-- Processes (ps, top, jobs, bg, fg, kill, killall, shutdown).
-- The environment (printenv, set, export, alias). Customizing the
+- Users and groups, permissions (useradd, passwd, id, chmod, umask,
+  su, sudo, chown, chgrp).
+- Processes and signals (ps, pstree, top, jobs, bg, fg, kill, killall,
+  shutdown).
+- The shell environment (printenv, set, export). Customizing the
   prompt.

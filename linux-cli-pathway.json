@@ -15,7 +15,7 @@
         {
             "course_id": "part3",
             "title": "Part 3",
-            "description": "Exploring the system. Manipulating files and directories. Commands about commands."
+            "description": "Users and groups, permissions. Processes and signal. The shell environment. Customizing the prompt."
         },
         {
             "course_id": "part4",
