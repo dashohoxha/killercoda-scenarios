@@ -76,6 +76,8 @@ referred to as _others_.
    
    `ls -l foo.txt`{{execute}}
    
+   `ls -al`{{execute}}
+   
    The first char of attributes shows the file type. If this char is a
    `-` it is a regular file, `d` is for a directory, `l` for a
    symbolic link, `c` for a _character special file_ (for example a
@@ -129,7 +131,7 @@ referred to as _others_.
     
      `ls -l foo.txt`{{execute}}
 
-   - Add _execute_ to user, group and others should have only _read_
+   - Add _execute_ to user. Group and others should have only _read_
      and _execute_:
 	 
      `chmod u+x,go=rx foo.txt`{{execute}}
@@ -160,8 +162,8 @@ referred to as _others_.
    
    `ls -l foo.txt`{{execute}}
    
-   Th reason that the others don't have a `w` permission is because of
-   the mask. Remember that the number **2** in octal is written as
+   The reason that the others don't have a `w` permission is because
+   of the mask. Remember that the number **2** in octal is written as
    `010`, so the permissions expressed by it are `-w-`. This means
    that the `w` permission for the others will be removed from the
    attributes.

@@ -1,7 +1,7 @@
 # Example with permissions
 
 In this example we will set up a shared directory between the users
-"bill" and "karen", where they can store their music file.
+"bill" and "karen", where they can store their music files.
 
 1. Let's create these users first:
 

@@ -36,8 +36,8 @@ values.
    
    `PATH` is used by shell to find a program. For example when we call
    `ls`, shell is looking for it in the first directory of the PATH,
-   then in the second, and so on. The command `which ls` shows us
-   where the shell finds the program `ls`.
+   then in the second, and so on. The command `which ls`{{execute}}
+   shows us where the shell finds the program `ls`.
 
 3. The environment variables are declared in some configuration files
    that the shell loads when it starts. There two kinds of shells: a
@@ -109,15 +109,25 @@ values.
    
    `PS1="$ps1_old"`{{execute}}
    
+   Let's try some other prompts:
+   
    `PS1="--> "`{{execute}}
+   
+   `ls -al`{{execute}}
    
    `PS1="\$ "`{{execute}}
    
+   `ls -al`{{execute}}
+   
    `PS1="\A \h \$ "`{{execute}}
+   
+   `ls -al`{{execute}}
    
    "\A" displays the time of day and "\h" displays the host.
    
    `PS1="<\u@\h \W>\$ "`{{execute}}
+   
+   `ls -al`{{execute}}
    
    "\u" displays the user and "\W" displays the name of the current
    directory.

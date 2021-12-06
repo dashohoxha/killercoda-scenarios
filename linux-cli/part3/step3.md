@@ -3,10 +3,10 @@
 A _process_ is a program that is being executed by the system. Linux
 is a _multitasking_ system, which means that it can run many processes
 at the same time. Actually, if there is only one processor, only one
-process can be executed as a certain time. However the Linux kernel
+process can be executed at a certain time. However the Linux kernel
 can switch quickly between different processes, allowing each of them
-to run for a short time, and because this happens very fast it gives
-the impression that all the programs run in parallel.
+to run for a short time, and because this happens very fast, it gives
+the impression that all the programs are running in parallel.
 
 A process in Linux is started by another process, so each process has
 a parent and may have some children. Only the `init` process does not
@@ -23,7 +23,6 @@ kernel after it is loaded.
 
    `ps a`{{execute}}
 
-
    Shows all the processes associated with any terminal. TIME shows the
    amount of CPU time consumed by a process. STAT shows the state of
    the process, where `S` is for sleeping, `R` is for running, etc.
@@ -32,7 +31,6 @@ kernel after it is loaded.
 
    Displays also the user (the owner of the process). It also shows
    what percentage of RAM and CPU a process is using.
-
 
    `ps --help`{{execute}}
 
@@ -47,7 +45,7 @@ kernel after it is loaded.
 
    `pstree`{{execute}}
    
-   With `-p` show also the PIDs:
+   With `-p` shows also the PIDs:
 
    `pstree -p | less`{{execute}}
    
@@ -68,6 +66,8 @@ kernel after it is loaded.
    The first part of the display shows a system summary, and the
    second part shows a list of processes, with the most actives ones
    at the top (those that consume more RAM, CPU and other resources).
+   
+   Press `q`{{execute}} to exit.
    
 4. When we give a command in terminal, the shell starts a new process,
    and waits until that process is done, before returning the prompt.
