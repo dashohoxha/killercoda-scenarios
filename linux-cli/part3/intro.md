@@ -1,8 +1,10 @@
-Linux, like UNIX, is not only a multi-tasking, but also a multi-user
-system. This means that the system can be used by more than one
-user. So, the system needs to identify users and protect them from
-each-other.
+Linux, like UNIX, is a multi-tasking and a multi-user system. This
+means that the system can run multiple programs at the same time, and
+it can be used by more than one user at the same time. One of the
+challenges of such a system is that it needs to identify users and
+protect them from each-other.
 
 - Permissions (id, chmod, umask, su, sudo, chown, chgrp, passwd).
 - Processes (ps, top, jobs, bg, fg, kill, killall, shutdown).
-- Environment.
+- The environment (printenv, set, export, alias). Customizing the
+  prompt.

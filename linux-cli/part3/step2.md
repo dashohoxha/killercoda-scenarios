@@ -33,7 +33,7 @@ In this example we will set up a shared directory between the users
 
    `ls -ld /usr/local/share/Music`{{execute}}
 
-   To make this directory sharable we need to change the group
+   To make this directory shareable we need to change the group
    ownership and the group permissions to allow writing:
 
    `chown :music /usr/local/share/Music`{{execute}}
@@ -49,10 +49,11 @@ In this example we will set up a shared directory between the users
    but cannot create files there.
 
 4. But we still have a problem. Let's try to create a file as user
-   `bill`.
+   `bill`. First let's open another terminal tab: `cd`{{execute T2}}
    
-   First let's open another terminal tab and login as user `bill` by
-   running: `su -l bill`{{execute T2}}
+   Login as user `bill`:
+   
+   `su -l bill`{{execute T2}}
    
    Now let's create an empty file, just for testing:
    

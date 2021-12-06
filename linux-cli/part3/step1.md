@@ -187,17 +187,17 @@ referred to as _others_.
    
    `whoami`{{execute}}
    
-   Superuser priviledes are required to use it. Let's exit from the
+   Superuser privileges are required to use it. Let's exit from the
    shell of `user1` and try again as user `root`:
 
    `exit`{{execute}}
    
    `whoami`{{execute}}
    
-   `chown root: foo.txt`{{execute}}
+   `chown root: /home/user1/foo.txt`{{execute}}
 
-   `ls -l foo.txt`{{execute}}
+   `ls -l /home/user1/foo.txt`{{execute}}
    
-   `chown user1:root foo.txt`{{execute}}
+   `chown user1:root /home/user1/foo.txt`{{execute}}
    
-   `ls -l foo.txt`{{execute}}
+   `ls -l /home/user1/foo.txt`{{execute}}
