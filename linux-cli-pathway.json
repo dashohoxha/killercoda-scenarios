@@ -20,7 +20,12 @@
         {
             "course_id": "part4",
             "title": "Part 4",
-            "description": "Redirecting input/output of the command to and from files. Connecting multiple commands together into powerful pipelines. Shell expansions and quotes. Command history."
+            "description": "Redirecting input/output of the command to and from files. Connecting multiple commands together into powerful pipelines."
+        },
+        {
+            "course_id": "part5",
+            "title": "Part 5",
+            "description": "Shell expansions and shell quotes."
         },
         {
             "course_id": "part7",
