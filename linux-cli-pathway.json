@@ -3,33 +3,33 @@
     "description": "Learning simple and advanced Linux commands by examples.",
     "courses": [
         {
-            "course_id": "part1",
-            "title": "Part 1",
+            "course_id": "lesson1",
+            "title": "Lesson 1",
             "description": "What is the shell. Commands and options. Navigating and exploring the system."
         },
         {
-            "course_id": "part2",
-            "title": "Part 2",
+            "course_id": "lesson2",
+            "title": "Lesson 2",
             "description": "Manipulating files and directories. Commands about comands. Command history and keyboard tricks."
         },
         {
-            "course_id": "part3",
-            "title": "Part 3",
+            "course_id": "lesson3",
+            "title": "Lesson 3",
             "description": "Users and groups, permissions. Processes and signal. The shell environment. Customizing the prompt."
         },
         {
-            "course_id": "part4",
-            "title": "Part 4",
+            "course_id": "lesson4",
+            "title": "Lesson 4",
             "description": "Redirecting input/output of the command to and from files. Connecting multiple commands together into powerful pipelines."
         },
         {
-            "course_id": "part5",
-            "title": "Part 5",
+            "course_id": "lesson5",
+            "title": "Lesson 5",
             "description": "Shell expansions and shell quotes."
         },
         {
-            "course_id": "part7",
-            "title": "Part 7",
+            "course_id": "lesson7",
+            "title": "Lesson 7",
             "description": "Searching for files (locate, find). Regular expressions (grep). Text processing (cat, sort, uniq, cut, paste, join, diff, tr, sed)."
         }
     ]
