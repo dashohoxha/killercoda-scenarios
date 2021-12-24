@@ -1,4 +1,4 @@
-In this tutorial we will see how to find files in Linux, and how to
-search in files. We will get familiar with a powerful technology that
-is called _regular expressions_. Then we are going to look at some
-tools that are used to manipulate text.
+Regular expressions are symbolic notations used to identify patterns
+in text. They are supported by many command line tools and by most of
+programming languages to facilitate the solution of text manipulation
+problems.

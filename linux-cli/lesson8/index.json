@@ -1,6 +1,6 @@
 {
-    "title": "Lesson 7",
-    "description": "Regular expressions (grep).",
+    "title": "Lesson 8",
+    "description": "Text processing (cat, sort, uniq, cut, paste, join, diff, tr, sed).",
     "difficulty": "Medium",
     "time": "40-50 minutes",
     "details": {

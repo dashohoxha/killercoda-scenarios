@@ -28,9 +28,19 @@
             "description": "Shell expansions and shell quotes."
         },
         {
+            "course_id": "lesson6",
+            "title": "Lesson 6",
+            "description": "Searching for files (locate, find)."
+        },
+        {
             "course_id": "lesson7",
             "title": "Lesson 7",
-            "description": "Searching for files (locate, find). Regular expressions (grep). Text processing (cat, sort, uniq, cut, paste, join, diff, tr, sed)."
+            "description": "Regular expressions (grep)."
+        },
+        {
+            "course_id": "lesson8",
+            "title": "Lesson 8",
+            "description": "Text processing (cat, sort, uniq, cut, paste, join, diff, tr, sed)."
         }
     ]
 }

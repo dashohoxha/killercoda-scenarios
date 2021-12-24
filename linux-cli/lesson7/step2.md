@@ -1,115 +1,173 @@
-# More examples with `find`
+# More regex examples
 
-1. Let's create some test files:
-
-   `mkdir -p test/dir-{001..100}`{{execute}}
+1. Suppose that we are solving a crossword puzzle and we need a five
+   letter word whose third letter is "j" and last letter is "r". Let's
+   try to use `grep` and regex to solve this.
    
-   `touch test/dir-{001..100}/file-{A..Z}`{{execute}}
+   Fist of all make sure that we have a dictionary of words installed:
    
-   The command `touch` in this case creates empty files.
+   `apt install wbritish`{{execute}}
    
-   `ls test/`{{execute}}
+   `ls /usr/share/dict/`{{execute}}
    
-   `ls test/dir-001/`{{execute}}
+   `less /usr/share/dict/words`{{execute}}
    
-   `ls test/dir-002/`{{execute}}
+   `cat /usr/share/dict/words | wc -l`{{execute}}
    
-2. Find all the files named `file-A`:
+   Now try this:
    
-   `find test -type f -name 'file-A'`{{execute}}
-
-   `find test -type f -name 'file-A' | wc -l`{{execute}}
-
-3. Create a timestamp file:
-
-   `touch test/timestamp`{{execute}}
+   `grep -i '^..j.r$' /usr/share/dict/words`{{execute}}
    
-   This creates an empty file and sets its modification time to the
-   current time. We can verify this with `stat` which shows
-   everything that the system knows about a file:
-
-   `stat test/timestamp`{{execute}}
-
-   `touch test/timestamp`{{execute}}
-
-   `stat test/timestamp`{{execute}}
-
-   We can see that after the second `touch` the times have been
-   updated.
+   The option `-i` is used to ignore the case (uppercase, lowercase).
    
-4. Next, let's use `find` to update all files named `file-B`:
+   The regex pattern `'^..j.r$'` will match lines that contain exactly
+   5 letters, where the third letter is `j` and the last one is `r`.
+
+2. Let's say that we want to check a phone number for validity and we
+   consider a phone number to be valid if it is in the form `(nnn) nnn-nnnn`
+   or in the form `nnn nnn-nnnn` where `n` is a digit. We can do it like this:
    
-   `find test -name 'file-B' -exec touch '{}' ';'`{{execute}}
+   `echo "(555) 123-4567" | grep -E '^\(?[0-9][0-9][0-9]\)? [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'`{{execute}}
    
-5. Now let's use `find` to identify the updated files by
-   comparing them to the reference file `timestamp`:
+   `echo "555 123-4567" | grep -E '^\(?[0-9][0-9][0-9]\)? [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'`{{execute}}
    
-   `find test -type f -newer test/timestamp`{{execute}}
+   `echo "AAA 123-4567" | grep -E '^\(?[0-9][0-9][0-9]\)? [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'`{{execute}}
    
-   `find test -type f -newer test/timestamp | wc -l`{{execute}}
+   Since we are using the option `-E` (for extended), we have to
+   escape the parentheses `\(` and `\)` so that they are not
+   interpreted as metacharacters.
    
-   The result contains all 100 instances of `file-B`. Since we did a
-   `touch` on them after updating `timestamp`, they are now "newer"
-   than the file `timestamp`.
-
-6. Let's find again the files and directories with bad permissions:
-
-   `find test \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \)`{{execute}}
-
-   `find test \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \) | wc -l`{{execute}}
-
-7. Let's add some actions to the command above in order to fix the
-   permissions:
+   If we use basic regular expressions (without `-E`), then we don't
+   need to escape the parentheses, but in this case we will have to
+   escape the question marks (`\?`) so that they are interpreted as
+   metacharacters:
    
-   `find test \( -type f -not -perm 0600 -exec chmod 0600 '{}' ';' \) -or \( -type d -not -perm 0700 -exec chmod 0700 '{}' ';' \)`{{execute}}
+   `echo "(555) 123-4567" | grep '^(\?[0-9][0-9][0-9])\? [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'`{{execute}}
+
+   The question mark as a metacharacter means that the parentheses
+   before it can be zero or one time.
+
+3. Using the metachars `{}` we can express the number of required
+   matches. For example:
    
-   The command `chmod` sets the permissions of a file or directory (we
-   will see the permissions later).
-
-   `find test \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \)`{{execute}}
-
-   `find test \( -type f -perm 0600 \) -or \( -type d -perm 0700 \)`{{execute}}
-
-   `find test \( -type f -perm 0600 \) -or \( -type d -perm 0700 \) | wc -l`{{execute}}
-
-   **Note:** This example is a bit complex just to illustrate the
-   logical operators and parantheses, however we could have done it in
-   two simpler steps, like this:
+   `echo "(555) 123-4567" | grep -E '^\(?[0-9]{3}\)? [0-9]{3}-[0-9]{4}$'`{{execute}}
    
-   `find test -type f -not -perm 0600 -exec chmod 0600 '{}' ';'`{{execute}}
-
-   `find test -type d -not -perm 0700 -exec chmod 0700 '{}' ';'`{{execute}}
-
-8. Let's try some more tests:
-
-   Find files or directories whose _contents or attributes_ were
-   modified more than 1 minute ago:
-
-   `find test/ -cmin +1 | wc -l`{{execute}}
-
-   Less than 10 minutes ago:
+   The expression `{3}` matches if the preceding element occurs
+   exactly 3 times.
    
-   `find test/ -cmin -10 | wc -l`{{execute}}
+   We could also replace `?` by `{0,1}`, or `{,1}`:
 
-   Find files or directories whose _contents_ were modified more than
-   1 minute ago:
-
-   `find test/ -mmin +1 | wc -l`{{execute}}
-
-   Less than 10 minutes ago:
+   `echo "(555) 123-4567" | grep -E '^\({0,1}[0-9]{3}\){,1} [0-9]{3}-[0-9]{4}$'`{{execute}}
    
-   `find test/ -mmin -10 | wc -l`{{execute}}
-
-   Find files or directories whose _contents or attributes_ were
-   modified more than 7 days ago:
-
-   `find test/ -ctime +7 | wc -l`{{execute}}
-
-   Find files or directories whose _contents_ were modified less than
-   7 days ago:
-
-   `find test/ -mtime -7 | wc -l`{{execute}}
-
-   Find empty files and directories:
+   `echo "555 123-4567" | grep -E '^\({0,1}[0-9]{3}\){,1} [0-9]{3}-[0-9]{4}$'`{{execute}}
    
-   `find test/ -empty | wc -l`{{execute}}
+   In general, `{n,m}` matches if the preceding element occurs at
+   least `n` times, but no more than `m` times. These are also valid:
+   `{n,}` (at least `n` times), and `{,m}` (at most `m` times).
+
+4. Similar to `?` which is equivalent to `{0,1}`, there is also `*`
+   which is equivalent to `{0,}` (zero or more occurrences), and `+`
+   which is equivalent to `{1,}` (one or more, at least one
+   occurrence):
+   
+   Let's say that we want to check if a string is a sentence. This
+   means that it starts with an uppercase letter, then contains any
+   number of upper and lowercase letters and spaces, and finally ends
+   with a period. We could do it like this:
+   
+   `echo "This works." | grep -E '[A-Z][A-Za-z ]*\.'`{{execute}}
+   
+   `echo "This Works." | grep -E '[A-Z][A-Za-z ]*\.'`{{execute}}
+   
+   `echo "this does not" | grep -E '[A-Z][A-Za-z ]*\.'`{{execute}}
+   
+   Or like this:
+   
+   `echo "This works." | grep -E '[[:upper:]][[:upper:][:lower:] ]*\.'`{{execute}}
+   
+   Note: In all these cases we have to escape the period (`\.`) so that
+   it matches itself instead of any character.
+   
+5. Here is a regular expression that will only match lines consisting
+   of groups of one or more alphabetic characters separated by single
+   spaces:
+   
+   `echo "This that" | grep -E '^([[:alpha:]]+ ?)+$'`{{execute}}
+   
+   `echo "a b c" | grep -E '^([[:alpha:]]+ ?)+$'`{{execute}}
+   
+   `echo "a b  c" | grep -E '^([[:alpha:]]+ ?)+$'`{{execute}}
+   
+   Does not match because there are two consecutive spaces.
+   
+   `echo "a b 9" | grep -E '^([[:alpha:]]+ ?)+$'`{{execute}}
+   
+   Does not match because there is a non-alphabetic character.
+   
+6. Let's create a list of random phone numbers for testings:
+
+   `echo $RANDOM`{{execute}}
+   
+   `echo $RANDOM`{{execute}}
+   
+   `echo ${RANDOM:0:3}`{{execute}}
+   
+   `for i in {1..10}; do echo "${RANDOM:0:3} ${RANDOM:0:3}-${RANDOM:0:4}" >> phonelist.txt; done`{{execute}}
+
+   `cat phonelist.txt`{{execute}}
+   
+   `for i in {1..100}; do echo "${RANDOM:0:3} ${RANDOM:0:3}-${RANDOM:0:4}" >> phonelist.txt; done`{{execute}}
+
+   `less phonelist.txt`{{execute}}
+   
+   `cat phonelist.txt | wc -l`{{execute}}
+   
+   You can see that some of the phone numbers are malformed.
+   We can display those that are malformed like this:
+   
+   `grep -Ev '^[0-9]{3} [0-9]{3}-[0-9]{4}$' phonelist.txt`{{execute}}
+   
+   The option `-v` makes an inverse match, which means that `grep`
+   displays only the lines that do not match the given pattern.
+
+7. Regular expressions can be used with many commands, not just with
+   `grep`.
+   
+   For example let's use them with `find` to find the files that
+   contain bad characters in their name (like spaces, punctuation
+   marks, etc):
+   
+   `touch "bad file name!"`{{execute}}
+   
+   `ls -l`{{execute}}
+   
+   `find . -regex '.*[^-_./0-9a-zA-Z].*'`{{execute}}
+   
+   Different from `grep`, `find` expects the pattern to match the
+   whole filename, that's why we are appending and prepending `.*` to
+   the pattern.
+
+   We can use regular expressions with `locate` like this:
+   
+   `locate --regex 'bin/(bz|gz|zip)'`{{execute}}
+
+   We can also use them with `less`:
+   
+   `less phonelist.txt`{{execute}}
+   
+   We can press `/` and write a regular expression, and `less` will
+   find and highlight the matching lines. For example:
+   
+   `/^[0-9]{3} [0-9]{3}-[0-9]{4}$`{{execute}}
+   
+   The invalid lines will not be highlighted and will be easy to spot.
+   
+   Regular expressions can also be used with `zgrep` like this:
+
+   `cd /usr/share/man/man1`{{execute}}
+   
+   `zgrep -El 'regex|regular expression' *.gz`{{execute}}
+   
+   It will find man pages that contain either "regex" or "regular
+   expression". As we can see, regular expressions show up in a lot of
+   programs.

@@ -1,6 +1,6 @@
 {
-    "title": "Lesson 7",
-    "description": "Regular expressions (grep).",
+    "title": "Lesson 6",
+    "description": "Searching for files (locate, find)",
     "difficulty": "Medium",
     "time": "40-50 minutes",
     "details": {
@@ -17,7 +17,6 @@
         "intro": {
             "text": "intro.md",
             "credits": "http://linuxcommand.org/lc3_learning_the_shell.php",
-            "courseData": "install.sh",
             "code": "init.sh"
         }
     },

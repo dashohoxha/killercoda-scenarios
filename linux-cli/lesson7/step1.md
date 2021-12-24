@@ -1,139 +1,151 @@
-# Searching for files
+# Regular expressions
 
-1. We can make a quick search for files with `locate`:
+Regular expressions are symbolic notations used to identify patterns
+in text. They are supported by many command line tools and by most of
+programming languages to facilitate the solution of text manipulation
+problems.
 
-   `locate bin/zip`{{execute}}
+1. We will test regular expressions with `grep` (which means "global
+   regular expression print"). It searches text files for the
+   occurrence of text matching a specified regular expression and
+   outputs any line containing a match to standard output.
    
-   No results! This can't be right because:
+   `ls /usr/bin | grep zip`{{execute}}
    
-   `ls -l /usr/bin/zip`{{execute}}
+   In order to explore `grep`, let's create some text files to search:
    
-   The problem is that `locate` uses a database that is updated daily
-   by running the command `updatedb`. Right now the database is not
-   created yet, so let's run this command manually and try again:
+   `ls /bin > dirlist-bin.txt`{{execute}}
    
-   `updatedb`{{execute}}
+   `ls /usr/bin > dirlist-usr-bin.txt`{{execute}}
    
-   `locate bin/zip`{{execute}}
+   `ls /sbin > dirlist-sbin.txt`{{execute}}
    
-   If the search requirement is not so simple, we can combine `locate`
-   with other tools, like `grep`:
+   `ls /usr/sbin > dirlist-usr-sbin.txt`{{execute}}
    
-   `locate zip | grep bin`{{execute}}
+   `ls dirlist*.txt`{{execute}}
    
-   `locate zip | grep bin | grep -v overlay`{{execute}}
+   We can do a simple search on these files like this:
    
-2. While `locate` searches are based only on the file name, with
-   `find` we can also make searches based on other attributes of files.
+   `grep bzip dirlist*.txt`{{execute}}
    
-   It takes as arguments one or more directories that are to be
-   searched:
-   
-   `ls -aR ~`{{execute}}
-   
-   `find ~`{{execute}}
-   
-   To find only directories we can use the option `-type d` and to
-   find only files we can use `-type f`:
-   
-   `find . -type d`{{execute}}
-   
-   `find . -type f`{{execute}}
-   
-   `find . -type d | wc -l`{{execute}}
-   
-   `find . -type f | wc -l`{{execute}}
-   
-   `find . | wc -l`{{execute}}
-   
-3. We can also search by filename and file size:
+   If we are interested only in the list of files that contain
+   matches, we can use the option `-l`:
 
-   `find /etc -type f | wc -l`{{execute}}
+   `grep -l bzip dirlist*.txt`{{execute}}
    
-   `find /etc -type f -name "*.conf" | wc -l`{{execute}}
-   
-   We enclose the search pattern in double quotes to prevent shell
-   from expanding "`*`".
+   Conversely, if we want to see a list of files that do not
+   contain a match, we can use `-L`:
 
-   `find /etc -type f -name "*.conf" -size -2k | wc -l`{{execute}}
+   `grep -L bzip dirlist*.txt`{{execute}}
    
-   `find /etc -type f -name "*.conf" -size 2k | wc -l`{{execute}}
+2. While it may not seem apparent, we have been using regular
+   expressions in the searches we did so far, albeit very simple ones.
+   The regular expression "bzip" means that a line will match if it
+   contains the letters "b", "z", "i", "p" in this order and without
+   other characters in between.
    
-   `find /etc -type f -name "*.conf" -size +2k | wc -l`{{execute}}
+   Besides the _literal characters_, which represent themselves, we
+   can also use _metacharacters_ in a pattern. For example a _dot_ (`.`)
+   matches any character:
    
-   `-2k` matches the files whose size is less than 2 Kilobytes, `2k`
-   those who are exactly 2 Kilobytes, and `+2k` those who are more
-   than 2 Kilobytes. Besides `k` we can also use `M` for Megabytes,
-   `G` for Gigabytes, etc.
+   `grep -h '.zip' dirlist*.txt`{{execute}}
+   
+   The option `-h` suppresses the output of filenames.
+   
+   Notice that the `zip` program was not found because it has only 3
+   letters and does not match the pattern.
+   
+3. The caret (`^`) and dollar sign (`$`) are treated as _anchors_ in
+   regular expressions. This means that they cause the match to occur
+   only if the regular expression is found at the beginning of the
+   line (`^`) or at the end of the line (`$`):
+   
+   `grep -h '^zip' dirlist*.txt`{{execute}}
+   
+   `grep -h 'zip$' dirlist*.txt`{{execute}}
+   
+   `grep -h '^zip$' dirlist*.txt`{{execute}}
+   
+   Note that the regular expression '`^$`' will match empty lines.
+   
+4. Using _bracket expressions_ we can match a single character from a
+   specified set of characters:
+   
+   `grep -h '[bg]zip' dirlist*.txt`{{execute}}
+   
+   If the first character in a bracket expression is a caret (`^`),
+   then any character will be matched, except for those listed:
+   
+   `grep -h '[^bg]zip' dirlist*.txt`{{execute}}
+   
+   The caret character only invokes negation if it is the first
+   character within the bracket expression; otherwise it loses its
+   special meaning and becomes an ordinary character in the set:
+   
+   `grep -h '[b^g]zip' dirlist*.txt`{{execute}}
+   
+5. If we want to find all lines that start with an uppercase letter,
+   we can do it like this:
+   
+   `grep -h '^[ABCDEFGHIJKLMNOPQRSTUVWXYZ]' dirlist*.txt`{{execute}}
+   
+   We can do less typing if we use a range:
+   
+   `grep -h '^[A-Z]' dirlist*.txt`{{execute}}
+   
+   If we want to match any alphanumeric character (all the letters and
+   digits), we can use several ranges, like this:
+   
+   `grep -h '^[A-Za-z0-9]' dirlist*.txt`{{execute}}
+   
+   However the dash (`-`) character in this example stands for itself,
+   does not make a range:
 
-4. `find` supports many other tests on files and directories, like the
-   time of creation or modification, the ownership, permissions, etc.
-   These tests can be combined with _logical operators_ to create more
-   complex logical relationships. For example:
+   `grep -h '^[-AZ]' dirlist*.txt`{{execute}}
    
-   `find ~ \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \)`{{execute}}
+   Besides ranges, another way to match groups of characters is using
+   POSIX character classes:
+   
+   `grep -h '^[[:alnum:]]' dirlist*.txt`{{execute}}
+   
+   `ls /usr/sbin/[[:upper:]]*`{{execute}}
+   
+   Other character classes are: `[:alpha:]`, `[:lower:]`, `[:digit:]`,
+   `[:space:]`, `[:punct:]` (for punctuation characters), etc.
 
-   This looks weird, but if we try to translate it to a more
-   understandable language it means: find on home directory ( files
-   with bad permissions ) -or ( directories with bad permissions ).
-   We have to escape the parentheses to prevent shell from
-   interpreting them.
+6. With a vertical bar (`|`) we can define alternative matching
+   patterns:
+   
+   `echo "AAA" | grep AAA`{{execute}}
+   
+   `echo "BBB" | grep BBB`{{execute}}
+   
+   `echo "AAA" | grep 'AAA\|BBB'`{{execute}}
+   
+   `echo "BBB" | grep -E 'AAA|BBB'`{{execute}}
 
-5. We can also do some actions on the files that are found. The
-   default action is to `-print` them to the screen, but we can also
-   `-delete` them:
-   
-   `touch test{1,2,3}.bak`{{execute}}
-   
-   `ls`{{execute}}
-   
-   `find . -type f -name '*.bak' -delete`{{execute}}
-   
-   `ls`{{execute}}
-   
-   `touch test{1,2,3}.bak`{{execute}}
-   
-   `find . -type f -name '*.bak' -print -delete`{{execute}}
-   
-   `ls`{{execute}}
-   
-   We can also execute custom actions with `-exec`:
+   `echo "CCC" | grep -E 'AAA|BBB'`{{execute}}
 
-   `touch test{1,2,3}.bak`{{execute}}
-   
-   `ls`{{execute}}
-   
-   `find . -name '*.bak' -exec rm '{}' ';'`{{execute}}
-   
-   `ls`{{execute}}
+   `echo "CCC" | grep -E 'AAA|BBB|CCC'`{{execute}}
 
-   Here `{}` represents the pathname that is found and `;` is required
-   to indicate the end of the command. Both of them have been quoted
-   to prevent shell from interpreting them.
+   The option `-E` tells `grep` to use _extended_ regular expressions.
+   With extended regular expressions the vertical bar (`|`) is a
+   metacharacter (used for alternation) and we need to escape it (with
+   `\`) to use it as a literal character. With _basic_ regular
+   expressions (without the option `-E`) the vertical bar is a
+   literal character and we need to escape it (with `\`) if we want
+   to use it as a metacharacter.
    
-   If we use `-ok` instead of `-exec` then each command will be confirmed
-   before being executed:
-
-   `touch test{1,2,3}.bak`{{execute}}
+7. Other metacharacters that are recognized by extended regular
+   expressions, and which behave similar to `|` are: `(`, `)`, `{`,
+   `}`, `?`, `+`. For example:
    
-   `ls`{{execute}}
+   `grep -Eh '^(bz|gz|zip)' dirlist*.txt`{{execute}}
    
-   `find . -name '*.bak' -ok rm '{}' ';'`{{execute}}
+   Note that this is different from:
    
-6. Another way to perform actions on the results of `find` is to pipe
-   them to `xargs`, like this:
+   `grep -Eh '^bz|gz|zip' dirlist*.txt`{{execute}}
    
-   `touch test(1,2,3}.bak`{{execute}}
-   
-   `ls`{{execute}}
-   
-   `find . -name '*.bak' | xargs echo`{{execute}}
-   
-   `find . -name '*.bak' | xargs ls -l`{{execute}}
-   
-   `find . -name '*.bak' | xargs rm`{{execute}}
-   
-   `ls`{{execute}}
-   
-   `xargs` gets input from stdin and converts it into an argument list
-   for the given command.
+   In the first example all the patterns are matched at the beginning
+   of the line. In the second one only `bz` is matched at the
+   beginning.
