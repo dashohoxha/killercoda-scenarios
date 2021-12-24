@@ -1,5 +1,5 @@
 {
-    "title": "Part 7",
+    "title": "Lesson 7",
     "description": "Searching for files (locate, find). Regular expressions (grep). Text processing (cat, sort, uniq, cut, paste, join, diff, tr, sed).",
     "difficulty": "Medium",
     "time": "45-60 minutes",
