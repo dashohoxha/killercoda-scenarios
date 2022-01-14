@@ -1,10 +1,6 @@
 # Shell expansions
-   
-Each time we type a command and press the enter key, `bash` performs
-several processes upon the text before it carries out the command.
-This process is called `expansion`.
 
-1. Wildcard expanssions:
+1. Wildcard expansions:
 
    `echo this is a test`{{execute}}
    

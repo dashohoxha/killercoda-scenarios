@@ -6,13 +6,13 @@
    
    `echo "this is a      test"`{{execute}}
    
-   When the shell parses the first command it find 4 arguments:
+   When the shell parses the first command it finds 4 arguments:
    "this", "is", "a", "test". Then is calls `echo` passing it these
    arguments.
    
-   In the second case the quotes let the shell know that this is a
-   single argument: "this is a test", and it passes to `echo` only
-   one argument.
+   In the second case the quotes let the shell know that there is a
+   single argument: "this is a test", and it passes to `echo` only one
+   argument.
 
 2. Double quotes do not prevent variable expansion, but single quotes
    do:
