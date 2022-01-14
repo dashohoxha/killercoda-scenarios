@@ -9,6 +9,9 @@ trap 'echo -ne "\033[00m"' DEBUG
 EOF
 source ~/.bashrc
 
+# wait until locate is installed
+until hash locate &>/dev/null; do sleep 1; done
+
 # clear screen
 clear
 :
