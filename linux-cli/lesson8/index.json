@@ -22,7 +22,7 @@
             "text": "intro.md",
             "credits": "http://linuxcommand.org/lc3_learning_the_shell.php",
             "code": "init.sh"
-        }
+        },
         "assets": {
             "host01": [
                 { "file": "distros.sh", "target": "/root" }
