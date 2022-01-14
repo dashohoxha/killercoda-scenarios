@@ -8,5 +8,3 @@ protect them from each-other.
   su, sudo, chown, chgrp).
 - Processes and signals (ps, pstree, top, jobs, bg, fg, kill, killall,
   shutdown).
-- The shell environment (printenv, set, export). Customizing the
-  prompt.

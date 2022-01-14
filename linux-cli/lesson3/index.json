@@ -1,6 +1,6 @@
 {
     "title": "Lesson 3",
-    "description": "Permissions. Processes. Environment",
+    "description": "Permissions. Processes.",
     "difficulty": "Easy",
     "time": "40-50 minutes",
     "details": {
@@ -16,10 +16,6 @@
             {
                 "title": "Step 3",
                 "text": "step3.md"
-            },
-            {
-                "title": "Step 4",
-                "text": "step4.md"
             }
         ],
         "intro": {

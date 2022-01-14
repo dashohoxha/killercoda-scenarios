@@ -15,7 +15,7 @@
         {
             "course_id": "lesson3",
             "title": "Lesson 3",
-            "description": "Users and groups, permissions. Processes and signal. The shell environment. Customizing the prompt."
+            "description": "Users and groups, permissions. Processes and signal."
         },
         {
             "course_id": "lesson4",
@@ -25,17 +25,17 @@
         {
             "course_id": "lesson5",
             "title": "Lesson 5",
-            "description": "Shell expansions and shell quotes."
+            "description": "Shell expansions and shell quotes. The shell environment. Customizing the prompt."
         },
         {
             "course_id": "lesson6",
             "title": "Lesson 6",
-            "description": "Searching for files (locate, find)."
+            "description": "Searching for files (locate, find). Regular expressions (grep)."
         },
         {
             "course_id": "lesson7",
             "title": "Lesson 7",
-            "description": "Regular expressions (grep)."
+            "description": "Text processing (cat, sort, uniq, cut, paste, join, diff, tr, sed)."
         },
         {
             "course_id": "lesson8",
