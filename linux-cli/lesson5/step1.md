@@ -4,7 +4,7 @@ Each time we type a command and press the enter key, `bash` performs
 several processes upon the text before it carries out the command.
 This process is called `expansion`.
 
-1. The "`*`" character means match any characters in a filename:
+1. Wildcard expanssions:
 
    `echo this is a test`{{execute}}
    
@@ -16,20 +16,51 @@ This process is called `expansion`.
    
    `echo *`{{execute}}
 
-   The shell expands the "`*`" before executing the command `echo`.
+   The "`*`" character means match any characters in a filename.  The
+   shell expands the "`*`" before executing the command `echo`.
 
-   `echo l*`{{execute}}
+   `echo lib*`{{execute}}
    
-   `echo *n`{{execute}}
+   `echo *bin`{{execute}}
    
-   `echo l*32`{{execute}}
+   `echo lib*32`{{execute}}
    
    `echo */share`{{execute}}
    
    `echo /*/*/bin`{{execute}}
    
-   `echo *[[:digit:]]`{{execute}}
+   A question mark "`?`" matches any single character:
    
+   `echo lib??`{{execute}}
+   
+   `echo lib???`{{execute}}
+   
+   Character sets are enclosed in square brackets:
+   
+   `echo lib[123456789]?`{{execute}}
+
+   `echo lib[xyz][123456789]?`{{execute}}
+   
+   Character ranges:
+   
+   `echo lib[1-9][1-9]`{{execute}}
+
+   `echo lib[a-z][1-9][1-9]`{{execute}}
+
+   `echo lib[1-9][!2]`{{execute}}
+   
+   Character classes:
+
+   `echo lib[[:digit:]][[:digit:]]`{{execute}}
+
+   `echo lib[[:alpha:]][[:digit:]][[:digit:]]`{{execute}}
+
+   `echo lib[[:alnum:]][[:alnum:]][[:alnum:]]`{{execute}}
+
+   `echo lib[![:digit:]]*`{{execute}}
+   
+   `echo lib[36[:lower:]]*`{{execute}}
+
    `echo /etc/[[:upper:]]*`{{execute}}
 
 2. The tilde character ("`~`") expands to the home directory:
