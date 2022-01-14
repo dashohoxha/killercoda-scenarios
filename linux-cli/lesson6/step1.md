@@ -3,6 +3,10 @@
 1. We can make a quick search for files with `locate`:
 
    `locate bin/zip`{{execute}}
+   
+   Note: If this command gives no result, it is possible that indexing
+   the files of the system has not finished yet. Wait a bit and try
+   again.
       
    If the search requirement is not so simple, we can combine `locate`
    with other tools, like `grep`:
@@ -111,7 +115,7 @@
 6. Another way to perform actions on the results of `find` is to pipe
    them to `xargs`, like this:
    
-   `touch test(1,2,3}.bak`{{execute}}
+   `touch test{1,2,3}.bak`{{execute}}
    
    `ls`{{execute}}
    

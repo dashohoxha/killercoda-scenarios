@@ -10,6 +10,7 @@ EOF
 source ~/.bashrc
 
 # wait until locate is installed
+clear
 until hash locate &>/dev/null; do sleep 1; done
 
 # clear screen
