@@ -1,4 +1,4 @@
 #!/bin/bash
 
-# install wbritish
-apt install -y wbritish
+# install mlocate wbritish
+apt install -y mlocate wbritish

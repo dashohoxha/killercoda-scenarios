@@ -3,19 +3,7 @@
 1. We can make a quick search for files with `locate`:
 
    `locate bin/zip`{{execute}}
-   
-   No results! This can't be right because:
-   
-   `ls -l /usr/bin/zip`{{execute}}
-   
-   The problem is that `locate` uses a database that is updated daily
-   by running the command `updatedb`. Right now the database is not
-   created yet, so let's run this command manually and try again:
-   
-   `updatedb`{{execute}}
-   
-   `locate bin/zip`{{execute}}
-   
+      
    If the search requirement is not so simple, we can combine `locate`
    with other tools, like `grep`:
    
