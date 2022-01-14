@@ -1,2 +1,3 @@
-In this tutorial we are going to look at some tools that are used to
-manipulate text (cat, sort, uniq, cut, paste, join, diff, tr, sed).
+We have already seen before some of the commands that are used for
+text processing, like `cat`, `sort`, `uniq`, `sed`, etc. We are going
+to see some others too, like `cut`, `paste`, `join`, `tr`, etc,

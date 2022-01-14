@@ -1,16 +1,14 @@
-# Text processing
-
-We have already seen before some of the commands that are used for
-text processing, like `cat`, `sort`, `uniq`, `sed`, etc. We are going
-to see some others too, like `cut`, `paste`, `join`, `tr`, etc,
+# Text processing: sort
 
 1. Let's try and compare these commands:
 
-   `du -s /usr/share/* | head`{{execute}}
+   `du -s /usr/share/* | less`{{execute}}
 
-   `du -s /usr/share/* | sort | head`{{execute}}
+   `du -s /usr/share/* | sort | less`{{execute}}
 
-   `du -s /usr/share/* | sort -r | head`{{execute}}
+   `du -s /usr/share/* | sort -r | less`{{execute}}
+
+   `du -s /usr/share/* | sort -nr | less`{{execute}}
 
    `du -s /usr/share/* | sort -nr | head`{{execute}}
 
@@ -42,29 +40,9 @@ to see some others too, like `cut`, `paste`, `join`, `tr`, etc,
    sorting. By the way, `ls` like most of the commands, separates the
    fields of its output by a TAB.
    
-3. Let's create an example file that we will use for testing some more
-   commands:
-   
-   ```
-   cat <<END | tr ' ' "\t" > distros.txt
-   SUSE 10.2 12/07/2006
-   Fedora 10 11/25/2008
-   SUSE 11.0 06/19/2008
-   Ubuntu 8.04 04/24/2008
-   Fedora 8 11/08/2007
-   SUSE 10.3 10/04/2007
-   Ubuntu 6.10 10/26/2006
-   Fedora 7 05/31/2007
-   Ubuntu 7.10 10/18/2007
-   Ubuntu 7.04 04/19/2007
-   SUSE 10.1 05/11/2006
-   Fedora 6 10/24/2006
-   Fedora 9 05/13/2008
-   Ubuntu 6.06 06/01/2006
-   Ubuntu 8.10 10/30/2008
-   Fedora 5 03/20/2006
-   END
-   ```{{execute}}
+3. For testing we are going to use the file `distros.txt`, which is
+   like a history of some Linux distributions (containing their
+   versions and release dates).
    
    `cat distros.txt`{{execute}}
 
@@ -73,9 +51,6 @@ to see some others too, like `cut`, `paste`, `join`, `tr`, etc,
    The option `-A` makes it show any special characters. The tab
    character is represented by `^I`, and the `$` shows the end of
    line.
-   
-   By the way, the file `distros.txt` is like a history of some Linux
-   distributions (containing their versions and release dates).
    
 4. Let's try to sort it:
 
@@ -130,37 +105,3 @@ to see some others too, like `cut`, `paste`, `join`, `tr`, etc,
    seventh field (the account's default shell), we could do this:
    
    `sort -t ':' -k 7 /etc/passwd | head`{{execute}}
-   
-7. The command `cut` extracts a certain column (field) from the input,
-   for example:
-   
-   `cut -f 3 distros.txt`{{execute}}
-   
-   `cut -f 1,3 distros.txt`{{execute}}
-   
-   `cut -f 1-2,3 distros.txt`{{execute}}
-   
-   If we want to extract only the year, we can do it like this:
-   
-   `cut -f 3 distros.txt | cut -c 7-10`{{execute}}
-   
-   The option `-c` tell `cut` to extract from the line characters,
-   instead of fields (as if each character is a field).
-
-   `cut -f 3 distros.txt | cut -c 7-10,1-2,4-5`{{execute}}
-   
-   Another way to get the year would be like this:
-   
-   `expand distros.txt | cut -c 23-`{{execute}}
-   
-   The command `expand` replaces tabs by the corresponding number of
-   spaces, so that the year would always start at the position 23.
-
-   When working with fields, it is possible to specify a different
-   field delimiter, instead of the tab. For example:
-   
-   `head /etc/passwd`{{execute}}
-   
-   `cut -d ':' -f 1 /etc/passwd | head`{{execute}}
-   
-   Here we extract the first field from `/etc/passwd`.
