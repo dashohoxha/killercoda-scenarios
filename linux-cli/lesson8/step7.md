@@ -109,7 +109,7 @@
    
    `cat distros.sed`{{execute}}
 
-   `sed -E -f distros.sed distros.txt`
+   `sed -E -f distros.sed distros.txt`{{execute}}
    
    The first line is a comment.
    
