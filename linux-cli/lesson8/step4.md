@@ -20,9 +20,9 @@ shared key field.
    
    `cut -f 2,2 distros-by-date.txt > distros-vernums.txt`{{execute}}
    
-   `paste distros-dates.txt distros-vernums.txt > distros-key-vernumes.txt`{{execute}}
+   `paste distros-dates.txt distros-vernums.txt > distros-key-vernums.txt`{{execute}}
    
-   `head distros-key-vernumes.txt`{{execute}}
+   `head distros-key-vernums.txt`{{execute}}
 
 3. Both of these files have the release date as a common field. Let's
    join them:

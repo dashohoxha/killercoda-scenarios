@@ -32,10 +32,6 @@
             {
                 "title": "Step 7",
                 "text": "step7.md"
-            },
-            {
-                "title": "Step 8",
-                "text": "step8.md"
             }
         ],
         "intro": {
@@ -46,7 +42,9 @@
         },
         "assets": {
             "host01": [
-                { "file": "distros.txt", "target": "/root" }
+                { "file": "distros.txt", "target": "/root" },
+                { "file": "foo.txt", "target": "/root" },
+                { "file": "foo.html", "target": "/root" }
             ]
         }        
     },

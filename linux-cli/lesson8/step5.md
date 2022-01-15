@@ -1,36 +1,55 @@
-# join
+# Comparing text
 
-The command `join`, like `paste`, adds columns to a file. However it
-does it in a way that is similar to the _join_ operation in
-_relational databases_. It joins data from multiple files based on a
-shared key field.
+1. Let's create two test files:
 
-1. To demonstrate `join` let's make a couple of files with a shared
-   key. The first file will contain the release dates and the release
-   names:
+   ```
+   cat > file1.txt <<EOF
+   a
+   b
+   c
+   d
+   EOF
+   ```{{execute}}
    
-   `cut -f 1,1 distros-by-date.txt > distros-names.txt`{{execute}}
-   
-   `paste distros-dates.txt distros-name.txt > distros-key-names.txt`{{execute}}
-   
-   `head distros-key-names.txt`{{execute}}
-   
-2. The second file will contain the release dates and the version
-   numbers:
-   
-   `cut -f 2,2 distros-by-date.txt > distros-vernums.txt`{{execute}}
-   
-   `paste distros-dates.txt distros-vernums.txt > distros-key-vernumes.txt`{{execute}}
-   
-   `head distros-key-vernumes.txt`{{execute}}
+   ```
+   cat > file2.txt <<EOF
+   b
+   c
+   d
+   e
+   EOF
+   ```{{execute}}
 
-3. Both of these files have the release date as a common field. Let's
-   join them:
-   
-   `join distros-key-names.txt distros-key-vernums.txt | head`{{execute}}
+2. We can compare them with `comm`:
 
-   It is important that the files must be sorted on the key field for
-   `join` to work properly.
+   `comm file1.txt file2.txt`{{execute}}
+   
+   `comm -12 file1.txt file2.txt`{{execute}}
+   
+   In this case we are suppressing the columns 1 and 2.
+   
+3. A more complex tool is `diff`:
 
+   `diff file1.txt file2.txt`{{execute}}
    
+   With context:
    
+   `diff -c file1.txt file2.txt`{{execute}}
+   
+   Unified format is more concise:
+   
+   `diff -u file1.txt file2.txt`{{execute}}
+   
+4. To create a _patch_ file usually the options `-Naur` are used:
+
+   `diff -Naur file1.txt file2.txt > patchfile.txt`{{execute}}
+   
+   `cat patchfile.txt`{{execute}}
+   
+   We can use the command `patch` to apply a patch file:
+   
+   `patch patchfile.txt`{{execute}}
+   
+   `cat file1.txt`{{execute}}
+   
+   Now `file1.txt` has the same content as `file2.txt`.
