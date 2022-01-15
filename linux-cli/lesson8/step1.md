@@ -1,4 +1,4 @@
-# Text processing: sort
+# sort
 
 1. Let's try and compare these commands:
 

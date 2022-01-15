@@ -1,4 +1,4 @@
-# Text processing: cut
+# cut
 
 1. The command `cut` extracts a certain column (field) from the input,
    for example:
