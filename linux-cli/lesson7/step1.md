@@ -1,151 +1,107 @@
-# Regular expressions
+# sort
 
-Regular expressions are symbolic notations used to identify patterns
-in text. They are supported by many command line tools and by most of
-programming languages to facilitate the solution of text manipulation
-problems.
+1. Let's try and compare these commands:
 
-1. We will test regular expressions with `grep` (which means "global
-   regular expression print"). It searches text files for the
-   occurrence of text matching a specified regular expression and
-   outputs any line containing a match to standard output.
-   
-   `ls /usr/bin | grep zip`{{execute}}
-   
-   In order to explore `grep`, let's create some text files to search:
-   
-   `ls /bin > dirlist-bin.txt`{{execute}}
-   
-   `ls /usr/bin > dirlist-usr-bin.txt`{{execute}}
-   
-   `ls /sbin > dirlist-sbin.txt`{{execute}}
-   
-   `ls /usr/sbin > dirlist-usr-sbin.txt`{{execute}}
-   
-   `ls dirlist*.txt`{{execute}}
-   
-   We can do a simple search on these files like this:
-   
-   `grep bzip dirlist*.txt`{{execute}}
-   
-   If we are interested only in the list of files that contain
-   matches, we can use the option `-l`:
+   `du -s /usr/share/* | less`{{execute}}
 
-   `grep -l bzip dirlist*.txt`{{execute}}
-   
-   Conversely, if we want to see a list of files that do not
-   contain a match, we can use `-L`:
+   `du -s /usr/share/* | sort | less`{{execute}}
 
-   `grep -L bzip dirlist*.txt`{{execute}}
-   
-2. While it may not seem apparent, we have been using regular
-   expressions in the searches we did so far, albeit very simple ones.
-   The regular expression "bzip" means that a line will match if it
-   contains the letters "b", "z", "i", "p" in this order and without
-   other characters in between.
-   
-   Besides the _literal characters_, which represent themselves, we
-   can also use _metacharacters_ in a pattern. For example a _dot_ (`.`)
-   matches any character:
-   
-   `grep -h '.zip' dirlist*.txt`{{execute}}
-   
-   The option `-h` suppresses the output of filenames.
-   
-   Notice that the `zip` program was not found because it has only 3
-   letters and does not match the pattern.
-   
-3. The caret (`^`) and dollar sign (`$`) are treated as _anchors_ in
-   regular expressions. This means that they cause the match to occur
-   only if the regular expression is found at the beginning of the
-   line (`^`) or at the end of the line (`$`):
-   
-   `grep -h '^zip' dirlist*.txt`{{execute}}
-   
-   `grep -h 'zip$' dirlist*.txt`{{execute}}
-   
-   `grep -h '^zip$' dirlist*.txt`{{execute}}
-   
-   Note that the regular expression '`^$`' will match empty lines.
-   
-4. Using _bracket expressions_ we can match a single character from a
-   specified set of characters:
-   
-   `grep -h '[bg]zip' dirlist*.txt`{{execute}}
-   
-   If the first character in a bracket expression is a caret (`^`),
-   then any character will be matched, except for those listed:
-   
-   `grep -h '[^bg]zip' dirlist*.txt`{{execute}}
-   
-   The caret character only invokes negation if it is the first
-   character within the bracket expression; otherwise it loses its
-   special meaning and becomes an ordinary character in the set:
-   
-   `grep -h '[b^g]zip' dirlist*.txt`{{execute}}
-   
-5. If we want to find all lines that start with an uppercase letter,
-   we can do it like this:
-   
-   `grep -h '^[ABCDEFGHIJKLMNOPQRSTUVWXYZ]' dirlist*.txt`{{execute}}
-   
-   We can do less typing if we use a range:
-   
-   `grep -h '^[A-Z]' dirlist*.txt`{{execute}}
-   
-   If we want to match any alphanumeric character (all the letters and
-   digits), we can use several ranges, like this:
-   
-   `grep -h '^[A-Za-z0-9]' dirlist*.txt`{{execute}}
-   
-   However the dash (`-`) character in this example stands for itself,
-   does not make a range:
+   `du -s /usr/share/* | sort -r | less`{{execute}}
 
-   `grep -h '^[-AZ]' dirlist*.txt`{{execute}}
-   
-   Besides ranges, another way to match groups of characters is using
-   POSIX character classes:
-   
-   `grep -h '^[[:alnum:]]' dirlist*.txt`{{execute}}
-   
-   `ls /usr/sbin/[[:upper:]]*`{{execute}}
-   
-   Other character classes are: `[:alpha:]`, `[:lower:]`, `[:digit:]`,
-   `[:space:]`, `[:punct:]` (for punctuation characters), etc.
+   `du -s /usr/share/* | sort -nr | less`{{execute}}
 
-6. With a vertical bar (`|`) we can define alternative matching
-   patterns:
-   
-   `echo "AAA" | grep AAA`{{execute}}
-   
-   `echo "BBB" | grep BBB`{{execute}}
-   
-   `echo "AAA" | grep 'AAA\|BBB'`{{execute}}
-   
-   `echo "BBB" | grep -E 'AAA|BBB'`{{execute}}
+   `du -s /usr/share/* | sort -nr | head`{{execute}}
 
-   `echo "CCC" | grep -E 'AAA|BBB'`{{execute}}
+   The command `du` gets the size (disk usage) of the files and
+   directories of `/usr/share`, and `head` filters the top 10 results.
+   
+   Then we try to sort them with `sort` and `sort -r` (reverse), but
+   it does not seem to work as expected (sorting results by the size).
+   This is because `sort` by default sorts the first column
+   alphabetically, so `2` is bigger than `10` (because `2` comes after
+   `1` on the character set).
+   
+   With the option `-n` we tell sort to do a _numerical_ sort. So, the
+   last command returns the top 10 biggest files and directories on
+   `/usr/share`.
+   
+2. This example works because the numerical values happen to be on the
+   first column of the output. What if we want to sort a list based on
+   another column? For example the result of `ls -l`:
+   
+   `ls -l /usr/bin | head`{{execute}}
+   
+   Ignoring for the moment that `ls` can sort its results by size, we
+   could use `sort` to sort them like this:
+    
+   `ls -l /usr/bin | sort -nr -k 5 | head`{{execute}}
+   
+   The option `-k5` tells `sort` to use the fifth field as the key for
+   sorting. By the way, `ls` like most of the commands, separates the
+   fields of its output by a TAB.
+   
+3. For testing we are going to use the file `distros.txt`, which is
+   like a history of some Linux distributions (containing their
+   versions and release dates).
+   
+   `cat distros.txt`{{execute}}
 
-   `echo "CCC" | grep -E 'AAA|BBB|CCC'`{{execute}}
+   `cat -A distros.txt`{{execute}}
 
-   The option `-E` tells `grep` to use _extended_ regular expressions.
-   With extended regular expressions the vertical bar (`|`) is a
-   metacharacter (used for alternation) and we need to escape it (with
-   `\`) to use it as a literal character. With _basic_ regular
-   expressions (without the option `-E`) the vertical bar is a
-   literal character and we need to escape it (with `\`) if we want
-   to use it as a metacharacter.
+   The option `-A` makes it show any special characters. The tab
+   character is represented by `^I`, and the `$` shows the end of
+   line.
    
-7. Other metacharacters that are recognized by extended regular
-   expressions, and which behave similar to `|` are: `(`, `)`, `{`,
-   `}`, `?`, `+`. For example:
+4. Let's try to sort it:
+
+   `sort distros.txt`{{execute}}
    
-   `grep -Eh '^(bz|gz|zip)' dirlist*.txt`{{execute}}
+   The result is almost correct, but Fedora version numbers are not in
+   the correct order (since `1` comes before `5` in the character set).
    
-   Note that this is different from:
+   To fix this we are going to sort on multiple keys. We want an
+   alphabetic sort on the first field and a numeric sort on the second
+   field:
    
-   `grep -Eh '^bz|gz|zip' dirlist*.txt`{{execute}}
+   `sort --key=1,1 --key=2n distros.txt`{{execute}}
    
-   In the first example all the patterns are matched at the beginning
-   of the line. In the second one only `bz` is matched at the
-   beginning.
+   `sort -k 1,1 -k 2n distros.txt`{{execute}}
+   
+   `sort -k1,1 -k2n distros.txt`{{execute}}
+   
+   Notice that if we don't use a range of fields (like `1,1`, which
+   means start at field 1 and end at field 1), it is not going to work
+   as expected:
+
+   `sort -k 1 -k 2n distros.txt`{{execute}}
+   
+   This is because in this case it starts at field 1 and goes up to
+   the end of the line, ignoring thus the second key.
+   
+   The modifier `n` stands for _numerical sort_. Other modifiers are
+   `r` for _reverse_, `b` for _ignore blanks_, etc.
+
+5. Suppose that we want to sort the list in reverse chronological
+   order (by release date). We can do it like this:
+   
+   `sort -k 3.7nbr -k 3.1nbr -k 3.4nbr distros.txt`{{execute}}
+
+   The `--key` option allows specification of offsets within fields.
+   So `3.7` means start sorting from the 7-th character of the 3-rd
+   field, which is the year. The modifier `n` makes it a numerical
+   sort, `r` does reverse sorting, and with `b` we are suppressing any
+   leading spaces of the third field.
+   
+   In a similar way, the second sort key `3.1` sorts by the month, and
+   the third key `3.4` sorts by day.
+
+6. Some files don't use tabs and spaces as delimiters, for example
+   the file `/etc/passwd`:
+   
+   `head /etc/passwd`{{execute}}
+   
+   In this case we can use the option `-t` to define the field
+   separator character. For example to sort `/etc/passwd` on the
+   seventh field (the account's default shell), we could do this:
+   
+   `sort -t ':' -k 7 /etc/passwd | head`{{execute}}

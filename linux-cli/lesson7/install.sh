@@ -1,4 +1,4 @@
 #!/bin/bash
 
-# install wbritish
-apt install -y wbritish
+# install aspell
+apt install -y aspell
