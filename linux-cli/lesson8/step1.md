@@ -1,107 +1,204 @@
-# sort
+# Archiving and backup
 
-1. Let's try and compare these commands:
+1. We can use use `gzip` and `bzip2` to compress one or more files:
 
-   `du -s /usr/share/* | less`{{execute}}
+   `ls -l /etc > foo.txt`{{execute}}
+   
+   `ls -lh foo.*`{{execute}}
+   
+   `gzip foo.txt`{{execute}}
+   
+   `ls -lh foo.*`{{execute}}
+   
+   `gunzip foo.txt`{{execute}}
 
-   `du -s /usr/share/* | sort | less`{{execute}}
+   `ls -lh foo.*`{{execute}}
+   
+   `ls -l /etc | gzip > foo.txt.gz`{{execute}}
+   
+   `gunzip -c foo.txt.gz`{{execute}}
+   
+   `zcat foo.txt.gz | less`{{execute}}
+   
+   `zless foo.txt.gz`{{execute}}
+   
+   `bzip2 foo.txt`{{execute}}
+   
+   `ls -lh foo.*`{{execute}}
+   
+   `bunzip2 foo.txt.bz2`{{execute}}
 
-   `du -s /usr/share/* | sort -r | less`{{execute}}
+   `ls -lh foo.*`{{execute}}
+   
+2. We can use `tar` to archive files.
 
-   `du -s /usr/share/* | sort -nr | less`{{execute}}
+   Lets's create a test directory:
 
-   `du -s /usr/share/* | sort -nr | head`{{execute}}
+   `mkdir -p testdir/dir-{001..100}`{{execute}}
+   
+   `touch testdir/dir-{001..100}/file-{A..Z}`{{execute}}
+   
+   `ls testdir/`{{execute}}
+   
+   `ls testdir/dir-001/`{{execute}}
+   
+   Create a tar archive of the entire directory:
+   
+   `tar -c -f testdir.tar testdir`{{execute}}
+   
+   `tar -cf testdir.tar testdir`{{execute}}
+   
+   `ls -lh`{{execute}}
+   
+   The option `-c` means `create`, and the option `-f` is for the
+   filename of the archive.
+   
+   The option `-t` is used to list the contents od the archive, and
+   `-v` is for verbose:
+   
+   `tar -tf testdir.tar | less`{{execute}}
 
-   The command `du` gets the size (disk usage) of the files and
-   directories of `/usr/share`, and `head` filters the top 10 results.
+   `tar -tvf testdir.tar | less`{{execute}}
    
-   Then we try to sort them with `sort` and `sort -r` (reverse), but
-   it does not seem to work as expected (sorting results by the size).
-   This is because `sort` by default sorts the first column
-   alphabetically, so `2` is bigger than `10` (because `2` comes after
-   `1` on the character set).
+   Now let's extract the archive in a new location:
    
-   With the option `-n` we tell sort to do a _numerical_ sort. So, the
-   last command returns the top 10 biggest files and directories on
-   `/usr/share`.
+   `mkdir foo`{{execute}}
    
-2. This example works because the numerical values happen to be on the
-   first column of the output. What if we want to sort a list based on
-   another column? For example the result of `ls -l`:
+   `cd foo`{{execute}}
    
-   `ls -l /usr/bin | head`{{execute}}
+   `tar -xf ../testdir.tar`{{execute}}
    
-   Ignoring for the moment that `ls` can sort its results by size, we
-   could use `sort` to sort them like this:
-    
-   `ls -l /usr/bin | sort -nr -k 5 | head`{{execute}}
+   `ls`{{execute}}
    
-   The option `-k5` tells `sort` to use the fifth field as the key for
-   sorting. By the way, `ls` like most of the commands, separates the
-   fields of its output by a TAB.
+   `tree -C | less -r`{{execute}}
    
-3. For testing we are going to use the file `distros.txt`, which is
-   like a history of some Linux distributions (containing their
-   versions and release dates).
+   `cd .. ; rm -rf foo/`{{execute}}
    
-   `cat distros.txt`{{execute}}
+3. By default, `tar` removes the leading `/` from absolute filenames:
 
-   `cat -A distros.txt`{{execute}}
+   `echo $(pwd)/testdir`{{execute}}
 
-   The option `-A` makes it show any special characters. The tab
-   character is represented by `^I`, and the `$` shows the end of
-   line.
-   
-4. Let's try to sort it:
+   `tar cf testdir2.tar $(pwd)/testdir`{{execute}}
 
-   `sort distros.txt`{{execute}}
+   `tar tf testdir2.tar | less`{{execute}}
    
-   The result is almost correct, but Fedora version numbers are not in
-   the correct order (since `1` comes before `5` in the character set).
+   `mkdir foo`{{execute}}
    
-   To fix this we are going to sort on multiple keys. We want an
-   alphabetic sort on the first field and a numeric sort on the second
-   field:
+   `tar xf testdir2.tar -C foo/`{{execute}}
    
-   `sort --key=1,1 --key=2n distros.txt`{{execute}}
+   `tree foo -C | less -r`{{execute}}
    
-   `sort -k 1,1 -k 2n distros.txt`{{execute}}
-   
-   `sort -k1,1 -k2n distros.txt`{{execute}}
-   
-   Notice that if we don't use a range of fields (like `1,1`, which
-   means start at field 1 and end at field 1), it is not going to work
-   as expected:
+   `rm -rf foo`{{execute}}
 
-   `sort -k 1 -k 2n distros.txt`{{execute}}
+4. We can extract only some files from the archive (not all the
+   files):
    
-   This is because in this case it starts at field 1 and goes up to
-   the end of the line, ignoring thus the second key.
+   `mkdir foo`{{execute}}
    
-   The modifier `n` stands for _numerical sort_. Other modifiers are
-   `r` for _reverse_, `b` for _ignore blanks_, etc.
+   `cd foo`{{execute}}
 
-5. Suppose that we want to sort the list in reverse chronological
-   order (by release date). We can do it like this:
-   
-   `sort -k 3.7nbr -k 3.1nbr -k 3.4nbr distros.txt`{{execute}}
+   `tar tf ../testdir.tar testdir/dir-001/file-A`{{execute}}
 
-   The `--key` option allows specification of offsets within fields.
-   So `3.7` means start sorting from the 7-th character of the 3-rd
-   field, which is the year. The modifier `n` makes it a numerical
-   sort, `r` does reverse sorting, and with `b` we are suppressing any
-   leading spaces of the third field.
+   `tar xf ../testdir.tar testdir/dir-001/file-A`{{execute}}
    
-   In a similar way, the second sort key `3.1` sorts by the month, and
-   the third key `3.4` sorts by day.
+   `tree`{{execute}}
 
-6. Some files don't use tabs and spaces as delimiters, for example
-   the file `/etc/passwd`:
+   `tar xf ../testdir.tar testdir/dir-002/file-{A,B,C}`{{execute}}
    
-   `head /etc/passwd`{{execute}}
+   `tree`{{execute}}
+
+   We can also use `--wildcards`, like this:
    
-   In this case we can use the option `-t` to define the field
-   separator character. For example to sort `/etc/passwd` on the
-   seventh field (the account's default shell), we could do this:
+   `tar xf ../testdir.tar --wildcards 'testdir/dir-*/file-A'`{{execute}}
    
-   `sort -t ':' -k 7 /etc/passwd | head`{{execute}}
+   `tree -C | less -r`{{execute}}
+   
+   `cd .. ; rm -rf foo`{{execute}}
+
+5. Sometimes it is useful to combine `tar` with `find` and `gzip`:
+
+   `find testdir -name 'file-A'`{{execute}}
+   
+   `find testdir -name 'file-A' -exec tar rf testdir3.tar '{}' '+'`{{execute}}
+   
+   `tar tf testdir3.tar | less`{{execute}}
+   
+   `find testdir -name 'file-B' -exec tar rf testdir3.tar '{}' '+'`{{execute}}
+   
+   `tar tf testdir3.tar | less`{{execute}}
+   
+   The option 'r' is for appending files to an archive.
+   
+   `find testdir -name 'file-A' | tar cf - -T - | gzip > testdir.tgz`{{execute}}
+   
+   The first `-` makes tar to send the output to _stdout_ instead of a
+   file. The option `-T` or `--files-from` includes in the archive
+   only the files listed in the given file. In this case we are
+   reading the list of files from `-`, which means the _stdin_ and is
+   the list of files comming from the command `find`. Then we are
+   passing the output of `tar` to `gzip` in order to compress it.
+
+   We can also use the options `z` or `j` to compress the archive:
+   
+   `find testdir -name 'file-A' | tar czf testdir.tgz -T -`{{execute}}
+   
+   `find testdir -name 'file-A' | tar cjf testdir.tbz -T -`{{execute}}
+   
+   `ls -lh`{{execute}}
+   
+   The option `j` uses `bzip2` compression, instead of `bzip`.
+
+6. The `zip` program is both a compression tool and an archiver:
+
+   `zip -r testdir.zip testdir`{{execute}}
+   
+   `ls -lh`{{execute}}
+   
+   The option `-r` is for recursion.
+   
+   `mkdir -p foo`{{execute}}
+   
+   `cd foo`{{execute}}
+   
+   `unzip ../testdir.zip`{{execute}}
+   
+   `tree | less`{{execute}}
+   
+   `unzip -l ../testdir.zip testdir/dir-007/file-*`{{execute}}
+
+   `unzip ../testdir.zip testdir/dir-007/file-*`{{execute}}
+   
+   `cd .. ; rm -rf foo`{{execute}}
+   
+7. We can use `rsync` to synchronize files and directories:
+
+   `rsync -av testdir foo`{{execute}}
+   
+   `ls foo`{{execute}}
+   
+   `rsync -av testdir foo`{{execute}}
+   
+   Notice that in the second case no files are copied because `rsync`
+   detects that there are no differences between the source and the
+   destination.
+   
+   `touch testdir/dir-099/file-Z`{{execute}}
+
+   `rsync -av testdir foo`{{execute}}
+
+   With the option `--delete` we can also delete the files on the
+   destination directory that are not present on the source directory.
+
+   `rm testdir/dir-099/file-Z`{{execute}}
+
+   `rsync -av testdir foo`{{execute}}
+   
+   `ls foo/testdir/dir-099/file-Z`{{execute}}
+   
+   `rsync -av --delete testdir foo`{{execute}}
+   
+   `ls foo/testdir/dir-099/file-Z`{{execute}}
+   
+   `rsync` can be used over the network as well, usually combined with
+   `ssh`.
+   

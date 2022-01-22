@@ -1,16 +1,7 @@
-Linux relies heavily on text files for data storage, so it makes sense
-that there are many tools for manipulating text. Some of these tools
-are:
-
-- `cat` -- Concatenate files and print on the standard output
-- `sort` -- Sort lines of text files
-- `uniq` -- Report or omit repeated lines
-- `cut` -- Extract sections from each line of files
-- `paste` -- Merge lines of files
-- `join` -- Join lines of two files on a common field
-- `comm` -- Compare two sorted files line by line
-- `diff` -- Compare files line by line
-- `patch` -- Apply a diff file to an original
-- `tr` -- Translate or delete characters
-- `sed` -- Stream editor for filtering and transforming text
-- `aspell` -- Interactive spell checker
+Common tasks and essential tools:
+- Archiving and backup (gzip, bzip2, tar, zip, rsync)
+- Storage Media (mount, umount, fsck, fdisk, mkfs, fdformat, dd,
+  genisoimage/mkisofs, wodim/cdrecord, md5sum)
+- Networking (ping, traceroute, ip, netstat, wget, ssh, scp)
+- Package Management (dpkg, apt-get, apt, aptitude, rpm, yum)
+- Compiling Programs (gcc, make)
