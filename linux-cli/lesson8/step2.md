@@ -14,17 +14,17 @@
    
    `ip r`{{execute}}
    
-   `ping 8.8.8.8`{{execute}}
+   `ping -c 3 8.8.8.8`{{execute}}
    
    `dig linuxcommand.org`{{execute}}
    
    `dig linuxcommand.org +short`{{execute}}
    
-   `ping linuxcommand.org`{{execute}}
+   `ping -c 3 linuxcommand.org`{{execute}}
    
-   `traceroute linuxcommand.org`{{execute}}
+   `traceroute linuxcommand.org`
    
-   `tracepath linuxcommand.org`{{execute}}
+   `tracepath linuxcommand.org`
    
 2. For downloading files we can use `wget` or `curl`:
 
@@ -58,7 +58,8 @@
    
    `The quick brown fox jumped over the internet`{{execute}}
    
-   Check the other terminal: `pwd`{{execute T1}}
+   Check the other terminal: `test`{{execute T1}}
+   Interrupt them with `Ctrl-c`.
    
    This may not seem very impressive, but instead of `localhost` we
    could have used a real server name or IP and connect to it
@@ -77,7 +78,7 @@
    
    `nc -w 3 localhost 12345 < /etc/passwd`{{execute}}
    
-   `ls`{{execute T1}}
+   `ls file.txt`{{execute T1}}
    
    `cat file.txt`{{execute}}
    
@@ -94,7 +95,7 @@
    
    `cd testdir`{{execute}}
    
-   `tar czpf - . | nc localhost 12345`{{execute}}
+   `tar czpf - . | nc -w 3 localhost 12345`{{execute}}
    
    `ls`{{execute T2}}
    
@@ -103,5 +104,6 @@
    `ls`{{execute T1}}
    
    `cd ..`{{execute}}
+   
+   `rm -rf cptest`{{execute}}
 
-4. 
