@@ -40,7 +40,7 @@
         {
             "course_id": "lesson8",
             "title": "Lesson 8",
-            "description": "Text processing (cat, sort, uniq, cut, paste, join, diff, tr, sed)."
+            "description": "Archiving, networking, filesystems, package management."
         }
     ]
 }

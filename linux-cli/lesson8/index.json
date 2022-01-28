@@ -1,6 +1,6 @@
 {
     "title": "Lesson 8",
-    "description": "Text processing (cat, sort, uniq, cut, paste, join, diff, tr, sed).",
+    "description": "Archiving, networking, filesystems, package management.",
     "difficulty": "Medium",
     "time": "45-60 minutes",
     "details": {
@@ -30,7 +30,7 @@
             "text": "intro.md",
             "credits": "http://linuxcommand.org/lc3_learning_the_shell.php",
             "code": "init.sh"
-        },
+        }
     },
     "environment": {
         "uilayout": "terminal"
