@@ -24,29 +24,13 @@
             {
                 "title": "Step 5",
                 "text": "step5.md"
-            },
-            {
-                "title": "Step 6",
-                "text": "step6.md"
-            },
-            {
-                "title": "Step 7",
-                "text": "step7.md"
             }
         ],
         "intro": {
             "text": "intro.md",
             "credits": "http://linuxcommand.org/lc3_learning_the_shell.php",
-            "courseData": "install.sh",
             "code": "init.sh"
         },
-        "assets": {
-            "host01": [
-                { "file": "distros.txt", "target": "/root" },
-                { "file": "foo.txt", "target": "/root" },
-                { "file": "foo.html", "target": "/root" }
-            ]
-        }        
     },
     "environment": {
         "uilayout": "terminal"

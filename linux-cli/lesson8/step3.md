@@ -1,7 +1,7 @@
 # Networking: ssh
 
 1. Another network tool is `ssh`, which can be used to login to a
-   remote system, execute commads remotely, and more.
+   remote system, execute commands remotely, and more.
 
    First let's create a user account:
    
@@ -27,7 +27,7 @@
    
    `ssh user1@localhost 'ls .*'`{{execute}}
    
-2. Writting a password each time that we use `ssh` quickly becomes
+2. Writing a password each time that we use `ssh` quickly becomes
    tedious. We can use keys instead, which is easier and more secure.
    
    First let's generate a public/private key pair:
@@ -65,7 +65,7 @@
    You may notice that the public key has been appended to
    `.ssh/authorized_keys` on the server.
 
-   It get's even better. Let's add this configuration to
+   It gets even better. Let's add this configuration to
    `~/.ssh/config`:
    
    ```

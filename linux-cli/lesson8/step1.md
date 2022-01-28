@@ -32,7 +32,7 @@
    
 2. We can use `tar` to archive files.
 
-   Lets's create a test directory:
+   Let's create a test directory:
 
    `mkdir -p testdir/dir-{001..100}`{{execute}}
    
@@ -53,7 +53,7 @@
    The option `-c` means `create`, and the option `-f` is for the
    filename of the archive.
    
-   The option `-t` is used to list the contents od the archive, and
+   The option `-t` is used to list the contents of the archive, and
    `-v` is for verbose:
    
    `tar -tf testdir.tar | less`{{execute}}
@@ -135,7 +135,7 @@
    file. The option `-T` or `--files-from` includes in the archive
    only the files listed in the given file. In this case we are
    reading the list of files from `-`, which means the _stdin_ and is
-   the list of files comming from the command `find`. Then we are
+   the list of files coming from the command `find`. Then we are
    passing the output of `tar` to `gzip` in order to compress it.
 
    We can also use the options `z` or `j` to compress the archive:
@@ -148,7 +148,7 @@
    
    The option `j` uses `bzip2` compression, instead of `bzip`.
 
-6. The `zip` program is both a compression tool and an archiver:
+6. The `zip` program is both a compression tool and an achiever:
 
    `zip -r testdir.zip testdir`{{execute}}
    

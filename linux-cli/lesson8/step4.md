@@ -45,7 +45,7 @@ file to be used as a "virtual file system".
 
    `mount /dev/loop0 mnt`{{execute}}
    
-   `mount`{{execute}}
+   `mount | grep mnt`{{execute}}
 
 5. Check the usage of the filesystem:
 
@@ -77,7 +77,7 @@ file to be used as a "virtual file system".
     Each of them is **100M** and in total there are **200M** of data.
 
 5. However if we check the disk usage we will see that both of them
-   still take on disk the same amout of space as before **140M**:
+   still take on disk the same amount of space as before **140M**:
 
    `df -h .`{{execute}}
 
