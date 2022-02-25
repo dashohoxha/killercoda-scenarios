@@ -41,6 +41,11 @@
             "course_id": "lesson8",
             "title": "Lesson 8",
             "description": "Archiving, networking, filesystems, package management."
+        },
+        {
+            "course_id": "lesson9",
+            "title": "Lesson 8",
+            "description": "Vim quick introduction. Emacs."
         }
     ]
 }
