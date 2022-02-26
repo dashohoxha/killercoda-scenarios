@@ -30,7 +30,7 @@
    
    Now let's enter some text:
    
-   `The quick brown fox jumped over the lazy dog.`{{execute}}
+   `The quick brown fox jumped over the lazy dog.`{{execute no-newline}}
    
    To exit the _insert_ mode and return to _command_ mode, press ESC
    (`^ESC`{{execute ctrl-seq}}).
@@ -48,7 +48,7 @@
    - `j`{{execute no-newline}} -- down
    - `k`{{execute no-newline}} -- up
 
-   Press a few times `j`{{execute no-newline}} and `l`{{execute no-newline}}.
+   Press a few times `h`{{execute no-newline}} and `l`{{execute no-newline}}.
    
    We can also use:
    - `0`{{execute no-newline}} -- to the beginning of line
@@ -77,7 +77,8 @@
    
    Now type:
    
-   ``` It was cool.
+   ```
+    It was cool.
    Line 2
    Line 3
    Line 4
@@ -93,9 +94,9 @@
    
    Then:
    
-   - Open a new line above the current one: `o`{{execute no-newline}}
+   - Open a new line below the current one: `o`{{execute no-newline}}
    - Undo: `^ESC`{{execute ctrl-seq}} and `u`{{execute no-newline}}
-   - Open a new line below the current one: `O`{{execute no-newline}}
+   - Open a new line above the current one: `O`{{execute no-newline}}
    - Undo: `^ESC`{{execute ctrl-seq}} and `u`{{execute no-newline}}
 
 5. Deleting text.
