@@ -32,7 +32,9 @@
             "host01": [
                 { "file": "page.html", "target": "/root" },
                 { "file": "ftp1.sh", "target": "/root", "chmod": "+x" },
-                { "file": "ftp2.sh", "target": "/root", "chmod": "+x" }
+                { "file": "ftp2.sh", "target": "/root", "chmod": "+x" },
+                { "file": "fun.sh", "target": "/root", "chmod": "+x" },
+                { "file": "local-vars.sh", "target": "/root", "chmod": "+x" }
             ]
         }        
     },
