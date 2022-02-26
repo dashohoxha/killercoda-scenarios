@@ -1,0 +1,45 @@
+{
+    "title": "Lesson 10",
+    "description": "Starting with bash scripts. Variables, constants, functions",
+    "difficulty": "Easy",
+    "time": "40-50 minutes",
+    "details": {
+        "steps": [
+            {
+                "title": "Step 1",
+                "text": "step1.md"
+            },
+            {
+                "title": "Step 2",
+                "text": "step2.md"
+            },
+            {
+                "title": "Step 3",
+                "text": "step3.md"
+            },
+            {
+                "title": "Step 4",
+                "text": "step4.md"
+            }
+        ],
+        "intro": {
+            "text": "intro.md",
+            "credits": "http://linuxcommand.org/lc3_writing_shell_scripts.php",
+            "courseData": "install.sh",
+            "code": "init.sh"
+        },
+        "assets": {
+            "host01": [
+                { "file": "page.html", "target": "/root" },
+                { "file": "ftp1.sh", "target": "/root", "chmod": "+x" },
+                { "file": "ftp2.sh", "target": "/root", "chmod": "+x" }
+            ]
+        }        
+    },
+    "environment": {
+        "uilayout": "terminal"
+    },
+    "backend": {
+        "imageid": "ubuntu:2004"
+    }
+}

@@ -83,7 +83,7 @@
    Line 3
    Line 4
    Line 5
-   ```{{execute}}
+   ```{{execute no-newline}}
    
    Then press ESC (`^ESC`{{execute ctrl-seq}}) to switch back to
    command mode, then `:w`{{execute}} to save (write to file).
