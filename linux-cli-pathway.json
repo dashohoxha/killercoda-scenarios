@@ -44,8 +44,13 @@
         },
         {
             "course_id": "lesson9",
-            "title": "Lesson 8",
+            "title": "Lesson 9",
             "description": "Vim quick introduction. Emacs."
+        },
+        {
+            "course_id": "lesson10",
+            "title": "Lesson 10",
+            "description": "Starting with bash scripts. Variables, constants, functions",
         }
     ]
 }
