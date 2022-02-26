@@ -6,12 +6,12 @@
    
    `i`{{execute no-newline}}
    
-   <pre class="file" data-target="clipboard">
-#!/bin/bash
-# this is the first script
+   ```
+   #!/bin/bash
+   # this is the first script
 
-echo 'Hello World!'
-</pre>
+   echo 'Hello World!'
+   ```{{execute}}
    
    `^ESC`{{execute ctrl-seq}} `:wq`{{execute}}
    

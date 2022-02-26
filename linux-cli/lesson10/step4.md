@@ -4,13 +4,13 @@ A _here document_ is an additional form of I/O redirection in which we
 embed a body of text into our script and feed it into the standard
 input of a command. It works like this:
 
-<pre>
+```
 command << token
-
+. . . . .
 text
-
+. . . . .
 token
-</pre>
+```
 
 where _command_ is a command that accepts standard input and _token_
 is a string used to indicate the end of the embedded text. It should
@@ -38,7 +38,7 @@ be at the beginning of the line and should have no trailing spaces.
    
    `Gk$x`{{execute}}
    
-   `:wq`
+   `:wq`{{execute}}
    
    `./sys_info.sh`{{execute}}
 

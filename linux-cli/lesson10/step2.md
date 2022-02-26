@@ -85,7 +85,7 @@ format.
    
    `O`{{execute no-newline}}
    
-   `title="System Information Report"`{{execute}
+   `title="System Information Report"`{{execute}}
    
    `^ESC`{{execute ctrl-seq}}
    
