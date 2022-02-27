@@ -124,7 +124,7 @@ name () {
    
    `/^report_uptime`{{execute}}
    
-   `jddo`{{execute no-newline}}
+   `jddO`{{execute no-newline}}
    
    ```
    cat <<- _EOF_
@@ -137,7 +137,7 @@ name () {
    
    `/^report_disk_space`{{execute}}
    
-   `jddo`{{execute no-newline}}
+   `jddO`{{execute no-newline}}
    
    ```
    cat <<- _EOF_
@@ -150,7 +150,7 @@ name () {
    
    `/^report_home_space`{{execute}}
    
-   `jddo`{{execute no-newline}}
+   `jddO`{{execute no-newline}}
    
    ```
    cat <<- _EOF_

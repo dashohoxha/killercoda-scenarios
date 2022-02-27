@@ -47,7 +47,7 @@
    Actually, there is a way to make sure that a variable cannot be
    changed (is a constant), although it is not used frequently:
    
-   `sed -i sys_info.sh -e 's/TITLE=/declare -r TITLE='`{{execute}}
+   `sed -i sys_info.sh -e 's/TITLE=/declare -r TITLE=/'`{{execute}}
    
    `cat sys_info.sh`{{execute}}
    
@@ -90,6 +90,8 @@
    Multiple assignments may be done on a single line:
    
    `a=5 b="a string"`{{execute}}
+   
+   `echo $a $b`{{execute}}
 
 4. During expansion, variable names may be surrounded by curly braces
    `{}`, which are necessary in some cases. For example:
@@ -105,6 +107,8 @@
    been assigned yet and is empty. We should do it like this
    
    `mv $filename ${filename}1`{{execute}}
+   
+   `ls -l myfile1`{{execute}}
 
 5. Let's add a timestamp to the report, using variables/constants:
 
