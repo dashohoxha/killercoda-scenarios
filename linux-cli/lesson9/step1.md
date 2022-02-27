@@ -1,4 +1,4 @@
-# Vim
+# Vim basics
 
 1. Starting and quitting.
 
@@ -54,9 +54,9 @@
    - `0`{{execute no-newline}} -- to the beginning of line
    - `$`{{execute no-newline}} -- to the end of line
    - `w`{{execute no-newline}} -- to the beginning of next word or punctuation char
-   - `W`{{execute no-newline}} -- to the beginning of next word (ignore punctuations)
+   - `W`{{execute no-newline}} -- to the beginning of next word (ignore punctuation)
    - `b`{{execute no-newline}} -- backwards one word or punctuation char
-   - `B`{{execute no-newline}} -- backwards one word (ignore punctuations)
+   - `B`{{execute no-newline}} -- backwards one word (ignore punctuation's)
    
    Try them a few times.
    
@@ -98,10 +98,3 @@
    - Undo: `^ESC`{{execute ctrl-seq}} and `u`{{execute no-newline}}
    - Open a new line above the current one: `O`{{execute no-newline}}
    - Undo: `^ESC`{{execute ctrl-seq}} and `u`{{execute no-newline}}
-
-5. Deleting text.
-
-6. Cut, copy and paste.
-
-7. Search and replace.
-
