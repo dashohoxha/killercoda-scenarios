@@ -63,7 +63,7 @@ be at the beginning of the line and should have no trailing spaces.
    The shell treats the quotation marks as ordinary characters.
    
 3. We also see that the variables inside the text are expanded. To
-   prevent variable expanssion we can enclose the token in quotes:
+   prevent variable expansion we can enclose the token in quotes:
 
    ```
    cat << "EOF"
@@ -94,7 +94,7 @@ be at the beginning of the line and should have no trailing spaces.
    
    If we change the redirection operator from `<<` to `<<-`, the shell
    will ignore the leading tab characters in the here document. This
-   allows a here document to be indented, which can improce
+   allows a here document to be indented, which can improve
    readability.
    
    `vim ftp2.sh`{{execute}}

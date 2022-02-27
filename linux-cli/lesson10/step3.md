@@ -6,14 +6,14 @@
    
    `echo $foo`{{execute}}
    
-   We have a shell expanssion here, and it is the same as: `echo yes`
+   We have a shell expansion here, and it is the same as: `echo yes`
    
    `echo $foo1`{{execute}}
    
    It is the first time that the shell sees the variable `foo1`,
    however it does not complain but just creates it and gives it an
    empty value. This means that we should be careful with spelling the
-   names of the valiables, otherwise we may get strange results.
+   names of the variables, otherwise we may get strange results.
    
    `touch foo.txt`{{execute}}
    
@@ -45,7 +45,7 @@
    variables are considered as constants, so they are in uppercase.
    
    Actually, there is a way to make sure that a variable cannot be
-   changed (is a constant), althought it is not used frequently:
+   changed (is a constant), although it is not used frequently:
    
    `sed -i sys_info.sh -e 's/TITLE=/declare -r TITLE='`{{execute}}
    
@@ -63,7 +63,7 @@
    
    `echo $a`{{execute}}
    
-   Shell expanssions are applied to the value, before assignment:
+   Shell expansions are applied to the value, before assignment:
    
    `b="a string"`{{execute}}
    

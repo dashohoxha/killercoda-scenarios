@@ -70,7 +70,7 @@
    script. In our case `/bin/bash` comes after them, so the script
    will be sent to `/bin/bash` to interpret it. The same way can be
    used to interpret a Python script etc. For example, in the case
-   of a python script the fitsy line would be like this:
+   of a python script the first line would be like this:
    
    `#!/usr/bin/python3`
    
