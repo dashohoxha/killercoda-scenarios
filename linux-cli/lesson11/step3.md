@@ -7,8 +7,6 @@
    
    `vim read-integer.sh`{{execute}}
    
-   `:wq`{{execute}}
-   
    `./read-integer.sh`{{execute}} `0`{{execute}}
    
    `./read-integer.sh`{{execute}} `7`{{execute}}

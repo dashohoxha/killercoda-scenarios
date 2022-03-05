@@ -42,7 +42,7 @@ while commands; do commands; done
    
    `./while-menu2.sh`{{execute}}
 
-4. The `until` loop is very similar to the `while` look, but with a
+4. The `until` loop is very similar to the `while` loop, but with a
    negated condition.
 
    `vim until-count.sh`{{execute}}

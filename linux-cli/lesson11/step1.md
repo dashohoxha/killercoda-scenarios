@@ -13,7 +13,7 @@ fi
 ```
 
 1. Commands (including the scripts and shell functions) return an
-   _exit status_ By convention, an exit status of zero indicates
+   _exit status_. By convention, an exit status of zero indicates
    success and any other value indicates failure.
 
    `ls -d /usr/bin`{{execute}}
@@ -42,7 +42,7 @@ fi
    
    `if false; then echo "It's true."; fi`{{execute}}
 
-   If a list of commands follows if, the last command in the list is
+   If a list of commands follows `if`, the last command in the list is
    evaluated:
    
    `if false; true; then echo "It's true."; fi`{{execute}}
@@ -111,6 +111,8 @@ fi
    
    `vim test-integer.sh`{{execute}}
 
+   `:q!`{{execute}}
+   
    `./test-integer.sh`{{execute}}
    
    For more details about the available tests let's see the help:

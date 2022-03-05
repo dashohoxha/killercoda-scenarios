@@ -79,7 +79,7 @@
 
    The first one is equivalent to:
    
-   `if test mkdir temp; then cd temp; fi`{{execute}}
+   `if mkdir temp; then cd temp; fi`{{execute}}
    
    The second one is equivalent to:
    
@@ -87,3 +87,5 @@
    
    The command `:` is a null command, which means "do
    nothing". Without it we would get a syntax error.
+
+   `cd`{{execute}}
