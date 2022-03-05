@@ -1,0 +1,66 @@
+{
+    "title": "Lesson 11",
+    "description": "Branching with if. Reading keyboard input. Looping with while and until.",
+    "difficulty": "Medium",
+    "time": "45-60 minutes",
+    "details": {
+        "steps": [
+            {
+                "title": "Step 1",
+                "text": "step1.md"
+            },
+            {
+                "title": "Step 2",
+                "text": "step2.md"
+            },
+            {
+                "title": "Step 3",
+                "text": "step3.md"
+            },
+            {
+                "title": "Step 4",
+                "text": "step4.md"
+            },
+            {
+                "title": "Step 5",
+                "text": "step5.md"
+            }
+        ],
+        "intro": {
+            "text": "intro.md",
+            "credits": "http://linuxcommand.org/lc3_writing_shell_scripts.php",
+            "courseData": "install.sh",
+            "code": "init.sh"
+        },
+        "assets": {
+            "host01": [
+                { "file": "distros.txt", "target": "/root" },
+                { "file": "test-file.sh", "target": "/root", "chmod": "+x" },
+                { "file": "test-file-fun.sh", "target": "/root", "chmod": "+x" },
+                { "file": "test-string.sh", "target": "/root", "chmod": "+x" },
+                { "file": "test-integer.sh", "target": "/root", "chmod": "+x" },
+                { "file": "test-integer2.sh", "target": "/root", "chmod": "+x" },
+                { "file": "test-integer2a.sh", "target": "/root", "chmod": "+x" },
+                { "file": "test-integer3.sh", "target": "/root", "chmod": "+x" },
+                { "file": "menu.sh", "target": "/root", "chmod": "+x" },
+                { "file": "validate.sh", "target": "/root", "chmod": "+x" },
+                { "file": "read-ifs.sh", "target": "/root", "chmod": "+x" },
+                { "file": "read-integer.sh", "target": "/root", "chmod": "+x" },
+                { "file": "read-multiple.sh", "target": "/root", "chmod": "+x" },
+                { "file": "read-user-pass.sh", "target": "/root", "chmod": "+x" },
+                { "file": "until-count.sh", "target": "/root", "chmod": "+x" },
+                { "file": "while-count.sh", "target": "/root", "chmod": "+x" },
+                { "file": "while-read.sh", "target": "/root", "chmod": "+x" },
+                { "file": "while-read2.sh", "target": "/root", "chmod": "+x" },
+                { "file": "while-menu.sh", "target": "/root", "chmod": "+x" },
+                { "file": "while-menu2.sh", "target": "/root", "chmod": "+x" }
+            ]
+        }        
+    },
+    "environment": {
+        "uilayout": "terminal"
+    },
+    "backend": {
+        "imageid": "ubuntu:2004"
+    }
+}

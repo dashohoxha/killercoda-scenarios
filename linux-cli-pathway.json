@@ -51,6 +51,11 @@
             "course_id": "lesson10",
             "title": "Lesson 10",
             "description": "Starting with bash scripts. Variables, constants, functions"
+        },
+        {
+            "course_id": "lesson11",
+            "title": "Lesson 11",
+            "description": "Branching with if. Reading keyboard input. Looping with while and until."
         }
     ]
 }
