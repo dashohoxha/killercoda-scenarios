@@ -31,7 +31,7 @@ it. We want to be able to:
    
    `git status`{{execute}}
    
-   `vim sysinfo.sh`{{execute}}
+   `vim sys_info.sh`{{execute}}
    
    `./sys_info.sh`{{execute}}
    
@@ -106,6 +106,8 @@ it. We want to be able to:
    `git checkout master`{{execute}}
    
    `vim sys_info.sh`{{execute}}
+   
+   `:set tabstop=8`{{execute}}
    
    Notice that we have placed almost all the code inside a function.
    There is a function `main()` that calls some other functions, then

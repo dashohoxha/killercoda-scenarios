@@ -15,7 +15,7 @@ while commands; do commands; done
    `./while-count.sh`{{execute}}
 
 2. We can use a `while` loop to improve the menu program from the
-   previous step:
+   previous lesson:
    
    `vim while-menu.sh`{{execute}}
    

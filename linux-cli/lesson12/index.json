@@ -34,6 +34,7 @@
         },
         "assets": {
             "host01": [
+                { "file": "distros.txt", "target": "/root" },
                 { "file": "until-count.sh", "target": "/root", "chmod": "+x" },
                 { "file": "while-count.sh", "target": "/root", "chmod": "+x" },
                 { "file": "while-read.sh", "target": "/root", "chmod": "+x" },

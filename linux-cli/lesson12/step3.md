@@ -31,6 +31,8 @@
 
    `./posit-param2.sh a b c d`{{execute}}
 
+   `./posit-param2.sh a b c d e f g`{{execute}}
+
 3. Here is another example:
 
    `vim file-info.sh`{{execute}}
@@ -52,7 +54,6 @@
    `./file-info.sh .`{{execute}}
    
    `./file-info.sh xyz`{{execute}}
-      
 
 4. Positional parameters can be used with functions as well.
 
@@ -65,7 +66,7 @@
    Notice also that `FUNCNAME` is a variable that always contains the
    name of the current function.
    
-   `./file-info.sh`{{execute}}
+   `./file-info-fun.sh`{{execute}}
    
 5. The shell provides two special variables that contain the list of
    all the positional parameters. They are `$*` and `$@`. Let's try

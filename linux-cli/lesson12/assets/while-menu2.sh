@@ -16,12 +16,12 @@ while true; do
     read -p "Enter selection [0-3] > "
 
     if [[ "$REPLY" == 0 ]]; then
-	    break
+        break
     fi
     if [[ ! "$REPLY" =~ ^[0-3]$ ]]; then
         echo "Invalid entry."
         sleep "$DELAY"
-	continue
+        continue
     fi
     if [[ $REPLY == 1 ]]; then
         echo "Hostname: $HOSTNAME"
@@ -43,7 +43,7 @@ while true; do
             du -sh "$HOME"
         fi
         sleep "$DELAY"
-	continue
+        continue
     fi
 done
 echo "Program terminated."

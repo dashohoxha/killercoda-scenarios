@@ -30,7 +30,6 @@
         },
         "assets": {
             "host01": [
-                { "file": "distros.txt", "target": "/root" },
                 { "file": "test-file.sh", "target": "/root", "chmod": "+x" },
                 { "file": "test-file-fun.sh", "target": "/root", "chmod": "+x" },
                 { "file": "test-string.sh", "target": "/root", "chmod": "+x" },
