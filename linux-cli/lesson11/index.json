@@ -1,6 +1,6 @@
 {
     "title": "Lesson 11",
-    "description": "Branching with if. Reading keyboard input. Looping with while and until.",
+    "description": "Branching with if. Reading keyboard input.",
     "difficulty": "Medium",
     "time": "45-60 minutes",
     "details": {
@@ -20,10 +20,6 @@
             {
                 "title": "Step 4",
                 "text": "step4.md"
-            },
-            {
-                "title": "Step 5",
-                "text": "step5.md"
             }
         ],
         "intro": {
@@ -47,13 +43,7 @@
                 { "file": "read-ifs.sh", "target": "/root", "chmod": "+x" },
                 { "file": "read-integer.sh", "target": "/root", "chmod": "+x" },
                 { "file": "read-multiple.sh", "target": "/root", "chmod": "+x" },
-                { "file": "read-user-pass.sh", "target": "/root", "chmod": "+x" },
-                { "file": "until-count.sh", "target": "/root", "chmod": "+x" },
-                { "file": "while-count.sh", "target": "/root", "chmod": "+x" },
-                { "file": "while-read.sh", "target": "/root", "chmod": "+x" },
-                { "file": "while-read2.sh", "target": "/root", "chmod": "+x" },
-                { "file": "while-menu.sh", "target": "/root", "chmod": "+x" },
-                { "file": "while-menu2.sh", "target": "/root", "chmod": "+x" }
+                { "file": "read-user-pass.sh", "target": "/root", "chmod": "+x" }
             ]
         }        
     },

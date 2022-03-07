@@ -55,7 +55,22 @@
         {
             "course_id": "lesson11",
             "title": "Lesson 11",
-            "description": "Branching with if. Reading keyboard input. Looping with while and until."
+            "description": "Branching with 'if'. Reading keyboard input."
+        },
+        {
+            "course_id": "lesson12",
+            "title": "Lesson 12",
+            "description": "Looping with while and until. Branching with 'case'. Positional parameters."
+        },
+        {
+            "course_id": "lesson13",
+            "title": "Lesson 13",
+            "description": "Looping with 'for'. Parameter expansion. Arithmetic evaluation and expansion. Arrays."
+        },
+        {
+            "course_id": "lesson14",
+            "title": "Lesson 14",
+            "description": "Group commands. Subshell. Process substitution. Traps. Asynchronous execution. Named pipes."
         }
     ]
 }
