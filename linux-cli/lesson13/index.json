@@ -1,0 +1,49 @@
+{
+    "title": "Lesson 13",
+    "description": "Looping with 'for'. Parameter expansion. Arithmetic evaluation and expansion.",
+    "difficulty": "Medium",
+    "time": "45-60 minutes",
+    "details": {
+        "steps": [
+            {
+                "title": "Step 1",
+                "text": "step1.md"
+            },
+            {
+                "title": "Step 2",
+                "text": "step2.md"
+            },
+            {
+                "title": "Step 3",
+                "text": "step3.md"
+            },
+            {
+                "title": "Step 4",
+                "text": "step4.md"
+            }
+        ],
+        "intro": {
+            "text": "intro.md",
+            "credits": "http://linuxcommand.org/lc3_writing_shell_scripts.php",
+            "code": "init.sh"
+        },
+        "assets": {
+            "host01": [
+                { "file": "arith-loop.sh", "target": "/root", "chmod": "+x" },
+                { "file": "loan-calc.sh", "target": "/root", "chmod": "+x" },
+                { "file": "longest-word.sh", "target": "/root", "chmod": "+x" },
+                { "file": "longest-word2.sh", "target": "/root", "chmod": "+x" },
+                { "file": "longest-word3.sh", "target": "/root", "chmod": "+x" },
+                { "file": "modulo.sh", "target": "/root", "chmod": "+x" },
+                { "file": "modulo2.sh", "target": "/root", "chmod": "+x" },
+                { "file": "sys_info.sh", "target": "/root", "chmod": "+x" }
+            ]
+        }        
+    },
+    "environment": {
+        "uilayout": "terminal"
+    },
+    "backend": {
+        "imageid": "ubuntu:2004"
+    }
+}

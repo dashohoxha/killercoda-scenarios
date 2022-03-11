@@ -70,7 +70,7 @@
         {
             "course_id": "lesson14",
             "title": "Lesson 14",
-            "description": "Group commands. Subshell. Process substitution. Traps. Asynchronous execution. Named pipes."
+            "description": "Arrays. Group commands. Subshell. Process substitution. Traps. Asynchronous execution. Named pipes."
         }
     ]
 }
