@@ -1,0 +1,45 @@
+{
+    "title": "Lesson 14",
+    "description": "Arrays. Group commands. Subshell. Process substitution. Traps. Asynchronous execution. Named pipes.",
+    "difficulty": "Medium",
+    "time": "45-60 minutes",
+    "details": {
+        "steps": [
+            {
+                "title": "Step 1",
+                "text": "step1.md"
+            },
+            {
+                "title": "Step 2",
+                "text": "step2.md"
+            },
+            {
+                "title": "Step 3",
+                "text": "step3.md"
+            }
+        ],
+        "intro": {
+            "text": "intro.md",
+            "credits": "http://linuxcommand.org/lc3_writing_shell_scripts.php",
+            "code": "init.sh"
+        },
+        "assets": {
+            "host01": [
+                { "file": "array-2.sh", "target": "/root", "chmod": "+x" },
+                { "file": "array-sort.sh", "target": "/root", "chmod": "+x" },
+                { "file": "async-child.sh", "target": "/root", "chmod": "+x" },
+                { "file": "async-parent.sh", "target": "/root", "chmod": "+x" },
+                { "file": "hours.sh", "target": "/root", "chmod": "+x" },
+                { "file": "pro-sub.sh", "target": "/root", "chmod": "+x" },
+                { "file": "trap-demo.sh", "target": "/root", "chmod": "+x" },
+                { "file": "trap-demo2.sh", "target": "/root", "chmod": "+x" }
+            ]
+        }        
+    },
+    "environment": {
+        "uilayout": "terminal"
+    },
+    "backend": {
+        "imageid": "ubuntu:2004"
+    }
+}
