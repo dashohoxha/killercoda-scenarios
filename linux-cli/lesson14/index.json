@@ -40,7 +40,12 @@
                 { "file": "hours.sh", "target": "/root", "chmod": "+x" },
                 { "file": "pro-sub.sh", "target": "/root", "chmod": "+x" },
                 { "file": "trap-demo.sh", "target": "/root", "chmod": "+x" },
-                { "file": "trap-demo2.sh", "target": "/root", "chmod": "+x" }
+                { "file": "trap-demo2.sh", "target": "/root", "chmod": "+x" },
+                { "file": "get_urls.sh", "target": "/root", "chmod": "+x" },
+                { "file": "get_words.sh", "target": "/root", "chmod": "+x" },
+                { "file": "fibo.sh", "target": "/root", "chmod": "+x" },
+                { "file": "hanoi.sh", "target": "/root", "chmod": "+x" },
+                { "file": "crawler.sh", "target": "/root", "chmod": "+x" }
             ]
         }        
     },
