@@ -29,6 +29,10 @@ the program after running for a certain amount of seconds.
 
 `./crawler.sh`{{execute}}
 
+`apt install -y w3m`{{execute}}
+
+`./crawler.sh`{{execute}}
+
 `url=https://en.wikipedia.org/wiki/Linux`{{execute}}
 
 `./crawler.sh $url`{{execute}}

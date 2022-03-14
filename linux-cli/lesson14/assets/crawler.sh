@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # stop the program after running for this many seconds
-RUNTIME=100
+RUNTIME=10
 
 check() {
     # check dependencies

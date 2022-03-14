@@ -42,14 +42,14 @@
    
    `url=https://en.wikipedia.org/wiki/Linux`{{execute}}
    
-   `/get_words.sh $url`{{execute}}
+   `./get_words.sh $url`{{execute}}
 
-   `/get_words.sh $url | less`{{execute}}
+   `./get_words.sh $url | less`{{execute}}
 
-   `/get_words.sh $url | wc -l`{{execute}}
+   `./get_words.sh $url | wc -l`{{execute}}
 
    ```
-   wget -q -O- "$PAGE" \
+   wget -qO- $url \
       | tr "\n" ' ' \
       | sed -e 's/<[^>]*>/ /g' \
       | sed -e 's/&[^;]*;/ /g' \
@@ -59,7 +59,7 @@
    ```{{execute}}
 
    ```
-   wget -q -O- "$PAGE" \
+   wget -qO- $url \
       | tr "\n" ' ' \
       | sed -e 's/<[^>]*>/ /g' \
       | sed -e 's/&[^;]*;/ /g' \
@@ -71,7 +71,7 @@
    ```{{execute}}
 
    ```
-   wget -q -O- "$PAGE" \
+   wget -qO- $url \
       | tr "\n" ' ' \
       | sed -e 's/<[^>]*>/ /g' \
       | sed -e 's/&[^;]*;/ /g' \
