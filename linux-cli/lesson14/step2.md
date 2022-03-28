@@ -12,6 +12,8 @@
    closing brace.
 
    Group commands and subshells are both used to manage redirection:
+   
+   `date > foo.txt`{{execute}}
 
    ```
    ls -l > output.txt

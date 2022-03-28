@@ -71,6 +71,11 @@
             "course_id": "lesson14",
             "title": "Lesson 14",
             "description": "Arrays. Group commands. Subshell. Process substitution. Traps. Asynchronous execution. Named pipes."
+        },
+        {
+            "course_id": "lesson15",
+            "title": "Lesson 15",
+            "description": "Some example programs."
         }
     ]
 }

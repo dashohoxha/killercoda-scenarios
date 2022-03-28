@@ -37,8 +37,8 @@
    The `if` checks that the file is readable (otherwise it is
    skipped).
 
-   The list of words of the file is produced by the command `strings
-   "$1"`. We use a _command substitution_ to use this list in the for
+   The list of words of the file is produced by the command `strings "$1"`.
+   We use a _command substitution_ to use this list in the for
    statement:
    
    `for i in $(strings "$1"); do`
@@ -93,7 +93,7 @@
    
    `vim sys_info.sh`{{execute}}
    
-   Only the last function (`report_home_space ()`) has been modified.
+   Only `report_home_space ()` (the last function) has been modified.
    It provides more detail for each user’s home directory and includes
    the total number of files and subdirectories in each. We also use
    some local variables and use `printf` (instead of `echo`) to format

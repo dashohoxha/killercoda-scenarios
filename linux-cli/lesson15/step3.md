@@ -1,4 +1,4 @@
-# Examples
+# Examples 3
 
 Write a bash script that collects web pages from the internet,
 starting from a root page, extracts the words in each page, and

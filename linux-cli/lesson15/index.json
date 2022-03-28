@@ -1,0 +1,42 @@
+{
+    "title": "Lesson 15",
+    "description": "Some example programs.",
+    "difficulty": "Medium",
+    "time": "40-50 minutes",
+    "details": {
+        "steps": [
+            {
+                "title": "Step 1",
+                "text": "step1.md"
+            },
+            {
+                "title": "Step 2",
+                "text": "step2.md"
+            },
+            {
+                "title": "Step 3",
+                "text": "step3.md"
+            }
+        ],
+        "intro": {
+            "text": "intro.md",
+            "credits": "https://ocw.fs.al/course/view.php?id=23",
+            "code": "init.sh"
+        },
+        "assets": {
+            "host01": [
+                { "file": "get_urls.sh", "target": "/root", "chmod": "+x" },
+                { "file": "get_words.sh", "target": "/root", "chmod": "+x" },
+                { "file": "fibo.sh", "target": "/root", "chmod": "+x" },
+                { "file": "hanoi.sh", "target": "/root", "chmod": "+x" },
+                { "file": "crawler.sh", "target": "/root", "chmod": "+x" }
+            ]
+        }        
+    },
+    "environment": {
+        "uilayout": "terminal"
+    },
+    "backend": {
+        "imageid": "ubuntu:2004"
+    }
+}

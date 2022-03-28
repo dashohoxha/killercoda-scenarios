@@ -18,7 +18,7 @@ Arrays are variables that hold more than one value at a time.
 
    `echo $days`{{execute}}
 
-   If no index is given, it return the first item.
+   If no index is given, the first item is returned.
    
    `days=([0]=Sun [1]=Mon [2]=Tue [3]=Wed [4]=Thu [5]=Fri [6]=Sat)`{{execute}}
 
